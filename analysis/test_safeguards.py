@@ -87,8 +87,21 @@ class Safeguards(unittest.TestCase):
   for replacement in ['<'+'ALLMETA_COMMIT_BUTTON'+'>','badcommit']:
    with patch.object(Path,'read_text',lambda p,**kw:original(p,**kw).replace('5e20358918c9366eb10c1a368f2ca1b0480faa84',replacement)):
     with self.assertRaises(AssertionError):provenance()
-  with patch.object(Path,'read_text',lambda p,**kw:original(p,**kw).replace('<ALLMETA_RELEASE>','<'+'ALLMETA_UNKNOWN'+'>')):
-   with self.assertRaises(AssertionError):provenance()
+  # The released files hold no placeholders, so inject them into the read text.
+  for token in ['ALLMETA_UNKNOWN','ALLMETA_RELEASE','ALLMETA_RELEASE_DOI','allmeta_release']:
+   injected='<'+token+'>'
+   with patch.object(Path,'read_text',lambda p,**kw:original(p,**kw)+' '+injected):
+    with self.assertRaises(AssertionError,msg=injected):provenance()
+ def test_wrong_release_version_refused(self):
+  provenance();original=Path.read_text
+  for change in [lambda t:t.replace('v1.5.0','v1.4.9'),lambda t:t+' v1.5.1',lambda t:t.replace('v1.5.0','')]:
+   with patch.object(Path,'read_text',lambda p,**kw:change(original(p,**kw))):
+    with self.assertRaises(AssertionError):provenance()
+ def test_wrong_release_doi_refused(self):
+  provenance();original=Path.read_text
+  for change in [lambda t:t.replace('10.5281/zenodo.23414184','10.5281/zenodo.23414183'),lambda t:t+' 10.5281/zenodo.99999999',lambda t:t.replace('10.5281/zenodo.23414184','')]:
+   with patch.object(Path,'read_text',lambda p,**kw:change(original(p,**kw))):
+    with self.assertRaises(AssertionError):provenance()
  def test_membership_derivation_gate(self):
   import verify_archive as v
   proof=v.read(c.ROOT/'analysis/membership_compression_proof.json')

@@ -20,6 +20,7 @@ references:
     authors:
       - family-names: Ahmad
         given-names: Mahmood
-    version: "<ALLMETA_RELEASE>"
-    url: "<ALLMETA_RELEASE>"
-    notes: "isDerivedFrom; the next allmeta release (pending); DOI <ALLMETA_RELEASE_DOI>"
+    version: "v1.5.0"
+    doi: "10.5281/zenodo.23414184"
+    url: "https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.5.0"
+    notes: "isDerivedFrom; allmeta release v1.5.0; DOI 10.5281/zenodo.23414184"

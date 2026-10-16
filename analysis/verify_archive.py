@@ -20,7 +20,9 @@ def images(a,b):
 
 COMMIT='e749e98871dd2665b71e99cc998ac1ff8c50effe'
 BUTTON_COMMIT='5e20358918c9366eb10c1a368f2ca1b0480faa84'
-ALLOWED={'ALLMETA_RELEASE','ALLMETA_RELEASE_DOI'}
+RELEASE='v1.5.0'
+RELEASE_DOI='10.5281/zenodo.23414184'
+ALLOWED=set()
 
 def provenance():
  for name in ['README.md','CITATION.cff','.zenodo.json']:
@@ -29,9 +31,13 @@ def provenance():
   assert BUTTON_COMMIT in text,'Missing merged Validate-panel commit: '+name
   assert '<'+'ALLMETA_COMMIT_BUTTON'+'>' not in text,'Unfilled Validate-panel placeholder: '+name
   assert 'v1.4.0' not in text and 'version: 1.4.0' not in text,'Incorrect release provenance'
-  assert 'the next allmeta release (pending)' in text
-  placeholders=set(re.findall(r'<([A-Z][A-Z0-9_]*)>',text))
-  assert placeholders==ALLOWED,'Unexpected or missing provenance placeholder: '+name
+  assert 'the next allmeta release (pending)' not in text,'Stale pending-release wording: '+name
+  assert RELEASE in text,'Missing allmeta release version: '+name
+  assert set(re.findall(r'\bv\d+\.\d+\.\d+\b',text))=={RELEASE},'Wrong allmeta release version: '+name
+  assert RELEASE_DOI in text,'Missing allmeta release DOI: '+name
+  assert set(re.findall(r'10\.5281/zenodo\.\d+',text))=={RELEASE_DOI},'Wrong allmeta release DOI: '+name
+  placeholders=set(re.findall(r'<[^<>\s]+>',text))
+  assert placeholders<=ALLOWED,'Provenance placeholder remains: '+name+' '+repr(sorted(placeholders))
 
 def compression():
  proof=read(ROOT/'analysis/compression_proof.json')

@@ -1,6 +1,6 @@
 # GOSH plots in the browser: validation against the R package metafor
 
-Validated allmeta GOSH fix commit `e749e98871dd2665b71e99cc998ac1ff8c50effe` (PR #119) and Validate panel commit `5e20358918c9366eb10c1a368f2ca1b0480faa84` (PR #121). Source page before the panel: SHA-256 `5f75ca566ba96f6f29923ea23cfd75de1f9a955bfeb87d610737776a4929a79c`. Upstream repository: https://github.com/mahmood726-cyber/allmeta. Release: the next allmeta release (pending), <ALLMETA_RELEASE>; DOI <ALLMETA_RELEASE_DOI>.
+Validated allmeta GOSH fix commit `e749e98871dd2665b71e99cc998ac1ff8c50effe` (PR #119) and Validate panel commit `5e20358918c9366eb10c1a368f2ca1b0480faa84` (PR #121). Source page before the panel: SHA-256 `5f75ca566ba96f6f29923ea23cfd75de1f9a955bfeb87d610737776a4929a79c`. Upstream repository: https://github.com/mahmood726-cyber/allmeta. Release: allmeta release v1.5.0, https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.5.0; DOI 10.5281/zenodo.23414184.
 
 This archive tests FE/DL numerical software against **R 4.6.0, metafor 5.2-1, metadat 1.6-0**. It does not establish clinical independence of dependent/multivariate rows. Package examples include documented hypothetical/simulated datasets; these are explicitly software fixtures, not invented research findings.
 

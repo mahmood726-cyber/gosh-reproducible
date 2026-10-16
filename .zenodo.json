@@ -7,7 +7,7 @@
   "access_right": "open",
   "related_identifiers": [
     {"identifier": "https://github.com/mahmood726-cyber/allmeta", "relation": "isDerivedFrom", "scheme": "url"},
-    {"identifier": "<ALLMETA_RELEASE>", "relation": "isDerivedFrom", "scheme": "url"}
+    {"identifier": "https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.5.0", "relation": "isDerivedFrom", "scheme": "url"}
   ],
-  "description": "Full FE/DL GOSH numerical validation; the next allmeta release (pending): <ALLMETA_RELEASE>; DOI <ALLMETA_RELEASE_DOI>. GOSH fix e749e98871dd2665b71e99cc998ac1ff8c50effe (PR #119); Validate panel 5e20358918c9366eb10c1a368f2ca1b0480faa84 (PR #121)."
+  "description": "Full FE/DL GOSH numerical validation; allmeta release v1.5.0 (https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.5.0); DOI 10.5281/zenodo.23414184. GOSH fix e749e98871dd2665b71e99cc998ac1ff8c50effe (PR #119); Validate panel 5e20358918c9366eb10c1a368f2ca1b0480faa84 (PR #121)."
 }
