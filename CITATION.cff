@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite this validation archive."
+title: "GOSH plots in the browser: validation against the R package metafor"
+type: software
+authors:
+  - family-names: Ahmad
+    given-names: Mahmood
+version: 1.0.0
+license: MIT
+references:
+  - type: software
+    title: allmeta
+    authors:
+      - family-names: Ahmad
+        given-names: Mahmood
+    url: https://github.com/mahmood726-cyber/allmeta
+    notes: "isDerivedFrom; GOSH fix e749e98871dd2665b71e99cc998ac1ff8c50effe (PR #119); Validate panel 5e20358918c9366eb10c1a368f2ca1b0480faa84 (PR #121)"
+  - type: software
+    title: allmeta
+    authors:
+      - family-names: Ahmad
+        given-names: Mahmood
+    version: "<ALLMETA_RELEASE>"
+    url: "<ALLMETA_RELEASE>"
+    notes: "isDerivedFrom; the next allmeta release (pending); DOI <ALLMETA_RELEASE_DOI>"

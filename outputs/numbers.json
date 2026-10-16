@@ -1,0 +1,74 @@
+{
+  "before_passed": {
+    "value": 12803218,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "before_checks": {
+    "value": 12804532,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "passed": {
+    "value": 12813556,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "checks": {
+    "value": 12813556,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "datasets": {
+    "value": 113,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "effect_configurations": {
+    "value": 222,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "model_configurations": {
+    "value": 444,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "enumerated": {
+    "value": 88,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "sampled": {
+    "value": 120,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "over_cap": {
+    "value": 14,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "ui_passed": {
+    "value": 21586,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  },
+  "ui_checks": {
+    "value": 21586,
+    "source": "data/corpus.json.xz; outputs/results-{original,patched}.json; results/ui-results-patched.json.xz",
+    "transformation": "Full strict preflight and primary comparison; corpus aggregation",
+    "validation": "expected/paper_values.json"
+  }
+}

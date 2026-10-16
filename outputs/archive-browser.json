@@ -1,0 +1,31 @@
+{
+  "checks": 875936,
+  "passed": 875936,
+  "failed": [],
+  "requests": [
+    "gosh/index.html",
+    "shared/forced-colors.css",
+    "hub/app-style.css",
+    "hub/shared/csv-upload.js",
+    "hub/shared/chart-download.js",
+    "hub/shared/axis-controls.js",
+    "hub/shared/results-export.js",
+    "hub/shared/url-state.js",
+    "hub/shared/reset-undo.js",
+    "hub/shared/tooltips.js",
+    "shared/build-info.js",
+    "shared/ma-studies-v1.js",
+    "shared/truthcert-export.js",
+    "shared/truthcert-ui.js",
+    "shared/app-flow.js",
+    "shared/canonical-datasets.js",
+    "shared/hero-examples.js",
+    "shared/citation.js",
+    "shared/autosave.js",
+    "hub/shared/glossary.json",
+    "hub/shared/a11y-landmarks.js",
+    "shared/alm-validate.js",
+    "gosh/validate/adapter.js"
+  ],
+  "navigationPreserved": true
+}

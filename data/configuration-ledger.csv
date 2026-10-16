@@ -1,0 +1,223 @@
+configuration,dataset,effect_definition,k,mode,models,omitted_preparation_rows
+dat.aloe2013::001,dat.aloe2013,"dat <- escalc(measure = ""PCOR"", ti = tval, ni = n, mi = preds, data = dat)",5,enumerated,FE;DL,[]
+dat.aloe2013::002,dat.aloe2013,"dat <- escalc(measure = ""ZPCOR"", ti = tval, ni = n, mi = preds, data = dat)",5,enumerated,FE;DL,[]
+dat.aloe2013::003,dat.aloe2013,"dat <- escalc(measure = ""SPCOR"", ti = tval, ni = n, mi = preds, r2i = R2, data = dat)",5,enumerated,FE;DL,[]
+dat.anand1999::001,dat.anand1999,"rma.mh(measure = ""OR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, subset = (intensity == ""high"" & asp.t == 0 & asp.c == 0), digits = 2)",34,sampled,FE;DL,[]
+dat.anand1999::002,dat.anand1999,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",34,sampled,FE;DL,[]
+dat.anker2025::001,dat.anker2025,"es.primary <- escalc(measure = ""IRR"", yi = total.logrr, sei = total.se, ni = total.n, slab = study, data = dat.anker2025)",6,enumerated,FE;DL,[]
+dat.anker2025::002,dat.anker2025,"es.sex <- escalc(measure = ""GEN"", yi = sex.logrrr, sei = sex.se, ni = total.n, slab = study, data = dat.anker2025)",6,enumerated,FE;DL,[]
+dat.anker2025::003,dat.anker2025,"es.female <- escalc(measure = ""IRR"", yi = female.logrr, sei = female.se, ni = female.n, slab = study, data = dat.anker2025)",6,enumerated,FE;DL,[]
+dat.anker2025::004,dat.anker2025,"es.male <- escalc(measure = ""IRR"", yi = male.logrr, sei = male.se, ni = male.n, slab = study, data = dat.anker2025)",6,enumerated,FE;DL,[]
+dat.assink2016::001,dat.assink2016,stored yi/vi,100,sampled,FE;DL,[]
+dat.axfors2021::001,dat.axfors2021,"dat <- escalc(measure = ""OR"", ai = hcq_arm_event, n1i = hcq_arm_total, ci = control_arm_event, n2i = control_arm_total, data = dat)",33,sampled,FE;DL,[]
+dat.bakdash2021::001,dat.bakdash2021,stored Fisher z: es.z / vi.z,678,page refusal,FE;DL,[]
+dat.baker2009::001,dat.baker2009,"pw <- pairwise(treatment, exac, total, studlab = paste(study, year), data = dat.baker2009, sm = ""OR"")",74,sampled,FE;DL,"[75, 76, 77]"
+dat.bangertdrowns2004::001,dat.bangertdrowns2004,stored yi/vi,48,sampled,FE;DL,[]
+dat.bartos2023::001,dat.bartos2023,"dat <- escalc(measure = ""PR"", xi = same, ni = flips, data = dat, slab = person)",48,sampled,FE;DL,[]
+dat.bartos2023::002,dat.bartos2023,"rma(measure = ""PR"", xi = same, ni = flips, vtype = ""AV"", method = ""EE"", data = dat, digits = 3)",48,sampled,FE;DL,[]
+dat.bartos2023::003,dat.bartos2023,"dat <- escalc(measure = ""PR"", xi = hdiff + hsame, ni = flips, data = dat)",48,sampled,FE;DL,[]
+dat.bartos2023::004,dat.bartos2023,"dat <- escalc(measure = ""PR"", xi = hsame + tsame, ni = flips, data = dat, include = outcome == ""same"")",96,sampled,FE;DL,[]
+dat.baskerville2012::001,dat.baskerville2012,"res <- rma(smd, sei = se, data = dat, method = ""DL"")",23,sampled,FE;DL,[]
+dat.bassler2004::001,dat.bassler2004,"mb3 <- metabin(Ee, Ne, Ec, Nc, method = ""I"", data = dat.bassler2004, studlab = study)",10,enumerated,FE;DL,[]
+dat.bassler2004::002,dat.bassler2004,"supplement: RR ai=Ee, n1i=Ne, ci=Ec, n2i=Nc",10,enumerated,FE;DL,[]
+dat.bauer2002::001,dat.bauer2002,"wmw.prob <- escalc(measure = ""CLES"", yi = wmwstat, sei = stderr, ni = n.total, slab = study, data = dat.bauer2002)",5,enumerated,FE;DL,[]
+dat.bauer2002::002,dat.bauer2002,"wmw.logit <- escalc(measure = ""PLO"", yi = log(wmwstat/(1 - wmwstat)), sei = stderr/(wmwstat * (1 - wmwstat)), ni = n.total, slab = study, data = dat.bauer2002)",5,enumerated,FE;DL,[]
+dat.bcg::001,dat.bcg,"dat <- escalc(measure = ""RR"", ai = tpos, bi = tneg, ci = cpos, di = cneg, data = dat, slab = paste0(author, "", "", year))",13,enumerated,FE;DL,[]
+dat.begg1989::001,dat.begg1989,stored yi/vi,20,sampled,FE;DL,[]
+dat.begg1989::002,dat.begg1989,"res <- rma(yi, vi, data = dat2, method = ""DL"", digits = 2)",4,enumerated,FE;DL,[]
+dat.berkey1998::001,dat.berkey1998,stored yi/vi,10,enumerated,FE;DL,[]
+dat.berkey1998r::001,dat.berkey1998r,stored yi/vi,10,enumerated,FE;DL,[]
+dat.besson2016::001,dat.besson2016,"dat <- escalc(measure = ""SMD"", m1i = exp_mean, m2i = con_mean, sd1i = sd_e, sd2i = sd_c, n1i = exp_n, n2i = con_n, data = dat, add.measure = TRUE)",389,page refusal,FE;DL,"[38, 39, 40, 41, 50, 51, 52, 53, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 339, 340, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 422, 423, 466, 467, 468, 469]"
+dat.bonett2010::001,dat.bonett2010,"res <- rma(measure = ""ARAW"", ai = ai, mi = mi, ni = ni, data = dat)",9,enumerated,FE;DL,[]
+dat.bonett2010::002,dat.bonett2010,"res <- rma(measure = ""AHW"", ai = ai, mi = mi, ni = ni, data = dat)",9,enumerated,FE;DL,[]
+dat.bonett2010::003,dat.bonett2010,"res <- rma(measure = ""ABT"", ai = ai, mi = mi, ni = ni, data = dat)",9,enumerated,FE;DL,[]
+dat.bornmann2007::001,dat.bornmann2007,"dat <- escalc(measure = ""OR"", ai = waward, n1i = wtotal, ci = maward, n2i = mtotal, data = dat)",66,sampled,FE;DL,[]
+dat.bourassa1996::001,dat.bourassa1996,"dat <- escalc(measure = ""OR"", ai = lh.le, bi = lh.re, ci = rh.le, di = rh.re, data = dat, add = 1/2, to = ""all"")",96,sampled,FE;DL,[]
+dat.cannon2006::001,dat.cannon2006,"res <- rma.mh(measure = ""OR"", ai = ep1t, n1i = nt, ci = ep1c, n2i = nc, data = dat, slab = trial)",4,enumerated,FE;DL,[]
+dat.cannon2006::002,dat.cannon2006,"supplement: RR ai=ep1t, n1i=nt, ci=ep1c, n2i=nc",4,enumerated,FE;DL,[]
+dat.cannon2006::003,dat.cannon2006,"supplement: RR ai=ep2t, n1i=nt, ci=ep2c, n2i=nc",4,enumerated,FE;DL,[]
+dat.cannon2006::004,dat.cannon2006,"supplement: RR ai=ep3t, n1i=nt, ci=ep3c, n2i=nc",4,enumerated,FE;DL,[]
+dat.cannon2006::005,dat.cannon2006,"supplement: RR ai=ep4t, n1i=nt, ci=ep4c, n2i=nc",4,enumerated,FE;DL,[]
+dat.cannon2006::006,dat.cannon2006,"supplement: RR ai=ep5t, n1i=nt, ci=ep5c, n2i=nc",4,enumerated,FE;DL,[]
+dat.cannon2006::007,dat.cannon2006,"supplement: RR ai=ep6t, n1i=nt, ci=ep6c, n2i=nc",4,enumerated,FE;DL,[]
+dat.chiarito2020::001,dat.chiarito2020,"es.stroke <- escalc(measure = ""OR"", ai = p2y12.stroke, n1i = p2y12.total, ci = aspirin.stroke, n2i = aspirin.total, slab = study, subset = is.finite(p2y12.stroke), data = dat.chiarito2020)",8,enumerated,FE;DL,[]
+dat.chiarito2020::002,dat.chiarito2020,"meta01 <- metabin(event.e = p2y12.stroke, n.e = p2y12.total, event.c = aspirin.stroke, n.c = aspirin.total, studlab = study, data = dat.chiarito2020, subset = is.finite(p2y12.stroke), sm = ""OR"", method.tau = ""PM"", method.random.ci = ""HK"", method = ""Inverse"")",8,enumerated,FE;DL,[]
+dat.chiarito2020::003,dat.chiarito2020,"supplement: RR ai=p2y12.mi, n1i=p2y12.total, ci=aspirin.mi, n2i=aspirin.total",8,enumerated,FE;DL,1
+dat.chiarito2020::004,dat.chiarito2020,"supplement: RR ai=p2y12.stroke, n1i=p2y12.total, ci=aspirin.stroke, n2i=aspirin.total",8,enumerated,FE;DL,5
+dat.chiarito2020::005,dat.chiarito2020,"supplement: RR ai=p2y12.death, n1i=p2y12.total, ci=aspirin.death, n2i=aspirin.total",9,enumerated,FE;DL,[]
+dat.chiarito2020::006,dat.chiarito2020,"supplement: RR ai=p2y12.vdeath, n1i=p2y12.total, ci=aspirin.vdeath, n2i=aspirin.total",7,enumerated,FE;DL,"[5, 6]"
+dat.cohen1981::001,dat.cohen1981,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat[c(1, 4, 5)])",20,sampled,FE;DL,[]
+dat.colditz1994::001,dat.colditz1994,"dat <- escalc(measure = ""RR"", ai = tpos, bi = tneg, ci = cpos, di = cneg, data = dat, slab = paste0(author, "", "", year))",13,enumerated,FE;DL,[]
+dat.collins1985a::001,dat.collins1985a,"res <- rma.peto(ai = b.xti, n1i = nti, ci = b.xci, n2i = nci, data = dat)",25,sampled,FE;DL,"[6, 18]"
+dat.collins1985a::002,dat.collins1985a,"res <- rma.peto(ai = o.xti, n1i = nti, ci = o.xci, n2i = nci, data = dat)",22,sampled,FE;DL,"[3, 5, 10, 13, 15]"
+dat.collins1985a::003,dat.collins1985a,"res <- rma.peto(ai = d.xti, n1i = nti, ci = d.xci, n2i = nci, data = dat)",24,sampled,FE;DL,"[3, 5, 15]"
+dat.collins1985a::004,dat.collins1985a,"supplement: OR ai=b.xti, n1i=nti, ci=b.xci, n2i=nci",25,sampled,FE;DL,"[6, 18]"
+dat.collins1985a::005,dat.collins1985a,"supplement: OR ai=o.xti, n1i=nti, ci=o.xci, n2i=nci",22,sampled,FE;DL,"[3, 5, 10, 13, 15]"
+dat.collins1985a::006,dat.collins1985a,"supplement: OR ai=d.xti, n1i=nti, ci=d.xci, n2i=nci",24,sampled,FE;DL,"[3, 5, 15]"
+dat.collins1985b::001,dat.collins1985b,"dat <- escalc(measure = ""OR"", n1i = pre.nti, n2i = pre.nci, ai = pre.xti, ci = pre.xci, data = dat)",9,enumerated,FE;DL,[]
+dat.collins1985b::002,dat.collins1985b,"rma.peto(n1i = pre.nti, n2i = pre.nci, ai = pre.xti, ci = pre.xci, data = dat, digits = 2)",9,enumerated,FE;DL,[]
+dat.collins1985b::003,dat.collins1985b,"rma.peto(n1i = fup.nti, n2i = fup.nci, ai = ped.xti, ci = ped.xci, data = dat, digits = 2)",9,enumerated,FE;DL,[]
+dat.collins1985b::004,dat.collins1985b,"rma.peto(n1i = fup.nti, n2i = fup.nci, ai = stb.xti, ci = stb.xci, data = dat, digits = 2)",8,enumerated,FE;DL,6
+dat.collins1985b::005,dat.collins1985b,"rma.peto(n1i = fup.nti, n2i = fup.nci, ai = ned.xti, ci = ned.xci, data = dat, digits = 2)",8,enumerated,FE;DL,6
+dat.craft2003::001,dat.craft2003,Fisher z correlations: ri / ni; escalc ZCOR,54,sampled,FE;DL,"[15, 17, 18, 28, 29, 30]"
+dat.crede2010::001,dat.crede2010,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat)",97,sampled,FE;DL,[]
+dat.crisafulli2020::001,dat.crisafulli2020,"logp <- escalc(measure = ""PLN"", xi = cases, ni = total, slab = study, data = dat.crisafulli2020)",26,sampled,FE;DL,[]
+dat.curtin2002::001,dat.curtin2002,"mg2 <- metagen(mean, SE, studlab = paste(author, year), data = dat.curtin2002, sm = ""MD"")",21,sampled,FE;DL,[]
+dat.curtis1998::001,dat.curtis1998,"dat <- escalc(measure = ""ROM"", m1i = m1i, sd1i = sd1i, n1i = n1i, m2i = m2i, sd2i = sd2i, n2i = n2i, data = dat)",102,page refusal,FE;DL,[]
+dat.dagostino1998::001,dat.dagostino1998,"dat <- escalc(measure = ""SMD"", m1i = mt, m2i = mc, sd1i = sdt, sd2i = sdc, n1i = nt, n2i = nc, data = dat, add.measure = TRUE)",34,sampled,FE;DL,"[3, 4, 7, 8, 11, 12, 15, 16, 19, 20, 23, 24, 27, 28, 29, 30, 31, 32, 35, 36, 39, 40, 43, 44, 47, 48, 51, 52, 55, 56, 59, 60, 63, 64, 67, 68, 71, 72]"
+dat.dagostino1998::002,dat.dagostino1998,"dat <- escalc(measure = ""OR"", ai = xt, ci = xc, n1i = nt, n2i = nc, data = dat, replace = FALSE, add.measure = TRUE, add = 1/2, to = ""all"")",68,sampled,FE;DL,"[29, 30, 31, 32]"
+dat.dagostino1998::003,dat.dagostino1998,"supplement: RR ai=xt, n1i=nt, ci=xc, n2i=nc",34,sampled,FE;DL,"[1, 2, 5, 6, 9, 10, 13, 14, 17, 18, 21, 22, 25, 26, 29, 30, 31, 32, 33, 34, 37, 38, 41, 42, 45, 46, 49, 50, 53, 54, 57, 58, 61, 62, 65, 66, 69, 70]"
+dat.damico2009::001,dat.damico2009,"rma.mh(measure = ""OR"", ai = xt, n1i = nt, ci = xc, n2i = nc, data = dat, digits = 2)",16,sampled,FE;DL,[]
+dat.damico2009::002,dat.damico2009,"supplement: RR ai=xt, n1i=nt, ci=xc, n2i=nc",16,sampled,FE;DL,[]
+dat.debruin2009::001,dat.debruin2009,"dat <- escalc(measure = ""PR"", xi = xi, ni = ni, data = dat)",13,enumerated,FE;DL,[]
+dat.demir2022::001,dat.demir2022,"dat <- escalc(measure = ""ABT"", ai = alpha, ni = n, mi = items, data = dat)",33,sampled,FE;DL,[]
+dat.dogliotti2014::001,dat.dogliotti2014,"pw <- pairwise(treat = treatment, n = total, event = stroke, studlab = study, data = dat.dogliotti2014, sm = ""OR"")",27,sampled,FE;DL,28
+dat.dong2013::001,dat.dong2013,"pw <- pairwise(treatment, death, randomized, studlab = id, data = dat.dong2013, sm = ""OR"")",70,sampled,FE;DL,"[5, 27, 39, 53, 54, 55, 56, 57, 58, 77, 78, 80]"
+dat.dorn2007::001,dat.dorn2007,"dat <- escalc(measure = ""RR"", ai = x.a, n1i = n.a, ci = x.p, n2i = n.p, data = dat)",19,sampled,FE;DL,[]
+dat.dumouchel1994::001,dat.dumouchel1994,"no2 <- escalc(measure = ""OR"", yi = log(or), sei = (log(upper) - log(lower))/(2 * qnorm(0.975)), slab = study, data = dat.dumouchel1994)",9,enumerated,FE;DL,[]
+dat.egger2001::001,dat.egger2001,"res <- rma.peto(ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, subset = 1:7)",16,sampled,FE;DL,[]
+dat.egger2001::002,dat.egger2001,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",16,sampled,FE;DL,[]
+dat.feng2019::001,dat.feng2019,"mp1 <- metaprop(depr, n, data = dat.feng2019, studlab = paste(author, year), common = FALSE, prediction = TRUE)",19,sampled,FE;DL,[]
+dat.feng2019::002,dat.feng2019,"supplement: PLO xi=depr, ni=n",19,sampled,FE;DL,[]
+dat.fine1993::001,dat.fine1993,"dat <- escalc(measure = ""OR"", ai = e1i, n1i = nei, ci = c1i, n2i = nci, data = dat, var.names = c(""y1i"", ""v1i""))",16,sampled,FE;DL,17
+dat.fine1993::002,dat.fine1993,"supplement: RR ai=e1i, n1i=nei, ci=c1i, n2i=nci",16,sampled,FE;DL,17
+dat.fine1993::003,dat.fine1993,"supplement: RR ai=e2i, n1i=nei, ci=c2i, n2i=nci",17,sampled,FE;DL,[]
+dat.fine1993::004,dat.fine1993,"supplement: RR ai=e3i, n1i=nei, ci=c3i, n2i=nci",16,sampled,FE;DL,17
+dat.fine1993::005,dat.fine1993,"supplement: RR ai=e4i, n1i=nei, ci=c4i, n2i=nci",17,sampled,FE;DL,[]
+dat.franchini2012::001,dat.franchini2012,"pw <- pairwise(list(Treatment1, Treatment2, Treatment3), n = list(n1, n2, n3), mean = list(y1, y2, y3), sd = list(sd1, sd2, sd3), data = dat.franchini2012, studlab = Study, sm = ""MD"")",9,enumerated,FE;DL,[]
+dat.frank2008::001,dat.frank2008,"dat <- escalc(measure = ""OR"", ai = bc.ins.del, bi = bc.ins.ins, ci = ct.ins.del, di = ct.ins.ins, data = dat)",4,enumerated,FE;DL,[]
+dat.frank2008::002,dat.frank2008,"dat <- escalc(measure = ""OR"", ai = bc.del.del, bi = bc.ins.ins, ci = ct.del.del, di = ct.ins.ins, data = dat)",4,enumerated,FE;DL,[]
+dat.frank2008::003,dat.frank2008,"dat <- escalc(measure = ""OR"", ai = bc.ins.del + bc.del.del, bi = bc.ins.ins, ci = ct.ins.del + ct.del.del, di = ct.ins.ins, data = dat)",4,enumerated,FE;DL,[]
+dat.frank2008::004,dat.frank2008,"dat <- escalc(measure = ""REH"", ai = ct.ins.ins, bi = ct.ins.del, ci = ct.del.del, slab = study, data = dat)",4,enumerated,FE;DL,[]
+dat.furukawa2003::001,dat.furukawa2003,"mc2 <- metacont(Ne, Me, Se, Nc, Mc, Sc, common = FALSE, data = dat.furukawa2003, sm = ""SMD"")",17,sampled,FE;DL,[]
+dat.furukawa2003::002,dat.furukawa2003,"supplement: SMD m1i=Me, sd1i=Se, n1i=Ne, m2i=Mc, sd2i=Sc, n2i=Nc",17,sampled,FE;DL,[]
+dat.furukawa2003::003,dat.furukawa2003,"supplement: MD m1i=Me, sd1i=Se, n1i=Ne, m2i=Mc, sd2i=Sc, n2i=Nc",17,sampled,FE;DL,[]
+dat.gibson2002::001,dat.gibson2002,"dat <- escalc(measure = ""SMD"", m1i = m1i, sd1i = sd1i, n1i = n1i, m2i = m2i, sd2i = sd2i, n2i = n2i, data = dat)",13,enumerated,FE;DL,"[14, 15]"
+dat.gibson2002::002,dat.gibson2002,"dat <- escalc(measure = ""RR"", ai = ai, bi = bi, ci = ci, di = di, data = dat)",7,enumerated,FE;DL,"[1, 2, 3, 6, 8, 9, 12, 13]"
+dat.gibson2002::003,dat.gibson2002,"dat <- escalc(measure = ""PBIT"", ai = ai, bi = bi, ci = ci, di = di, data = dat, replace = FALSE, add.measure = TRUE)",15,enumerated,FE;DL,[]
+dat.gibson2002::004,dat.gibson2002,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",7,enumerated,FE;DL,"[1, 2, 3, 6, 8, 9, 12, 13]"
+dat.graves2010::001,dat.graves2010,"rma.mh(measure = ""RR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, digits = 2)",17,sampled,FE;DL,[]
+dat.greb2008::001,dat.greb2008,"mb1 <- metabin(Ee, Ne, Ec, Nc, data = dat.greb2008, studlab = study, label.e = ""High dose"", label.c = ""Standard"", label.left = ""Favours standard chemotherapy"", label.right = ""Favours high dose chemotherapy"", col.label.left = ""red"", col.label.right = ""green"")",14,enumerated,FE;DL,[]
+dat.greb2008::002,dat.greb2008,"supplement: RR ai=Ee, n1i=Ne, ci=Ec, n2i=Nc",14,enumerated,FE;DL,[]
+dat.greenland1992::001,dat.greenland1992,"mg <- metagen(b, SE, data = dat.greenland1992, studlab = paste(author, year), sm = ""RR"", random = FALSE, overall.hetstat = FALSE, backtransf = FALSE)",16,sampled,FE;DL,[]
+dat.gurusamy2011::001,dat.gurusamy2011,"pw <- pairwise(treatment, death, n, studlab = study, data = dat.gurusamy2011, sm = ""OR"")",13,enumerated,FE;DL,"[12, 13, 14]"
+dat.hackshaw1998::001,dat.hackshaw1998,stored yi/vi,37,sampled,FE;DL,[]
+dat.hahn2001::001,dat.hahn2001,"res <- rma.mh(measure = ""OR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, digits = 2, slab = study)",12,enumerated,FE;DL,[]
+dat.hahn2001::002,dat.hahn2001,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",12,enumerated,FE;DL,[]
+dat.hannum2020::001,dat.hannum2020,"dat <- escalc(measure = ""PR"", xi = xi, ni = ni, data = dat)",35,sampled,FE;DL,[]
+dat.hannum2020::002,dat.hannum2020,"res_objective <- rma(yi, vi, data = dat_objective)",6,enumerated,FE;DL,[]
+dat.hannum2020::003,dat.hannum2020,"res_subjective <- rma(yi, vi, data = dat_subjective)",29,sampled,FE;DL,[]
+dat.hart1999::001,dat.hart1999,"dat <- escalc(measure = ""IRR"", x1i = x1i, x2i = x2i, t1i = t1i, t2i = t2i, data = dat)",6,enumerated,FE;DL,[]
+dat.hart1999::002,dat.hart1999,"res <- rma(measure = ""IRD"", x1i = x1i, x2i = x2i, t1i = t1i, t2i = t2i, data = dat)",6,enumerated,FE;DL,[]
+dat.hartmannboyce2018::001,dat.hartmannboyce2018,"rma.mh(measure = ""RR"", ai = x.nrt, n1i = n.nrt, ci = x.ctrl, n2i = n.ctrl, data = dat, digits = 2)",136,page refusal,FE;DL,[]
+dat.hasselblad1998::001,dat.hasselblad1998,"dat <- escalc(measure = ""PLO"", xi = xi, ni = ni, add = 1/2, to = ""all"", data = dat)",50,sampled,FE;DL,[]
+dat.hasselblad1998::002,dat.hasselblad1998,"dat <- escalc(measure = ""OR"", ai = xi.1, n1i = ni.1, ci = xi.2, n2i = ni.2, add = 1/2, to = ""all"", data = dat)",26,sampled,FE;DL,[]
+dat.higgins2008::001,dat.higgins2008,"m <- metabin(resp.halo, resp.halo + fail.halo, resp.plac, resp.plac + fail.plac, data = dat.higgins2008, studlab = author, sm = ""OR"", method = ""Inverse"", random = FALSE, label.e = ""Haloperidol"", label.c = ""Placebo"", label.left = ""Favours placebo"", label.right = ""Favours haloperidol"")",17,sampled,FE;DL,[]
+dat.higgins2008::002,dat.higgins2008,"supplement: OR ai=resp.halo, bi=fail.halo, ci=resp.plac, di=fail.plac",17,sampled,FE;DL,[]
+dat.hine1989::001,dat.hine1989,"dat <- escalc(measure = ""RD"", n1i = n1i, n2i = n2i, ai = ai, ci = ci, data = dat)",6,enumerated,FE;DL,[]
+dat.hine1989::002,dat.hine1989,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",6,enumerated,FE;DL,[]
+dat.huber2000::001,dat.huber2000,"IPD recurrence mean difference: Uro-Vaxom minus Placebo; escalc MD from group means, SDs and sizes",5,enumerated,FE;DL,[]
+dat.ishak2007::001,dat.ishak2007,stored occasion 1,24,sampled,FE;DL,"[5, 8, 9, 10, 11, 13, 14, 16, 17, 18, 20, 22, 23, 24, 28, 29, 35, 36, 37, 40, 42, 45]"
+dat.ishak2007::002,dat.ishak2007,stored occasion 2,22,sampled,FE;DL,"[1, 2, 3, 7, 9, 13, 14, 16, 18, 20, 21, 22, 26, 27, 28, 30, 31, 34, 35, 36, 37, 39, 41, 46]"
+dat.ishak2007::003,dat.ishak2007,stored occasion 3,25,sampled,FE;DL,"[1, 3, 5, 6, 8, 11, 12, 17, 21, 23, 24, 29, 31, 34, 35, 37, 39, 41, 42, 43, 46]"
+dat.ishak2007::004,dat.ishak2007,stored occasion 4,11,enumerated,FE;DL,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 17, 18, 19, 20, 21, 22, 23, 24, 26, 28, 29, 30, 31, 32, 34, 36, 38, 39, 40, 41, 43, 45, 46]"
+dat.kalaian1996::001,dat.kalaian1996,stored yi/vi,67,sampled,FE;DL,[]
+dat.karner2014::001,dat.karner2014,"karner.exa <- escalc(measure = ""OR"", ai = tiotropium.exa, n1i = tiotropium.total, ci = placebo.exa, n2i = placebo.total, slab = study, data = dat.karner2014)",22,sampled,FE;DL,[]
+dat.karner2014::002,dat.karner2014,"karner.sgrq <- escalc(measure = ""MD"", yi = sgrq.md, sei = sgrq.se, slab = study, data = dat.karner2014, subset = is.finite(dat.karner2014$sgrq.md))",9,enumerated,FE;DL,[]
+dat.karner2014::003,dat.karner2014,"supplement: OR ai=tiotropium.sexa, n1i=tiotropium.total, ci=placebo.sexa, n2i=placebo.total",21,sampled,FE;DL,20
+dat.karner2014::004,dat.karner2014,"supplement: OR ai=tiotropium.hospi, n1i=tiotropium.total, ci=placebo.hospi, n2i=placebo.total",19,sampled,FE;DL,"[15, 17, 20]"
+dat.karner2014::005,dat.karner2014,"supplement: OR ai=tiotropium.deaths, n1i=tiotropium.total, ci=placebo.deaths, n2i=placebo.total",22,sampled,FE;DL,[]
+dat.karner2014::006,dat.karner2014,"supplement: OR ai=tiotropium.sae, n1i=tiotropium.total, ci=placebo.sae, n2i=placebo.total",22,sampled,FE;DL,[]
+dat.karner2014::007,dat.karner2014,"supplement: OR ai=tiotropium.dropout, n1i=tiotropium.total, ci=placebo.dropout, n2i=placebo.total",22,sampled,FE;DL,[]
+dat.karner2014::008,dat.karner2014,"supplement: GEN yi=fev1.md, sei=fev1.se",22,sampled,FE;DL,[]
+dat.kearon1998::001,dat.kearon1998,"dat <- escalc(measure = ""OR"", ai = tp, n1i = np, ci = nn - tn, n2i = nn, data = dat, add = 1/2, to = ""all"")",30,sampled,FE;DL,"[2, 18, 27, 34]"
+dat.kearon1998::002,dat.kearon1998,"tmp <- rma(yi, invessi, data = dat, subset = patients == ""asymptomatic"")",30,sampled,FE;DL,"[2, 18, 27, 34]"
+dat.kearon1998::003,dat.kearon1998,"dat <- escalc(measure = ""PLO"", xi = out1, mi = out2, data = dat, add = 1/2, to = ""all"", include = group == ""sensitivity"")",14,enumerated,FE;DL,"[2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]"
+dat.kearon1998::004,dat.kearon1998,"dat <- escalc(measure = ""PLO"", xi = out1, mi = out2, data = dat, add = 1/2, to = ""all"", include = group == ""specificity"")",28,sampled,FE;DL,[]
+dat.knapp2017::001,dat.knapp2017,stored yi/vi,66,sampled,FE;DL,[]
+dat.konstantopoulos2011::001,dat.konstantopoulos2011,stored yi/vi,56,sampled,FE;DL,[]
+dat.landenberger2005::001,dat.landenberger2005,"dat <- escalc(measure = ""OR"", ai = n.cbt.non, bi = n.cbt.rec, ci = n.ctrl.non, di = n.ctrl.rec, data = dat)",58,sampled,FE;DL,[]
+dat.laopaiboon2015::001,dat.laopaiboon2015,"rma.mh(measure = ""RR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, digits = 3)",15,enumerated,FE;DL,[]
+dat.lau1992::001,dat.lau1992,"res <- rma.mh(measure = ""OR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, slab = trial)",33,sampled,FE;DL,[]
+dat.lau1992::002,dat.lau1992,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",33,sampled,FE;DL,[]
+dat.lee2004::001,dat.lee2004,"res <- rma(measure = ""RR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat)",16,sampled,FE;DL,[]
+dat.lehmann2018::001,dat.lehmann2018,stored yi/vi,81,sampled,FE;DL,[]
+dat.lehmann2018::002,dat.lehmann2018,"res_malep <- rma(yi, vi, data = red_romance_malep, test = ""knha"")",45,sampled,FE;DL,[]
+dat.lehmann2018::003,dat.lehmann2018,"res_femalep <- rma(yi, vi, data = red_romance_femalep, test = ""knha"")",36,sampled,FE;DL,[]
+dat.li2007::001,dat.li2007,"res <- rma(measure = ""OR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, method = ""EE"", subset = -14)",22,sampled,FE;DL,[]
+dat.li2007::002,dat.li2007,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",22,sampled,FE;DL,[]
+dat.lim2014::001,dat.lim2014,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat)",170,page refusal,FE;DL,[]
+dat.linde2005::001,dat.linde2005,"dat <- escalc(measure = ""RR"", ai = ai, ci = ci, n1i = n1i, n2i = n2i, data = dat)",23,sampled,FE;DL,[]
+dat.linde2005::002,dat.linde2005,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",24,sampled,FE;DL,"[5, 26]"
+dat.linde2015::001,dat.linde2015,"pw1 <- pairwise(list(treatment1, treatment2, treatment3), event = list(resp1, resp2, resp3), n = list(n1, n2, n3), studlab = id, data = dat.linde2015, sm = ""OR"")",73,sampled,FE;DL,"[10, 12, 14, 19, 34, 77, 78, 79, 80]"
+dat.linde2015::002,dat.linde2015,"pw2 <- pairwise(treat = list(treatment1, treatment2, treatment3), event = list(remi1, remi2, remi3), n = list(n1, n2, n3), studlab = id, data = dat.linde2015, sm = ""OR"")",61,sampled,FE;DL,"[1, 2, 3, 7, 8, 9, 10, 12, 13, 18, 36, 37, 38, 42, 55, 62, 66, 74, 77, 78, 79]"
+dat.linde2016::001,dat.linde2016,"pw <- pairwise(treat = int, event = resp, n = n, studlab = paste(author, year), data = dat.linde2016, reference = ""plac"", sm = ""OR"")",124,page refusal,FE;DL,[]
+dat.lloyd2010::001,dat.lloyd2010,"m.das <- metagen(mean.das, lower = lower.das, upper = upper.das, data = lloyd5, sm = ""MD"", studlab = paste(author, year), random = FALSE)",5,enumerated,FE;DL,[]
+dat.lloyd2010::002,dat.lloyd2010,"m.haq <- metagen(mean.haq, lower = lower.haq, upper = upper.haq, data = lloyd5, sm = ""MD"", studlab = paste(author, year), random = FALSE)",5,enumerated,FE;DL,[]
+dat.lloyd2010::003,dat.lloyd2010,normal 95% CI to variance das,13,enumerated,FE;DL,"[8, 10, 11]"
+dat.lloyd2010::004,dat.lloyd2010,normal 95% CI to variance haq,8,enumerated,FE;DL,"[4, 5, 6, 7, 9, 12, 14, 16]"
+dat.lopez2019::001,dat.lopez2019,documented to.wide contrast: diff1-diff2 / se1^2+se2^2,96,sampled,FE;DL,[]
+dat.maire2019::001,dat.maire2019,stored slope s1 / vars1; marginal numerical check ignoring spatial correlation,35,sampled,FE;DL,[]
+dat.mccurdy2020::001,dat.mccurdy2020,stored yi/vi,1653,page refusal,FE;DL,[]
+dat.mcdaniel1994::001,dat.mcdaniel1994,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat)",160,page refusal,FE;DL,[]
+dat.mcdaniel1994::002,dat.mcdaniel1994,"res <- rma(measure = ""COR"", ri = ri, ni = ni, data = dat.mcdaniel1994)",160,page refusal,FE;DL,[]
+dat.meeker2017::001,dat.meeker2017,"es <- escalc(measure = ""GEN"", yi = mean, sei = se, slab = team, ni = batters, data = dat.meeker2017)",10,enumerated,FE;DL,[]
+dat.michael2013::001,dat.michael2013,stored yi/vi,12,enumerated,FE;DL,[]
+dat.michael2013::002,dat.michael2013,"res <- rma(yi, vi, data = dat)",12,enumerated,FE;DL,[]
+dat.molloy2014::001,dat.molloy2014,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat, slab = paste(authors, year, sep = "", ""))",16,sampled,FE;DL,[]
+dat.moore1998::001,dat.moore1998,"m <- metabin(Ee, Ne, Ec, Nc, data = dat.moore1998, sm = ""OR"", studlab = id, label.e = ""NSAIDS"", label.c = ""Placebo"")",37,sampled,FE;DL,[]
+dat.moore1998::002,dat.moore1998,"supplement: RR ai=Ee, n1i=Ne, ci=Ec, n2i=Nc",37,sampled,FE;DL,[]
+dat.moura2021::001,dat.moura2021,"dat <- escalc(measure = ""ZCOR"", ri = ri, ni = ni, data = dat)",1828,page refusal,FE;DL,[]
+dat.nakagawa2007::001,dat.nakagawa2007,"dat <- escalc(measure = ""ZCOR"", ri = Correlation, ni = SampleSize, data = dat)",15,enumerated,FE;DL,[]
+dat.nielweise2007::001,dat.nielweise2007,"res <- rma(measure = ""OR"", ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, drop00 = TRUE)",17,sampled,FE;DL,15
+dat.nielweise2007::002,dat.nielweise2007,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",18,sampled,FE;DL,[]
+dat.nielweise2008::001,dat.nielweise2008,"res <- rma(measure = ""IRR"", x1i = x1i, t1i = t1i, x2i = x2i, t2i = t2i, data = dat)",9,enumerated,FE;DL,[]
+dat.nissen2007::001,dat.nissen2007,"ma01 <- rma.peto(ai = treat.infarction, ci = cont.infarction, n1i = treat.total, n2i = cont.total, slab = study, data = dat.nissen2007)",42,sampled,FE;DL,[]
+dat.nissen2007::002,dat.nissen2007,"ma02 <- rma.peto(ai = treat.death, ci = cont.death, n1i = treat.total, n2i = cont.total, slab = study, data = dat.nissen2007)",42,sampled,FE;DL,[]
+dat.nissen2007::003,dat.nissen2007,"ma03 <- rma.uni(measure = ""OR"", method = ""FE"", drop00 = TRUE, ai = treat.infarction, ci = cont.infarction, n1i = treat.total, n2i = cont.total, slab = study, data = dat.nissen2007)",38,sampled,FE;DL,"[20, 31, 33, 38]"
+dat.nissen2007::004,dat.nissen2007,"ma04 <- rma.uni(measure = ""OR"", method = ""FE"", drop00 = TRUE, ai = treat.death, ci = cont.death, n1i = treat.total, n2i = cont.total, slab = study, data = dat.nissen2007)",23,sampled,FE;DL,"[2, 3, 4, 6, 7, 9, 10, 12, 14, 17, 21, 22, 23, 24, 29, 31, 36, 37, 38]"
+dat.nissen2007::005,dat.nissen2007,"supplement: OR ai=treat.infarction, n1i=treat.total, ci=cont.infarction, n2i=cont.total",42,sampled,FE;DL,[]
+dat.nissen2007::006,dat.nissen2007,"supplement: OR ai=treat.death, n1i=treat.total, ci=cont.death, n2i=cont.total",42,sampled,FE;DL,[]
+dat.normand1999::001,dat.normand1999,"dat <- escalc(measure = ""MD"", m1i = m1i, sd1i = sd1i, n1i = n1i, m2i = m2i, sd2i = sd2i, n2i = n2i, data = dat)",9,enumerated,FE;DL,[]
+dat.normand1999::002,dat.normand1999,"dat <- escalc(measure = ""ROM"", m1i = m1i, sd1i = sd1i, n1i = n1i, m2i = m2i, sd2i = sd2i, n2i = n2i, data = dat)",9,enumerated,FE;DL,[]
+dat.obrien2003::001,dat.obrien2003,"dat2 <- escalc(measure = ""RR"", ai = cases1, n1i = total1, ci = cases2, n2i = total2, data = dat2)",30,sampled,FE;DL,[]
+dat.obrien2003::002,dat.obrien2003,"dat <- escalc(measure = ""PR"", xi = cases, ni = total, data = dat)",43,sampled,FE;DL,[]
+dat.pagliaro1992::001,dat.pagliaro1992,"rma.mh(measure = ""OR"", ai = xi.1, n1i = ni.1, ci = xi.2, n2i = ni.2, data = dat.c, subset = (trt.1 == ""beta-blockers""), digits = 2)",28,sampled,FE;DL,[]
+dat.pagliaro1992::002,dat.pagliaro1992,"dat <- escalc(measure = ""PLO"", xi = xi, ni = ni, data = dat)",54,sampled,FE;DL,[]
+dat.pignon2000::001,dat.pignon2000,"res <- rma(yi, vi, data = dat, method = ""EE"", digits = 2)",65,sampled,FE;DL,[]
+dat.poole2003::001,dat.poole2003,"m <- metacont(Ne, Me, Se, Nc, Mc, Sc, data = dat.poole2003, studlab = paste(author, year), common = FALSE, subgroup = duration, subgroup.name = ""Duration"", sep.subgroup = "": "", label.e = ""Mucolytic agent"", label.c = ""Placebo"", label.left = ""Favours mucolytic agent"", label.right = ""Favours placebo"", col.label.left = ""green"", col.label.right = ""red"")",17,sampled,FE;DL,"[5, 14]"
+dat.poole2003::002,dat.poole2003,"supplement: SMD m1i=Me, sd1i=Se, n1i=Ne, m2i=Mc, sd2i=Sc, n2i=Nc",17,sampled,FE;DL,"[5, 14]"
+dat.pritz1997::001,dat.pritz1997,"dat <- escalc(measure = ""PR"", xi = xi, ni = ni, data = dat, add = 0)",12,enumerated,FE;DL,"[5, 8]"
+dat.pritz1997::002,dat.pritz1997,"dat <- escalc(measure = ""PR"", xi = xi, ni = ni, data = dat, add = 0, vtype = ""AV"")",14,enumerated,FE;DL,[]
+dat.pritz1997::003,dat.pritz1997,"dat <- escalc(measure = ""PR"", xi = xi, ni = ni, data = dat)",14,enumerated,FE;DL,[]
+dat.pritz1997::004,dat.pritz1997,"dat <- escalc(measure = ""PLO"", xi = xi, ni = ni, data = dat)",14,enumerated,FE;DL,[]
+dat.quan2000::001,dat.quan2000,"m <- metabin(Ee, Ne, Ec, Nc, sm = ""OR"", method = ""Peto"", data = dat.quan2000, studlab = study, random = FALSE)",11,enumerated,FE;DL,[]
+dat.quan2000::002,dat.quan2000,"supplement: RR ai=Ee, n1i=Ne, ci=Ec, n2i=Nc",11,enumerated,FE;DL,[]
+dat.raudenbush1985::001,dat.raudenbush1985,stored yi/vi,19,sampled,FE;DL,[]
+dat.riley2003::001,dat.riley2003,stored yi/vi,98,sampled,FE;DL,[]
+dat.rivera2025::001,dat.rivera2025,"report1 <- metaprop(TP, n1, data = dat, common = TRUE, random = TRUE, studlab = paste(Author, Year))",10,enumerated,FE;DL,[]
+dat.rivera2025::002,dat.rivera2025,"report2 <- metaprop(TN, n2, data = dat, common = TRUE, random = TRUE, studlab = paste(Author, Year))",10,enumerated,FE;DL,[]
+dat.rivera2025::003,dat.rivera2025,"report3 <- metabin(TP, n1, n2 - TN, n2, data = dat, sm = ""OR"", common = FALSE, random = TRUE, studlab = paste(Author, Year), allstudies = TRUE)",10,enumerated,FE;DL,[]
+dat.rivera2025::004,dat.rivera2025,"supplement: PLO xi=TP, ni=ncase",10,enumerated,FE;DL,[]
+dat.rivera2025::005,dat.rivera2025,"supplement: PLO xi=TN, ni=ncontrol",10,enumerated,FE;DL,[]
+dat.roever2022::001,dat.roever2022,logit arm event proportions: events / total; escalc PLO,37,sampled,FE;DL,[]
+dat.senn2013::001,dat.senn2013,"dat <- escalc(measure = ""MN"", mi = mi, sdi = sdi, ni = ni, data = dat)",53,sampled,FE;DL,[]
+dat.senn2013::002,dat.senn2013,"dat <- escalc(measure = ""MD"", m1i = mi.1, sd1i = sdi.1, n1i = ni.1, m2i = mi.2, sd2i = sdi.2, n2i = ni.2, data = dat)",27,sampled,FE;DL,[]
+dat.spooner2002::001,dat.spooner2002,"mc1 <- metacont(Ne, Me, Se, Nc, Mc, Sc, data = dat.spooner2002, studlab = paste(author, year), subgroup = agegroup, print.subgroup.name = FALSE, label.e = ""Nedocromil sodium"", label.c = ""Placebo"", common = FALSE)",17,sampled,FE;DL,[]
+dat.spooner2002::002,dat.spooner2002,"supplement: SMD m1i=Me, sd1i=Se, n1i=Ne, m2i=Mc, sd2i=Sc, n2i=Nc",17,sampled,FE;DL,[]
+dat.steurer2006::001,dat.steurer2006,"m1 <- metagen(lnHR, selnHR, data = dat.steurer2006, studlab = paste(author, year), sm = ""HR"", random = FALSE, n.e = Ne, n.c = Nc)",4,enumerated,FE;DL,[]
+dat.steurer2006::002,dat.steurer2006,"m2 <- metagen(HR, lower = lowHR, upper = uppHR, data = dat.steurer2006, transf = FALSE, studlab = paste(author, year), sm = ""HR"", random = FALSE, n.e = Ne, n.c = Nc)",4,enumerated,FE;DL,[]
+dat.stowe2010::001,dat.stowe2010,"pw <- pairwise(treat = list(t1, t2, t3), n = list(n1, n2, n3), mean = list(y1, y2, y3), sd = list(sd1, sd2, sd3), studlab = study, data = dat.stowe2010, sm = ""MD"")",31,sampled,FE;DL,[]
+dat.tannersmith2016::001,dat.tannersmith2016,stored yi/vi,113,page refusal,FE;DL,[]
+dat.thompson1999::001,dat.thompson1999,"m <- metabin(ihd.exp, ihd.exp + noihd.exp, ihd.cont, ihd.cont + noihd.cont, data = dat.thompson1999, sm = ""OR"", method = ""Inverse"")",28,sampled,FE;DL,[]
+dat.thompson1999::002,dat.thompson1999,"supplement: GEN yi=logOR, vi=varlogOR",28,sampled,FE;DL,[]
+dat.tian2009::001,dat.tian2009,"mod_iv <- metabin(pw, text.common = ""IV method (common)"", text.random = ""IV method (random)"")",23,sampled,FE;DL,"[2, 3, 4, 6, 7, 9, 10, 12, 14, 17, 21, 22, 23, 24, 29, 31, 36, 37, 38, 43, 44, 45, 46, 47, 48]"
+dat.tian2009::002,dat.tian2009,"supplement: PLO xi=deaths, ni=n",96,sampled,FE;DL,[]
+dat.tian2009::003,dat.tian2009,"supplement: PLO xi=infarcts, ni=n",96,sampled,FE;DL,[]
+dat.ursino2021::001,dat.ursino2021,logit arm event proportions: events / total; escalc PLO,49,sampled,FE;DL,[]
+dat.vanhowe1999::001,dat.vanhowe1999,"dat <- escalc(measure = ""OR"", ai = non.pos, bi = non.neg, ci = cir.pos, di = cir.neg, data = dat)",33,sampled,FE;DL,[]
+dat.viechtbauer2021::001,dat.viechtbauer2021,"dat <- escalc(measure = ""OR"", ai = xTi, n1i = nTi, ci = xCi, n2i = nCi, add = 1/2, to = ""all"", data = dat)",20,sampled,FE;DL,[]
+dat.white2020::001,dat.white2020,"dat <- escalc(measure = ""ZCOR"", ri = r, ni = n, data = dat)",186,page refusal,FE;DL,[]
+dat.woods2010::001,dat.woods2010,"pw <- pairwise(treatment, event = r, n = N, studlab = author, data = dat.woods2010, sm = ""OR"")",8,enumerated,FE;DL,[]
+dat.yusuf1985::001,dat.yusuf1985,"res <- rma.peto(ai = ai, n1i = n1i, ci = ci, n2i = n2i, data = dat, subset = (table == tab))",118,page refusal,FE;DL,"[8, 46, 47, 66, 90, 93, 96, 97, 110, 114, 126, 130]"
+dat.yusuf1985::002,dat.yusuf1985,"supplement: RR ai=ai, n1i=n1i, ci=ci, n2i=n2i",118,page refusal,FE;DL,"[8, 46, 47, 66, 90, 93, 96, 97, 110, 114, 126, 130]"

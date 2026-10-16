@@ -1,0 +1,5497 @@
+{
+  "variant": "original",
+  "configurations": 444,
+  "quantities": {
+    "reference_present": {
+      "checks": 444,
+      "passing": 444,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "configuration_key": {
+      "checks": 444,
+      "passing": 444,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "reference_key": {
+      "checks": 444,
+      "passing": 444,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "app_evidence": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "reference_success": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "summary_model": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "summary_input_k": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "sampling_mode": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "sampling_control_visibility": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "coverage": {
+      "checks": 416,
+      "passing": 240,
+      "max_difference": 1,
+      "tolerance": 0
+    },
+    "unique_enumeration": {
+      "checks": 176,
+      "passing": 176,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "subset_mu": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 2.396138842897244e-13,
+      "tolerance": 1e-09
+    },
+    "subset_I2": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 3.880984422721667e-13,
+      "tolerance": 1e-09
+    },
+    "subset_Q": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 5.557136474135372e-12,
+      "tolerance": 1e-09
+    },
+    "subset_k": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "summary_n_subsets": {
+      "checks": 416,
+      "passing": 240,
+      "max_difference": 15,
+      "tolerance": 0
+    },
+    "summary_median_est": {
+      "checks": 416,
+      "passing": 294,
+      "max_difference": 0.012231300340402679,
+      "tolerance": 1e-09
+    },
+    "summary_median_i2": {
+      "checks": 416,
+      "passing": 290,
+      "max_difference": 0.8693372958841453,
+      "tolerance": 1e-09
+    },
+    "summary_min_est": {
+      "checks": 416,
+      "passing": 240,
+      "max_difference": 0.9344557339521946,
+      "tolerance": 1e-09
+    },
+    "summary_max_est": {
+      "checks": 416,
+      "passing": 244,
+      "max_difference": 0.7801560148614773,
+      "tolerance": 1e-09
+    },
+    "summary_q25_est": {
+      "checks": 416,
+      "passing": 244,
+      "max_difference": 0.027397034778827045,
+      "tolerance": 1e-09
+    },
+    "summary_q75_est": {
+      "checks": 416,
+      "passing": 250,
+      "max_difference": 0.048195953209316696,
+      "tolerance": 1e-09
+    },
+    "plotted_count": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "display_count": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "display_median_est": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "display_median_i2": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "plot_x": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 6.821210263296962e-13,
+      "tolerance": 1e-09
+    },
+    "plot_y": {
+      "checks": 1783856,
+      "passing": 1783856,
+      "max_difference": 0,
+      "tolerance": 1e-09
+    },
+    "axis_labels": {
+      "checks": 416,
+      "passing": 416,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "subset_tau2": {
+      "checks": 891928,
+      "passing": 891928,
+      "max_difference": 5.331838866519043e-13,
+      "tolerance": 1e-09
+    },
+    "subset_se": {
+      "checks": 1200000,
+      "passing": 1200000,
+      "max_difference": 1.9472548573595816e-12,
+      "tolerance": 1e-09
+    },
+    "app_cap_refusal": {
+      "checks": 28,
+      "passing": 28,
+      "max_difference": 0,
+      "tolerance": 0
+    },
+    "refusal_clears_chart": {
+      "checks": 28,
+      "passing": 0,
+      "max_difference": 5000,
+      "tolerance": 0
+    }
+  },
+  "total": 12804532,
+  "passing": 12803218,
+  "failures": [
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::001::FE",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::001::FE",
+      "app": 0.1889128586656102,
+      "reference": 0.18925763514786934,
+      "difference": 0.00034477648225914037
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::001::FE",
+      "app": 88.46302698478553,
+      "reference": 85.40458220419625,
+      "difference": 0.030584447805892836
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::001::FE",
+      "app": 0.005862209309264959,
+      "reference": -0.04043720011356849,
+      "difference": 0.04629940942283345
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::001::FE",
+      "app": 0.35747768694578647,
+      "reference": 0.38218899330617917,
+      "difference": 0.024711306360392704
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::001::FE",
+      "app": 0.1373007428505369,
+      "reference": 0.13248996138489058,
+      "difference": 0.004810781465646313
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::001::FE",
+      "app": 0.25866172218242767,
+      "reference": 0.26803830283949537,
+      "difference": 0.009376580657067701
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::001::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::001::DL",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::001::DL",
+      "app": 0.19875861498247888,
+      "reference": 0.20503871113287503,
+      "difference": 0.006280096150396153
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::001::DL",
+      "app": 88.46302698478553,
+      "reference": 85.40458220419625,
+      "difference": 0.030584447805892836
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::001::DL",
+      "app": 0.011183376874995984,
+      "reference": -0.04043720011356849,
+      "difference": 0.05162057698856447
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::001::DL",
+      "app": 0.35747768694578647,
+      "reference": 0.38218899330617917,
+      "difference": 0.024711306360392704
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::001::DL",
+      "app": 0.16213356389723677,
+      "reference": 0.14890992782327217,
+      "difference": 0.013223636073964595
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::001::DL",
+      "app": 0.25001286745637374,
+      "reference": 0.2634775454286271,
+      "difference": 0.01346467797225337
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::002::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::002::FE",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::002::FE",
+      "app": 0.17271237648339927,
+      "reference": 0.17499540403490227,
+      "difference": 0.002283027551503003
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::002::FE",
+      "app": 87.66891621146516,
+      "reference": 85.22487465082995,
+      "difference": 0.024440415606352132
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::002::FE",
+      "app": 0.005614965303169787,
+      "reference": -0.040459262289953196,
+      "difference": 0.046074227593122984
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::002::FE",
+      "app": 0.37266904794339584,
+      "reference": 0.4026205760898872,
+      "difference": 0.02995152814649138
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::002::FE",
+      "app": 0.12389613843691627,
+      "reference": 0.11754078094973464,
+      "difference": 0.006355357487181634
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::002::FE",
+      "app": 0.24911680701280603,
+      "reference": 0.26290430744434634,
+      "difference": 0.013787500431540312
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::002::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::002::DL",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::002::DL",
+      "app": 0.2034956063606806,
+      "reference": 0.2112315963021672,
+      "difference": 0.00773598994148661
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::002::DL",
+      "app": 87.66891621146516,
+      "reference": 85.22487465082995,
+      "difference": 0.024440415606352132
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::002::DL",
+      "app": 0.0110106787080628,
+      "reference": -0.040459262289953196,
+      "difference": 0.051469940998015995
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::002::DL",
+      "app": 0.37266904794339584,
+      "reference": 0.4026205760898872,
+      "difference": 0.02995152814649138
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::002::DL",
+      "app": 0.16657001733648705,
+      "reference": 0.15281991616419718,
+      "difference": 0.013750101172289864
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::002::DL",
+      "app": 0.2579805351150667,
+      "reference": 0.2714786641220153,
+      "difference": 0.013498129006948634
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::003::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::003::FE",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::003::FE",
+      "app": 0.15243984344492623,
+      "reference": 0.15301312262233094,
+      "difference": 0.0005732791774047119
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::003::FE",
+      "app": 88.80714001007317,
+      "reference": 84.18847295347545,
+      "difference": 0.04618667056597715
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::003::FE",
+      "app": 0.002020604748160822,
+      "reference": -0.0332004501400623,
+      "difference": 0.03522105488822312
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::003::FE",
+      "app": 0.2930547109963522,
+      "reference": 0.3053267753279146,
+      "difference": 0.01227206433156236
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::003::FE",
+      "app": 0.10949146443768251,
+      "reference": 0.1061134418695027,
+      "difference": 0.003378022568179817
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::003::FE",
+      "app": 0.21645491722028246,
+      "reference": 0.23048720776077128,
+      "difference": 0.014032290540488823
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.aloe2013::003::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.aloe2013::003::DL",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.aloe2013::003::DL",
+      "app": 0.1685923834069079,
+      "reference": 0.16936722591614564,
+      "difference": 0.0007748425092377331
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.aloe2013::003::DL",
+      "app": 88.80714001007317,
+      "reference": 84.18847295347545,
+      "difference": 0.04618667056597715
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.aloe2013::003::DL",
+      "app": 0.010440456156122763,
+      "reference": -0.0332004501400623,
+      "difference": 0.04364090629618506
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.aloe2013::003::DL",
+      "app": 0.2930547109963522,
+      "reference": 0.3053267753279146,
+      "difference": 0.01227206433156236
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.aloe2013::003::DL",
+      "app": 0.13457196201231497,
+      "reference": 0.1264767202583121,
+      "difference": 0.008095241754002863
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.aloe2013::003::DL",
+      "app": 0.20341683611026926,
+      "reference": 0.22161586630494448,
+      "difference": 0.018199030194675225
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::001::FE",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.anker2025::001::FE",
+      "app": -0.16478709606984798,
+      "reference": -0.17185257406667165,
+      "difference": 0.007065477996823666
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.anker2025::001::FE",
+      "app": 28.805236368775248,
+      "reference": 22.787078205209486,
+      "difference": 0.060181581635657615
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::001::FE",
+      "app": -0.6984458636108586,
+      "reference": -0.7761,
+      "difference": 0.07765413638914143
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::001::FE",
+      "app": -0.06431673427991887,
+      "reference": -0.0458,
+      "difference": 0.018516734279918866
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::001::FE",
+      "app": -0.25596761394053513,
+      "reference": -0.2628338969435978,
+      "difference": 0.00686628300306269
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::001::FE",
+      "app": -0.13081305610683322,
+      "reference": -0.13422727764636788,
+      "difference": 0.003414221539534662
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::001::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::001::DL",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.anker2025::001::DL",
+      "app": 28.805236368775248,
+      "reference": 22.787078205209486,
+      "difference": 0.060181581635657615
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::001::DL",
+      "app": -0.6984458636108586,
+      "reference": -0.7761,
+      "difference": 0.07765413638914143
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::001::DL",
+      "app": -0.10191110019646366,
+      "reference": -0.0458,
+      "difference": 0.056111100196463655
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::001::DL",
+      "app": -0.2778428561243244,
+      "reference": -0.2797383142534666,
+      "difference": 0.0018954581291422135
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::001::DL",
+      "app": -0.18095272692817949,
+      "reference": -0.18345251940148843,
+      "difference": 0.0024997924733089483
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::002::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::002::FE",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.anker2025::002::FE",
+      "app": 0.32941194266406404,
+      "reference": 0.33000994639735004,
+      "difference": 0.0005980037332860011
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::002::FE",
+      "app": 0.10923165649332484,
+      "reference": 0.0599,
+      "difference": 0.049331656493324834
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::002::FE",
+      "app": 0.6932200723811724,
+      "reference": 0.7999000000000002,
+      "difference": 0.10667992761882772
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::002::FE",
+      "app": 0.2928961175967703,
+      "reference": 0.27594735428911454,
+      "difference": 0.016948763307655768
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::002::FE",
+      "app": 0.3717495173356331,
+      "reference": 0.3914351211058926,
+      "difference": 0.01968560377025952
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::002::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::002::DL",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.anker2025::002::DL",
+      "app": 0.3330281185673116,
+      "reference": 0.33410215833136286,
+      "difference": 0.0010740397640512378
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::002::DL",
+      "app": 0.10923165649332484,
+      "reference": 0.0599,
+      "difference": 0.049331656493324834
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::002::DL",
+      "app": 0.6932200723811724,
+      "reference": 0.7999000000000002,
+      "difference": 0.10667992761882772
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::002::DL",
+      "app": 0.2928961175967703,
+      "reference": 0.27594735428911454,
+      "difference": 0.016948763307655768
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::002::DL",
+      "app": 0.3920702422117853,
+      "reference": 0.3920916040522401,
+      "difference": 2.1361840454758863e-05
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::003::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::003::FE",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::003::FE",
+      "app": -0.32971187763105564,
+      "reference": -0.668,
+      "difference": 0.3382881223689444
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::003::FE",
+      "app": 0.06457295037669071,
+      "reference": 0.0708,
+      "difference": 0.0062270496233092915
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::003::FE",
+      "app": -0.0561397522887603,
+      "reference": -0.05986394833317416,
+      "difference": 0.0037241960444138605
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::003::FE",
+      "app": 0.018231915846055078,
+      "reference": 0.019380408633399567,
+      "difference": 0.0011484927873444892
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::003::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::003::DL",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::003::DL",
+      "app": -0.32971187763105564,
+      "reference": -0.668,
+      "difference": 0.3382881223689444
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::003::DL",
+      "app": 0.06457295037669071,
+      "reference": 0.0708,
+      "difference": 0.0062270496233092915
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::003::DL",
+      "app": -0.0561397522887603,
+      "reference": -0.05986394833317416,
+      "difference": 0.0037241960444138605
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::003::DL",
+      "app": 0.018231915846055078,
+      "reference": 0.019380408633399567,
+      "difference": 0.0011484927873444892
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::004::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::004::FE",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.anker2025::004::FE",
+      "app": -0.2251592935074933,
+      "reference": -0.2259972862776809,
+      "difference": 0.00083799277018759
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.anker2025::004::FE",
+      "app": 32.50418735297475,
+      "reference": 27.61483372210997,
+      "difference": 0.048893536308647824
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::004::FE",
+      "app": -0.9134187218298532,
+      "reference": -0.939,
+      "difference": 0.02558127817014677
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::004::FE",
+      "app": -0.12731969754000713,
+      "reference": -0.1145,
+      "difference": 0.012819697540007127
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::004::FE",
+      "app": -0.3078992289272596,
+      "reference": -0.31546012908360066,
+      "difference": 0.007560900156341033
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::004::FE",
+      "app": -0.18974639068370183,
+      "reference": -0.19207899473732148,
+      "difference": 0.0023326040536196524
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.anker2025::004::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.anker2025::004::DL",
+      "app": 57,
+      "reference": 63,
+      "difference": 6
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.anker2025::004::DL",
+      "app": 32.50418735297475,
+      "reference": 27.61483372210997,
+      "difference": 0.048893536308647824
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.anker2025::004::DL",
+      "app": -0.9134187218298532,
+      "reference": -0.939,
+      "difference": 0.02558127817014677
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.anker2025::004::DL",
+      "app": -0.1459397405958158,
+      "reference": -0.1145,
+      "difference": 0.03143974059581579
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.anker2025::004::DL",
+      "app": -0.397916205776002,
+      "reference": -0.4032429440640495,
+      "difference": 0.005326738288047472
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.anker2025::004::DL",
+      "app": -0.23177550617466713,
+      "reference": -0.23034595565365992,
+      "difference": 0.0014295505210072113
+    },
+    {
+      "quantity": "refusal_clears_chart",
+      "key": "dat.bakdash2021::001::FE",
+      "app": 5000,
+      "reference": 0,
+      "difference": 5000
+    },
+    {
+      "quantity": "refusal_clears_chart",
+      "key": "dat.bakdash2021::001::DL",
+      "app": 5000,
+      "reference": 0,
+      "difference": 5000
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bassler2004::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bassler2004::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "difference": 10
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bassler2004::001::FE",
+      "app": 49.02372154548294,
+      "reference": 48.01349538644989,
+      "difference": 0.010102261590330529
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bassler2004::001::FE",
+      "app": -1.4623141501897747,
+      "reference": -1.791759469228055,
+      "difference": 0.18386693342283011
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bassler2004::001::FE",
+      "app": -0.06492605615879588,
+      "reference": 0.031182927436688063,
+      "difference": 0.09610898359548393
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bassler2004::001::FE",
+      "app": -0.5217736284331843,
+      "reference": -0.5239264217904746,
+      "difference": 0.002152793357290239
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bassler2004::001::FE",
+      "app": -0.34987435117481885,
+      "reference": -0.34969120130685427,
+      "difference": 0.00018314986796458266
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bassler2004::001::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bassler2004::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "difference": 10
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bassler2004::001::DL",
+      "app": -0.5098840010437631,
+      "reference": -0.5097144981222059,
+      "difference": 0.00016950292155715196
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bassler2004::001::DL",
+      "app": 49.02372154548294,
+      "reference": 48.01349538644989,
+      "difference": 0.010102261590330529
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bassler2004::001::DL",
+      "app": -1.4623141501897747,
+      "reference": -1.791759469228055,
+      "difference": 0.18386693342283011
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bassler2004::001::DL",
+      "app": -0.06492605615879588,
+      "reference": 0.031182927436688063,
+      "difference": 0.09610898359548393
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bassler2004::001::DL",
+      "app": -0.6250840454976968,
+      "reference": -0.6260217703504385,
+      "difference": 0.0009377248527416837
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bassler2004::001::DL",
+      "app": -0.3847827301451574,
+      "reference": -0.3846732022536824,
+      "difference": 0.00010952789147500308
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bassler2004::002::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bassler2004::002::FE",
+      "app": 1013,
+      "reference": 1023,
+      "difference": 10
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bassler2004::002::FE",
+      "app": 49.02372154548294,
+      "reference": 48.01349538644988,
+      "difference": 0.010102261590330598
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bassler2004::002::FE",
+      "app": -1.4623141501897747,
+      "reference": -1.7917594692280547,
+      "difference": 0.18386693342283003
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bassler2004::002::FE",
+      "app": -0.064926056158796,
+      "reference": 0.031182927436687935,
+      "difference": 0.09610898359548393
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bassler2004::002::FE",
+      "app": -0.5217736284331843,
+      "reference": -0.5239264217904746,
+      "difference": 0.002152793357290239
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bassler2004::002::FE",
+      "app": -0.34987435117481885,
+      "reference": -0.34969120130685427,
+      "difference": 0.00018314986796458266
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bassler2004::002::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bassler2004::002::DL",
+      "app": 1013,
+      "reference": 1023,
+      "difference": 10
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bassler2004::002::DL",
+      "app": -0.5098840010437631,
+      "reference": -0.5097144981222059,
+      "difference": 0.00016950292155715196
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bassler2004::002::DL",
+      "app": 49.02372154548294,
+      "reference": 48.01349538644988,
+      "difference": 0.010102261590330598
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bassler2004::002::DL",
+      "app": -1.4623141501897747,
+      "reference": -1.7917594692280547,
+      "difference": 0.18386693342283003
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bassler2004::002::DL",
+      "app": -0.064926056158796,
+      "reference": 0.031182927436687935,
+      "difference": 0.09610898359548393
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bassler2004::002::DL",
+      "app": -0.6250840454976967,
+      "reference": -0.6260217703504385,
+      "difference": 0.0009377248527417947
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bassler2004::002::DL",
+      "app": -0.3847827301451574,
+      "reference": -0.3846732022536824,
+      "difference": 0.00010952789147500308
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bauer2002::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bauer2002::001::FE",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bauer2002::001::FE",
+      "app": 0.6839770728031672,
+      "reference": 0.683304846463945,
+      "difference": 0.0006722263392222594
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bauer2002::001::FE",
+      "app": 8.271654985833887,
+      "reference": 0,
+      "difference": 0.08271654985833887
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bauer2002::001::FE",
+      "app": 0.6307116511109483,
+      "reference": 0.621,
+      "difference": 0.009711651110948294
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bauer2002::001::FE",
+      "app": 0.7356025384813112,
+      "reference": 0.755,
+      "difference": 0.01939746151868882
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bauer2002::001::FE",
+      "app": 0.6673301837792833,
+      "reference": 0.6647511953727911,
+      "difference": 0.0025789884064921775
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bauer2002::001::FE",
+      "app": 0.703987501037886,
+      "reference": 0.7070536829615864,
+      "difference": 0.0030661819237004506
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bauer2002::001::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bauer2002::001::DL",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bauer2002::001::DL",
+      "app": 0.6868554473274895,
+      "reference": 0.6859075,
+      "difference": 0.0009479473274894845
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bauer2002::001::DL",
+      "app": 8.271654985833887,
+      "reference": 0,
+      "difference": 0.08271654985833887
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bauer2002::001::DL",
+      "app": 0.6307116511109483,
+      "reference": 0.621,
+      "difference": 0.009711651110948294
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bauer2002::001::DL",
+      "app": 0.7356025384813112,
+      "reference": 0.755,
+      "difference": 0.01939746151868882
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bauer2002::001::DL",
+      "app": 0.6682515938241781,
+      "reference": 0.6653654687360542,
+      "difference": 0.0028861250881239142
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bauer2002::001::DL",
+      "app": 0.703987501037886,
+      "reference": 0.7070536829615864,
+      "difference": 0.0030661819237004506
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bauer2002::002::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bauer2002::002::FE",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bauer2002::002::FE",
+      "app": 0.7391944381653981,
+      "reference": 0.7405887447738553,
+      "difference": 0.0013943066084571853
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bauer2002::002::FE",
+      "app": 5.37491617377367,
+      "reference": 0,
+      "difference": 0.0537491617377367
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bauer2002::002::FE",
+      "app": 0.5327991273140846,
+      "reference": 0.49379487685105233,
+      "difference": 0.0390042504630323
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bauer2002::002::FE",
+      "app": 1.0154339744988778,
+      "reference": 1.1254595387042978,
+      "difference": 0.09776056839154658
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bauer2002::002::FE",
+      "app": 0.6750753737112103,
+      "reference": 0.6738487853783246,
+      "difference": 0.001226588332885692
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bauer2002::002::FE",
+      "app": 0.8471947213348829,
+      "reference": 0.8607833535468792,
+      "difference": 0.013588632211996243
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bauer2002::002::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bauer2002::002::DL",
+      "app": 26,
+      "reference": 31,
+      "difference": 5
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bauer2002::002::DL",
+      "app": 0.7787845434872771,
+      "reference": 0.777264995872557,
+      "difference": 0.0015195476147200626
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bauer2002::002::DL",
+      "app": 5.37491617377367,
+      "reference": 0,
+      "difference": 0.0537491617377367
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bauer2002::002::DL",
+      "app": 0.5327991273140846,
+      "reference": 0.49379487685105233,
+      "difference": 0.0390042504630323
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bauer2002::002::DL",
+      "app": 1.0154339744988778,
+      "reference": 1.1254595387042978,
+      "difference": 0.09776056839154658
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bauer2002::002::DL",
+      "app": 0.6915362466082847,
+      "reference": 0.6778205378056843,
+      "difference": 0.013715708802600424
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bauer2002::002::DL",
+      "app": 0.8471947213348829,
+      "reference": 0.8607833535468792,
+      "difference": 0.013588632211996243
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bcg::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bcg::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "difference": 13
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bcg::001::FE",
+      "app": -0.4302626115893834,
+      "reference": -0.43028516365409103,
+      "difference": 2.2552064707637154e-05
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bcg::001::FE",
+      "app": 87.73154472809728,
+      "reference": 87.70689081551855,
+      "difference": 0.00024653912578727956
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bcg::001::FE",
+      "app": -1.6019344384192,
+      "reference": -1.6208982235983918,
+      "difference": 0.01169955331130671
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bcg::001::FE",
+      "app": 0.03745673540102911,
+      "reference": 0.44591340057137874,
+      "difference": 0.4084566651703496
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bcg::001::FE",
+      "app": -0.7425584008646142,
+      "reference": -0.7427306424407223,
+      "difference": 0.00017224157610806756
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bcg::001::FE",
+      "app": -0.29948347861916397,
+      "reference": -0.2994440207072431,
+      "difference": 3.945791192089265e-05
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.bcg::001::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.bcg::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "difference": 13
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.bcg::001::DL",
+      "app": -0.710472243940341,
+      "reference": -0.7104913430856058,
+      "difference": 1.909914526476708e-05
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.bcg::001::DL",
+      "app": 87.73154472809728,
+      "reference": 87.70689081551855,
+      "difference": 0.00024653912578727956
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.bcg::001::DL",
+      "app": -1.6019344384192,
+      "reference": -1.6208982235983918,
+      "difference": 0.01169955331130671
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.bcg::001::DL",
+      "app": 0.03745673540102911,
+      "reference": 0.44591340057137874,
+      "difference": 0.4084566651703496
+    },
+    {
+      "quantity": "summary_q25_est",
+      "key": "dat.bcg::001::DL",
+      "app": -0.8373567312307811,
+      "reference": -0.8375804030264009,
+      "difference": 0.00022367179561977313
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.bcg::001::DL",
+      "app": -0.5830845989716165,
+      "reference": -0.5827225417403022,
+      "difference": 0.00036205723131421674
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.begg1989::002::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.begg1989::002::FE",
+      "app": 11,
+      "reference": 15,
+      "difference": 4
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.begg1989::002::FE",
+      "app": 0.19448922824522075,
+      "reference": 0.1962983368939982,
+      "difference": 0.0018091086487774521
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.begg1989::002::FE",
+      "app": 0.08898164577490315,
+      "reference": 0.049999999999999996,
+      "difference": 0.03898164577490316
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.begg1989::002::FE",
+      "app": 0.2623964608828901,
+      "reference": 0.27,
+      "difference": 0.007603539117109925
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.begg1989::002::FE",
+      "app": 0.22700841953795364,
+      "reference": 0.231040249379553,
+      "difference": 0.00403182984159936
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.begg1989::002::DL",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.begg1989::002::DL",
+      "app": 11,
+      "reference": 15,
+      "difference": 4
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.begg1989::002::DL",
+      "app": 0.19448922824522075,
+      "reference": 0.1962983368939982,
+      "difference": 0.0018091086487774521
+    },
+    {
+      "quantity": "summary_min_est",
+      "key": "dat.begg1989::002::DL",
+      "app": 0.08898164577490315,
+      "reference": 0.049999999999999996,
+      "difference": 0.03898164577490316
+    },
+    {
+      "quantity": "summary_max_est",
+      "key": "dat.begg1989::002::DL",
+      "app": 0.2623964608828901,
+      "reference": 0.27,
+      "difference": 0.007603539117109925
+    },
+    {
+      "quantity": "summary_q75_est",
+      "key": "dat.begg1989::002::DL",
+      "app": 0.22700841953795364,
+      "reference": 0.231040249379553,
+      "difference": 0.00403182984159936
+    },
+    {
+      "quantity": "coverage",
+      "key": "dat.berkey1998::001::FE",
+      "app": false,
+      "reference": true,
+      "difference": 1
+    },
+    {
+      "quantity": "summary_n_subsets",
+      "key": "dat.berkey1998::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "difference": 10
+    },
+    {
+      "quantity": "summary_median_est",
+      "key": "dat.berkey1998::001::FE",
+      "app": -0.1710901991073124,
+      "reference": -0.17064194170028987,
+      "difference": 0.00044825740702253425
+    },
+    {
+      "quantity": "summary_median_i2",
+      "key": "dat.berkey1998::001::FE",
+      "app": 97.93280402788535,
+      "reference": 97.8892717300524,
+      "difference": 0.0004353229783295376
+    }
+  ],
+  "coverage": [
+    {
+      "key": "dat.aloe2013::001::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.aloe2013::001::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.aloe2013::002::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.aloe2013::002::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.aloe2013::003::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.aloe2013::003::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.anand1999::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.anand1999::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.anand1999::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.anand1999::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.anker2025::001::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::001::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::002::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::002::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::003::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::003::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::004::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.anker2025::004::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.assink2016::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4932
+    },
+    {
+      "key": "dat.assink2016::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4932
+    },
+    {
+      "key": "dat.axfors2021::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.axfors2021::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.baker2009::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4901
+    },
+    {
+      "key": "dat.baker2009::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4901
+    },
+    {
+      "key": "dat.bangertdrowns2004::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bangertdrowns2004::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4856
+    },
+    {
+      "key": "dat.bartos2023::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.bartos2023::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.baskerville2012::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.baskerville2012::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.bassler2004::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.bassler2004::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.bassler2004::002::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.bassler2004::002::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.bauer2002::001::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.bauer2002::001::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.bauer2002::002::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.bauer2002::002::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.bcg::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.bcg::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.begg1989::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.begg1989::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.begg1989::002::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.begg1989::002::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.berkey1998::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.berkey1998::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.berkey1998r::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.berkey1998r::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.bonett2010::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bonett2010::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bonett2010::002::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bonett2010::002::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bonett2010::003::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bonett2010::003::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.bornmann2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4894
+    },
+    {
+      "key": "dat.bornmann2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4894
+    },
+    {
+      "key": "dat.bourassa1996::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.bourassa1996::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.cannon2006::001::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::001::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::002::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::002::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::003::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::003::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::004::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::004::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::005::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::005::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::006::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::006::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::007::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.cannon2006::007::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.chiarito2020::001::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::001::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::002::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::002::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::003::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::003::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::004::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::004::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.chiarito2020::005::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.chiarito2020::005::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.chiarito2020::006::FE",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.chiarito2020::006::DL",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.cohen1981::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.cohen1981::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.colditz1994::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.colditz1994::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.collins1985a::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.collins1985a::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.collins1985a::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.collins1985a::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.collins1985a::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.collins1985a::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.collins1985a::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.collins1985a::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.collins1985a::005::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.collins1985a::005::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.collins1985a::006::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.collins1985a::006::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.collins1985b::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::002::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::002::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::003::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::003::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.collins1985b::004::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.collins1985b::004::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.collins1985b::005::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.collins1985b::005::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.craft2003::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4870
+    },
+    {
+      "key": "dat.craft2003::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4870
+    },
+    {
+      "key": "dat.crede2010::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4937
+    },
+    {
+      "key": "dat.crede2010::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4937
+    },
+    {
+      "key": "dat.crisafulli2020::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4487
+    },
+    {
+      "key": "dat.crisafulli2020::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4487
+    },
+    {
+      "key": "dat.curtin2002::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4210
+    },
+    {
+      "key": "dat.curtin2002::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4210
+    },
+    {
+      "key": "dat.dagostino1998::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.dagostino1998::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.dagostino1998::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4899
+    },
+    {
+      "key": "dat.dagostino1998::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4899
+    },
+    {
+      "key": "dat.dagostino1998::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.dagostino1998::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4692
+    },
+    {
+      "key": "dat.damico2009::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.damico2009::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.damico2009::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.damico2009::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.debruin2009::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.debruin2009::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.demir2022::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.demir2022::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.dogliotti2014::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4539
+    },
+    {
+      "key": "dat.dogliotti2014::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4539
+    },
+    {
+      "key": "dat.dong2013::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4888
+    },
+    {
+      "key": "dat.dong2013::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4888
+    },
+    {
+      "key": "dat.dorn2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.dorn2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.dumouchel1994::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.dumouchel1994::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.egger2001::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.egger2001::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.egger2001::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.egger2001::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.feng2019::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.feng2019::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.feng2019::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.feng2019::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.fine1993::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.fine1993::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.fine1993::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.fine1993::005::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.fine1993::005::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.franchini2012::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.franchini2012::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.frank2008::001::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::001::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::002::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::002::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::003::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::003::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::004::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.frank2008::004::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.furukawa2003::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.furukawa2003::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.furukawa2003::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.furukawa2003::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.furukawa2003::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.furukawa2003::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.gibson2002::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.gibson2002::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.gibson2002::002::FE",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.gibson2002::002::DL",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.gibson2002::003::FE",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.gibson2002::003::DL",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.gibson2002::004::FE",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.gibson2002::004::DL",
+      "app": 120,
+      "reference": 127,
+      "missing": 7,
+      "extra": 0,
+      "missing_singletons": 7,
+      "unique_app_memberships": 120
+    },
+    {
+      "key": "dat.graves2010::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.graves2010::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.greb2008::001::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.greb2008::001::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.greb2008::002::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.greb2008::002::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.greenland1992::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.greenland1992::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.gurusamy2011::001::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.gurusamy2011::001::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.hackshaw1998::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.hackshaw1998::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.hahn2001::001::FE",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.hahn2001::001::DL",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.hahn2001::002::FE",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.hahn2001::002::DL",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.hannum2020::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4708
+    },
+    {
+      "key": "dat.hannum2020::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4708
+    },
+    {
+      "key": "dat.hannum2020::002::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hannum2020::002::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hannum2020::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4589
+    },
+    {
+      "key": "dat.hannum2020::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4589
+    },
+    {
+      "key": "dat.hart1999::001::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hart1999::001::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hart1999::002::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hart1999::002::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hasselblad1998::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4837
+    },
+    {
+      "key": "dat.hasselblad1998::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4837
+    },
+    {
+      "key": "dat.hasselblad1998::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4487
+    },
+    {
+      "key": "dat.hasselblad1998::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4487
+    },
+    {
+      "key": "dat.higgins2008::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.higgins2008::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.higgins2008::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.higgins2008::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.hine1989::001::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hine1989::001::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hine1989::002::FE",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.hine1989::002::DL",
+      "app": 57,
+      "reference": 63,
+      "missing": 6,
+      "extra": 0,
+      "missing_singletons": 6,
+      "unique_app_memberships": 57
+    },
+    {
+      "key": "dat.huber2000::001::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.huber2000::001::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.ishak2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.ishak2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.ishak2007::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.ishak2007::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.ishak2007::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.ishak2007::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4450
+    },
+    {
+      "key": "dat.ishak2007::004::FE",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.ishak2007::004::DL",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.kalaian1996::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4883
+    },
+    {
+      "key": "dat.kalaian1996::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4883
+    },
+    {
+      "key": "dat.karner2014::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::002::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.karner2014::002::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.karner2014::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4210
+    },
+    {
+      "key": "dat.karner2014::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4210
+    },
+    {
+      "key": "dat.karner2014::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.karner2014::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.karner2014::005::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::005::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::006::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::006::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::007::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::007::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::008::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.karner2014::008::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.kearon1998::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.kearon1998::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.kearon1998::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.kearon1998::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.kearon1998::003::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.kearon1998::003::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.kearon1998::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.kearon1998::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.knapp2017::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4894
+    },
+    {
+      "key": "dat.knapp2017::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4894
+    },
+    {
+      "key": "dat.konstantopoulos2011::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4854
+    },
+    {
+      "key": "dat.konstantopoulos2011::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4854
+    },
+    {
+      "key": "dat.landenberger2005::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4851
+    },
+    {
+      "key": "dat.landenberger2005::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4851
+    },
+    {
+      "key": "dat.laopaiboon2015::001::FE",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.laopaiboon2015::001::DL",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.lau1992::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.lau1992::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.lau1992::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.lau1992::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.lee2004::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.lee2004::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.lehmann2018::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4906
+    },
+    {
+      "key": "dat.lehmann2018::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4906
+    },
+    {
+      "key": "dat.lehmann2018::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4791
+    },
+    {
+      "key": "dat.lehmann2018::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4791
+    },
+    {
+      "key": "dat.lehmann2018::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4689
+    },
+    {
+      "key": "dat.lehmann2018::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4689
+    },
+    {
+      "key": "dat.li2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.li2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.li2007::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.li2007::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4323
+    },
+    {
+      "key": "dat.linde2005::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.linde2005::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.linde2005::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.linde2005::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4424
+    },
+    {
+      "key": "dat.linde2015::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4903
+    },
+    {
+      "key": "dat.linde2015::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4903
+    },
+    {
+      "key": "dat.linde2015::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4882
+    },
+    {
+      "key": "dat.linde2015::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4882
+    },
+    {
+      "key": "dat.lloyd2010::001::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.lloyd2010::001::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.lloyd2010::002::FE",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.lloyd2010::002::DL",
+      "app": 26,
+      "reference": 31,
+      "missing": 5,
+      "extra": 0,
+      "missing_singletons": 5,
+      "unique_app_memberships": 26
+    },
+    {
+      "key": "dat.lloyd2010::003::FE",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.lloyd2010::003::DL",
+      "app": 8178,
+      "reference": 8191,
+      "missing": 13,
+      "extra": 0,
+      "missing_singletons": 13,
+      "unique_app_memberships": 8178
+    },
+    {
+      "key": "dat.lloyd2010::004::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.lloyd2010::004::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.lopez2019::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.lopez2019::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.maire2019::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4708
+    },
+    {
+      "key": "dat.maire2019::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4708
+    },
+    {
+      "key": "dat.meeker2017::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.meeker2017::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.michael2013::001::FE",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.michael2013::001::DL",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.michael2013::002::FE",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.michael2013::002::DL",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.molloy2014::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.molloy2014::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3648
+    },
+    {
+      "key": "dat.moore1998::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.moore1998::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.moore1998::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.moore1998::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.nakagawa2007::001::FE",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.nakagawa2007::001::DL",
+      "app": 32752,
+      "reference": 32767,
+      "missing": 15,
+      "extra": 0,
+      "missing_singletons": 15,
+      "unique_app_memberships": 32752
+    },
+    {
+      "key": "dat.nielweise2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.nielweise2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.nielweise2007::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3964
+    },
+    {
+      "key": "dat.nielweise2007::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3964
+    },
+    {
+      "key": "dat.nielweise2008::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.nielweise2008::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.nissen2007::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4734
+    },
+    {
+      "key": "dat.nissen2007::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4734
+    },
+    {
+      "key": "dat.nissen2007::004::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.nissen2007::004::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.nissen2007::005::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::005::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::006::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.nissen2007::006::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4783
+    },
+    {
+      "key": "dat.normand1999::001::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.normand1999::001::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.normand1999::002::FE",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.normand1999::002::DL",
+      "app": 502,
+      "reference": 511,
+      "missing": 9,
+      "extra": 0,
+      "missing_singletons": 9,
+      "unique_app_memberships": 502
+    },
+    {
+      "key": "dat.obrien2003::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.obrien2003::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4624
+    },
+    {
+      "key": "dat.obrien2003::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4780
+    },
+    {
+      "key": "dat.obrien2003::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4780
+    },
+    {
+      "key": "dat.pagliaro1992::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.pagliaro1992::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.pagliaro1992::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4870
+    },
+    {
+      "key": "dat.pagliaro1992::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4870
+    },
+    {
+      "key": "dat.pignon2000::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4891
+    },
+    {
+      "key": "dat.pignon2000::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4891
+    },
+    {
+      "key": "dat.poole2003::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.poole2003::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.poole2003::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.poole2003::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.pritz1997::001::FE",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.pritz1997::001::DL",
+      "app": 4083,
+      "reference": 4095,
+      "missing": 12,
+      "extra": 0,
+      "missing_singletons": 12,
+      "unique_app_memberships": 4083
+    },
+    {
+      "key": "dat.pritz1997::002::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.pritz1997::002::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.pritz1997::003::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.pritz1997::003::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.pritz1997::004::FE",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.pritz1997::004::DL",
+      "app": 16369,
+      "reference": 16383,
+      "missing": 14,
+      "extra": 0,
+      "missing_singletons": 14,
+      "unique_app_memberships": 16369
+    },
+    {
+      "key": "dat.quan2000::001::FE",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.quan2000::001::DL",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.quan2000::002::FE",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.quan2000::002::DL",
+      "app": 2036,
+      "reference": 2047,
+      "missing": 11,
+      "extra": 0,
+      "missing_singletons": 11,
+      "unique_app_memberships": 2036
+    },
+    {
+      "key": "dat.raudenbush1985::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.raudenbush1985::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4053
+    },
+    {
+      "key": "dat.riley2003::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4934
+    },
+    {
+      "key": "dat.riley2003::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4934
+    },
+    {
+      "key": "dat.rivera2025::001::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::001::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::002::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::002::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::003::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::003::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::004::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::004::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::005::FE",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.rivera2025::005::DL",
+      "app": 1013,
+      "reference": 1023,
+      "missing": 10,
+      "extra": 0,
+      "missing_singletons": 10,
+      "unique_app_memberships": 1013
+    },
+    {
+      "key": "dat.roever2022::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.roever2022::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4721
+    },
+    {
+      "key": "dat.senn2013::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4859
+    },
+    {
+      "key": "dat.senn2013::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4859
+    },
+    {
+      "key": "dat.senn2013::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4539
+    },
+    {
+      "key": "dat.senn2013::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4539
+    },
+    {
+      "key": "dat.spooner2002::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.spooner2002::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.spooner2002::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.spooner2002::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 3812
+    },
+    {
+      "key": "dat.steurer2006::001::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.steurer2006::001::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.steurer2006::002::FE",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.steurer2006::002::DL",
+      "app": 11,
+      "reference": 15,
+      "missing": 4,
+      "extra": 0,
+      "missing_singletons": 4,
+      "unique_app_memberships": 11
+    },
+    {
+      "key": "dat.stowe2010::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4635
+    },
+    {
+      "key": "dat.stowe2010::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4635
+    },
+    {
+      "key": "dat.thompson1999::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.thompson1999::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.thompson1999::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.thompson1999::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4546
+    },
+    {
+      "key": "dat.tian2009::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.tian2009::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4394
+    },
+    {
+      "key": "dat.tian2009::002::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.tian2009::002::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.tian2009::003::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.tian2009::003::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4923
+    },
+    {
+      "key": "dat.ursino2021::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4812
+    },
+    {
+      "key": "dat.ursino2021::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4812
+    },
+    {
+      "key": "dat.vanhowe1999::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.vanhowe1999::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4632
+    },
+    {
+      "key": "dat.viechtbauer2021::001::FE",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.viechtbauer2021::001::DL",
+      "app": 5000,
+      "reference": 5000,
+      "missing": 0,
+      "extra": 0,
+      "missing_singletons": 0,
+      "unique_app_memberships": 4142
+    },
+    {
+      "key": "dat.woods2010::001::FE",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    },
+    {
+      "key": "dat.woods2010::001::DL",
+      "app": 247,
+      "reference": 255,
+      "missing": 8,
+      "extra": 0,
+      "missing_singletons": 8,
+      "unique_app_memberships": 247
+    }
+  ],
+  "refusals": [
+    {
+      "key": "dat.bakdash2021::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 678
+    },
+    {
+      "key": "dat.bakdash2021::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 678
+    },
+    {
+      "key": "dat.besson2016::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 389
+    },
+    {
+      "key": "dat.besson2016::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 389
+    },
+    {
+      "key": "dat.curtis1998::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 102
+    },
+    {
+      "key": "dat.curtis1998::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 102
+    },
+    {
+      "key": "dat.hartmannboyce2018::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 136
+    },
+    {
+      "key": "dat.hartmannboyce2018::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 136
+    },
+    {
+      "key": "dat.lim2014::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 170
+    },
+    {
+      "key": "dat.lim2014::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 170
+    },
+    {
+      "key": "dat.linde2016::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 124
+    },
+    {
+      "key": "dat.linde2016::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 124
+    },
+    {
+      "key": "dat.mccurdy2020::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 1653
+    },
+    {
+      "key": "dat.mccurdy2020::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 1653
+    },
+    {
+      "key": "dat.mcdaniel1994::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 160
+    },
+    {
+      "key": "dat.mcdaniel1994::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 160
+    },
+    {
+      "key": "dat.mcdaniel1994::002::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 160
+    },
+    {
+      "key": "dat.mcdaniel1994::002::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 160
+    },
+    {
+      "key": "dat.moura2021::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 1828
+    },
+    {
+      "key": "dat.moura2021::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 1828
+    },
+    {
+      "key": "dat.tannersmith2016::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 113
+    },
+    {
+      "key": "dat.tannersmith2016::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 113
+    },
+    {
+      "key": "dat.white2020::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 186
+    },
+    {
+      "key": "dat.white2020::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 186
+    },
+    {
+      "key": "dat.yusuf1985::001::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 118
+    },
+    {
+      "key": "dat.yusuf1985::001::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 118
+    },
+    {
+      "key": "dat.yusuf1985::002::FE",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 118
+    },
+    {
+      "key": "dat.yusuf1985::002::DL",
+      "reason": "k > 100 page limit; R fit not attempted",
+      "k": 118
+    }
+  ],
+  "page_errors": []
+}

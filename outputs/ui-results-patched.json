@@ -1,0 +1,280 @@
+{
+  "variant": "patched",
+  "total": 21586,
+  "passing": 21586,
+  "quantities": {
+    "axis_automatic_count": {
+      "checks": 2,
+      "passing": 2
+    },
+    "axis_automatic_x": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "axis_automatic_y": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "axis_error_axis": {
+      "checks": 8,
+      "passing": 8
+    },
+    "axis_error_empty_svg": {
+      "checks": 8,
+      "passing": 8
+    },
+    "axis_error_no_success": {
+      "checks": 8,
+      "passing": 8
+    },
+    "axis_error_recovery": {
+      "checks": 16,
+      "passing": 16
+    },
+    "axis_error_retained": {
+      "checks": 16,
+      "passing": 16
+    },
+    "axis_error_visible": {
+      "checks": 8,
+      "passing": 8
+    },
+    "axis_exports_unchanged": {
+      "checks": 22,
+      "passing": 22
+    },
+    "axis_override_count": {
+      "checks": 22,
+      "passing": 22
+    },
+    "axis_override_x": {
+      "checks": 2196,
+      "passing": 2196
+    },
+    "axis_override_y": {
+      "checks": 2196,
+      "passing": 2196
+    },
+    "draw_error_bounds": {
+      "checks": 10,
+      "passing": 10
+    },
+    "draw_error_cleared_results": {
+      "checks": 10,
+      "passing": 10
+    },
+    "draw_error_draws": {
+      "checks": 10,
+      "passing": 10
+    },
+    "draw_error_integer": {
+      "checks": 10,
+      "passing": 10
+    },
+    "draw_error_no_success": {
+      "checks": 10,
+      "passing": 10
+    },
+    "draw_error_recovery": {
+      "checks": 20,
+      "passing": 20
+    },
+    "draw_error_visible": {
+      "checks": 10,
+      "passing": 10
+    },
+    "numeric_matrix_axis_labels": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_circles": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_count": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_declarations": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_draws": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_error": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_exports": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_geometry": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_i2": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_k": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_max_est": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_median": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_median_est": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_median_i2": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_min_est": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_n_subsets": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_note": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_plot_empty": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_plot_error": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_q25_est": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_q75_est": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_src": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_studies": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_x_ticks": {
+      "checks": 76,
+      "passing": 76
+    },
+    "numeric_matrix_y_ticks": {
+      "checks": 76,
+      "passing": 76
+    },
+    "omission_message_no_success": {
+      "checks": 14,
+      "passing": 14
+    },
+    "omission_message_outside": {
+      "checks": 14,
+      "passing": 14
+    },
+    "omission_message_subsets": {
+      "checks": 14,
+      "passing": 14
+    },
+    "omission_notice_count": {
+      "checks": 14,
+      "passing": 14
+    },
+    "omission_notice_presence": {
+      "checks": 24,
+      "passing": 24
+    },
+    "option_I2": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "option_Q": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "option_k": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "option_mu": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "option_subset_membership": {
+      "checks": 2000,
+      "passing": 2000
+    },
+    "option_summary_max_est": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_median_est": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_median_i2": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_min_est": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_n_subsets": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_q25_est": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_summary_q75_est": {
+      "checks": 2,
+      "passing": 2
+    },
+    "option_tau2": {
+      "checks": 1000,
+      "passing": 1000
+    },
+    "sample_count": {
+      "checks": 2,
+      "passing": 2
+    },
+    "sample_prefix": {
+      "checks": 2,
+      "passing": 2
+    },
+    "seed_replay": {
+      "checks": 2,
+      "passing": 2
+    },
+    "uninstrumented_point_count": {
+      "checks": 2,
+      "passing": 2
+    },
+    "uninstrumented_summary": {
+      "checks": 2,
+      "passing": 2
+    }
+  },
+  "failures": []
+}

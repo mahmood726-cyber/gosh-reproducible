@@ -1,0 +1,165 @@
+_G_O_S_H _P_l_o_t_s _f_o_r '_r_m_a' _O_b_j_e_c_t_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Function to create GOSH plots for objects of class '"rma"'.
+
+_U_s_a_g_e:
+
+     gosh(x, ...)
+     
+     ## S3 method for class 'rma'
+     gosh(x, subsets, progbar=TRUE, parallel="no", ncpus=1, cl, ...)
+     
+_A_r_g_u_m_e_n_t_s:
+
+       x: an object of class '"rma"'.
+
+ subsets: optional integer to specify the number of subsets.
+
+ progbar: logical to specify whether a progress bar should be shown
+          (the default is 'TRUE').
+
+parallel: character string to specify whether parallel processing
+          should be used (the default is '"no"'). For parallel
+          processing, set to either '"snow"' or '"multicore"'. See
+          'Note'.
+
+   ncpus: integer to specify the number of processes to use in the
+          parallel processing.
+
+      cl: optional cluster to use if 'parallel="snow"'. If unspecified,
+          a cluster on the local machine is created for the duration of
+          the call.
+
+     ...: other arguments.
+
+_D_e_t_a_i_l_s:
+
+     The model specified via 'x' must be a model fitted with either the
+     'rma.uni', 'rma.mh', or 'rma.peto' functions.
+
+     Olkin et al. (2012) proposed the GOSH (graphical display of study
+     heterogeneity) plot, which is based on examining the results of an
+     equal-effects model in all possible subsets of size 1, ..., k of
+     the k studies included in a meta-analysis. In a homogeneous set of
+     studies, the pooled estimates obtained this way should form a
+     roughly symmetric, contiguous, and unimodal distribution. On the
+     other hand, when the distribution is multimodal, then this
+     suggests the presence of heterogeneity, possibly due to outliers
+     and/or distinct subgroups of studies. Plotting the pooled
+     estimates against some measure of heterogeneity (e.g., I^2, H^2,
+     or the Q-statistic) can also help to reveal subclusters, which are
+     indicative of heterogeneity. The same type of plot can be produced
+     by first fitting an equal-effects model with either the 'rma.uni'
+     (using 'method="EE"'), 'rma.mh', or 'rma.peto' functions and then
+     passing the fitted model object to the 'gosh' function and then
+     plotting the results.
+
+     For models fitted with the 'rma.uni' function (which may be
+     random-effects or mixed-effects meta-regressions models), the idea
+     underlying this type of plot can be generalized (Viechtbauer,
+     2021) by examining the distribution of all model coefficients,
+     plotting them against each other, and against some measure of
+     (residual) heterogeneity (including the estimate of tau^2 or its
+     square root).
+
+     Note that for models without moderators, application of the method
+     requires fitting a total of 2^k - 1 models, which could be an
+     excessively large number when k is large. For example, for k=10,
+     there are only 1023 possible subsets, but for k=20, this number
+     already grows to 1,048,575. For even larger k, it may become
+     computationally infeasible to consider all possible subsets.
+     Instead, we can then examine (a sufficiently large number of)
+     random subsets.
+
+     By default, if the number of possible subsets is <= 10^6, the
+     function will consider all possible subsets and otherwise 10^6
+     random subsets. One can use the 'subsets' argument to specify a
+     different number of subsets to consider. If 'subsets' is specified
+     and it is actually larger than the number of possible subsets,
+     then the function automatically only considers the possible
+     subsets and does not use random subsets.
+
+     When 'x' is an equal-effects model or a random-effects model
+     fitted using 'method="DL"', provisions have been made to speed up
+     the model fitting to the various subsets. For random-effects
+     models using some other estimator of tau^2 (especially an
+     iterative one like 'method="REML"'), the computations will be
+     considerably slower.
+
+_V_a_l_u_e:
+
+     An object of class '"gosh.rma"'. The object is a list containing
+     the following components:
+
+     res: a data frame with the results for each subset (including
+          various heterogeneity statistics and the model
+          coefficient(s)).
+
+    incl: a matrix indicating which studies were included in which
+          subset.
+
+     ...: some additional elements/values.
+
+     The results can be printed with the 'print' function and plotted
+     with the 'plot' function.
+
+_N_o_t_e:
+
+     On machines with multiple cores, one can try to speed things up by
+     delegating the model fitting to separate worker processes, that
+     is, by setting 'parallel="snow"' or 'parallel="multicore"' and
+     'ncpus' to some value larger than 1. Parallel processing makes use
+     of the 'parallel' package, using the 'makePSOCKcluster' and
+     'parLapply' functions when 'parallel="snow"' or using 'mclapply'
+     when 'parallel="multicore"' (the latter only works on
+     Unix/Linux-alikes).
+
+_A_u_t_h_o_r(_s):
+
+     Wolfgang Viechtbauer (<mailto:wvb@metafor-project.org>,
+     <http<LOCAL_PATH>>).
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Olkin, I., Dahabreh, I. J., & Trikalinos, T. A. (2012). GOSH - a
+     graphical display of study heterogeneity. _Research Synthesis
+     Methods_, *3*(3), 214-223. http<LOCAL_PATH>
+
+     Viechtbauer, W. (2010). Conducting meta-analyses in R with the
+     metafor package. _Journal of Statistical Software_, *36*(3), 1-48.
+     http<LOCAL_PATH>
+
+     Viechtbauer, W. (2021). Model checking in meta-analysis. In C. H.
+     Schmid, T. Stijnen, & I. R. White (Eds.), _Handbook of
+     meta-analysis_ (pp. 219-254). Boca Raton, FL: CRC Press.
+     http<LOCAL_PATH>
+
+_S_e_e _A_l_s_o:
+
+     'rma.uni', 'rma.mh', and 'rma.peto' for functions to fit models
+     for which GOSH plots can be drawn.
+
+     'influence' for other model diagnostics.
+
+_E_x_a_m_p_l_e_s:
+
+     ### calculate log odds ratios and corresponding sampling variances
+     dat <- escalc(measure="OR", ai=ai, n1i=n1i, ci=ci, n2i=n2i, data=dat.egger2001)
+     
+     ### meta-analysis of all trials including ISIS-4 using an equal-effects model
+     res <- rma(yi, vi, data=dat, method="EE")
+     
+     ### fit FE model to all possible subsets (65535 models)
+     ## Not run:
+     
+     sav <- gosh(res, progbar=FALSE)
+     sav
+     
+     ### create GOSH plot
+     ### red points for subsets that include and blue points
+     ### for subsets that exclude study 16 (the ISIS-4 trial)
+     plot(sav, out=16, breaks=100)
+     ## End(Not run)
+     

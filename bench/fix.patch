@@ -1,0 +1,1086 @@
+diff --git a/gosh/index.html b/gosh/index.html
+index acd5a92..4ca2132 100644
+--- a/gosh/index.html
++++ b/gosh/index.html
+@@ -112,8 +112,9 @@
+       </label>
+       <label id="sample-label" style="display:none">
+         <span>Random subsets to draw (k &gt; 15)</span>
+-        <input id="n-sample" type="number" step="1000" min="1000" value="5000" aria-label="metafor default: 10&amp;#160;000. Larger = more accurate density but slower.">
+-        <span class="hint">metafor default: 10&#160;000. Larger = more accurate density but slower.</span>
++        <input id="n-sample" type="number" step="1" min="1" max="100000" value="5000" aria-describedby="sample-error" aria-label="App default: 5,000 draws. Larger = more accurate density but slower.">
++        <span class="hint">App default: 5,000 draws; enter a whole number from 1 to 100,000 (cap limits browser workload). Uniform subset size from 2 to k, with replacement. This differs from metafor.</span>
++        <span id="sample-error" role="alert"></span>
+       </label>
+ 
+       <button type="button" id="btn-run" class="primary" style="width:100%">Compute</button>
+@@ -136,6 +137,8 @@
+         <div class="card"><span class="k">Median <span data-gloss="i2">I&#178;</span></span><span class="v" id="m-i2">&#8212;</span></div>
+       </div>
+       <h2 style="margin-top:0.6rem">GOSH scatter</h2>
++      <p id="plot-error" role="alert"></p>
++      <p id="plot-note" role="status"></p>
+       <svg id="plot" viewBox="0 0 600 420" role="img" aria-label="GOSH plot &#8212; pooled effect vs I&#178; across all subsets"></svg>
+ 
+       <!-- chart-download mount -->
+@@ -156,7 +159,7 @@
+       <div id="alm-flow-mount" aria-live="polite"></div>
+ </main>
+   <footer>
+-    Olkin I, Dahabreh IJ, Trikalinos TA. GOSH &#8212; a graphical display of study heterogeneity. <em>Res Synth Methods</em> 2012;3(3):214&#8211;23. Subgroup structure interpretation aligns with <em>Cochrane Handbook v6.5 &#167;10.10.2</em> on detecting influential studies; <span data-gloss="i2">I&#178;</span> interpretation per &#167;10.10.2 (low &lt;30%, moderate 30&#8211;60%, substantial 50&#8211;90%, considerable 75&#8211;100%). For k &gt; 15 the all-subset enumeration is replaced by random sampling; this matches <code>metafor::gosh()</code> default behaviour. R-parity: full enumeration (k=5, 26 subsets) verified against <code>metafor::gosh(rma.uni(yi, vi, method="FE"))</code>; median FE estimate = 0.2217 (tol=1e-4), 26 subsets (see <code>tests/fixtures/gosh-tiny.R</code>).
++    Olkin I, Dahabreh IJ, Trikalinos TA. GOSH &#8212; a graphical display of study heterogeneity. <em>Res Synth Methods</em> 2012;3(3):214&#8211;23. Subgroup structure interpretation aligns with <em>Cochrane Handbook v6.5 &#167;10.10.2</em> on detecting influential studies; <span data-gloss="i2">I&#178;</span> interpretation per &#167;10.10.2 (low &lt;30%, moderate 30&#8211;60%, substantial 50&#8211;90%, considerable 75&#8211;100%). For k &gt; 15 this app draws 5,000 subsets by default, choosing sizes uniformly from 2 to k, with replacement, using a fixed seed. This differs from <code>metafor::gosh()</code>, which enumerates all non-empty subsets when 2^k - 1 is at most 1,000,000 (k up to 19), and otherwise draws 1,000,000 subsets by default with binomial size probabilities. Full enumeration here includes single-study subsets.
+   </footer>
+   <script>
+   (function () {
+@@ -200,7 +203,6 @@
+       for (var m = 1; m <= total; m++) {
+         var subset = [];
+         for (var i = 0; i < k; i++) { if (m & (1 << i)) subset.push(rows[i]); }
+-        if (subset.length < 2) continue;
+         var p = pool(subset, model);
+         results.push({ mu: p.mu, I2: p.I2, k: subset.length });
+       }
+@@ -251,12 +253,20 @@
+     var _lastResults = null;
+ 
+     function run() {
++      document.getElementById('plot-note').textContent = '';
++      document.getElementById('plot-error').textContent = '';
+       var text = document.getElementById('src').value;
+       var model = document.getElementById('model').value;
+       var rows = parse(text);
++      var sampleError = document.getElementById('sample-error');
++      sampleError.textContent = '';
+       if (rows.length < 3 || rows.length > 100) {
+         document.getElementById('m-n').textContent = '—';
+         _lastResults = null; // do not leave a stale result exportable
++        document.getElementById('m-est').textContent = '\u2014';
++        document.getElementById('m-i2').textContent = '\u2014';
++        document.getElementById('plot').innerHTML = '';
++        document.getElementById('sample-label').style.display = 'none';
+         return;
+       }
+ 
+@@ -267,7 +277,17 @@
+ 
+       var results;
+       if (isSampled) {
+-        var nSample = parseInt(document.getElementById('n-sample').value, 10) || 5000;
++        var rawSample = document.getElementById('n-sample').value.trim();
++        var nSample = Number(rawSample);
++        if (rawSample === '' || !Number.isInteger(nSample) || nSample < 1 || nSample > 100000) {
++          sampleError.textContent = 'Enter a whole number of draws from 1 to 100,000.';
++          document.getElementById('m-n').textContent = '0';
++          _lastResults = null;
++          document.getElementById('m-est').textContent = '\u2014';
++          document.getElementById('m-i2').textContent = '\u2014';
++          document.getElementById('plot').innerHTML = '';
++          return;
++        }
+         results = sampledSubsets(rows, nSample, model);
+       } else {
+         results = allSubsets(rows, model);
+@@ -276,6 +296,10 @@
+       if (results.length === 0) {
+         document.getElementById('m-n').textContent = '0';
+         _lastResults = null; // do not leave a stale result exportable
++        document.getElementById('m-est').textContent = '\u2014';
++        document.getElementById('m-i2').textContent = '\u2014';
++        document.getElementById('plot').innerHTML = '';
++        if (isSampled) sampleError.textContent = 'No sampled results. Adjust the draw count and try again.';
+         return;
+       }
+ 
+@@ -335,8 +359,15 @@
+ 
+       var xs = pts.map(function (p) { return p.mu; });
+       var xMin = Math.min.apply(null, xs), xMax = Math.max.apply(null, xs);
+-      var xPad = (xMax - xMin) * 0.1 || 0.1;
+-
++      // Scale first: finite extreme endpoints must not overflow on subtraction.
++      var scale = Math.max(Math.abs(xMin), Math.abs(xMax));
++      var xPad = scale ? Math.max((xMax / scale - xMin / scale) * 0.1, 8 * Number.EPSILON) * scale : 0.1;
++      // Preserve a representable padding step when multiplication underflows.
++      xPad = Math.max(xPad, Number.MIN_VALUE);
++
++      // Resolve final bounds once for both ticks and coordinate transforms.
++      xMin = Math.max(-Number.MAX_VALUE, xMin - xPad);
++      xMax = Math.min(Number.MAX_VALUE, xMax + xPad);
+       // Apply axis overrides
+       var yMin = 0, yMax = 100;
+       if (_axisState && Array.isArray(_axisState.y)) {
+@@ -344,38 +375,100 @@
+         if (_axisState.y[1] !== null) yMax = _axisState.y[1];
+       }
+       if (_axisState && Array.isArray(_axisState.x)) {
+-        if (_axisState.x[0] !== null) xMin = _axisState.x[0] - xPad;
+-        if (_axisState.x[1] !== null) xMax = _axisState.x[1] + xPad;
++        if (_axisState.x[0] !== null) xMin = _axisState.x[0];
++        if (_axisState.x[1] !== null) xMax = _axisState.x[1];
+       }
+ 
+-      var X = function (v) { return padL + (v - (xMin - xPad)) / ((xMax + xPad) - (xMin - xPad)) * plotW; };
+-      var Y = function (v) { return padT + (1 - (v - yMin) / (yMax - yMin)) * plotH; };
++      function epsilon(lo, hi) {
++        return 8 * Number.EPSILON * Math.max(1, Math.abs(lo), Math.abs(hi));
++      }
++      function fraction(v, lo, hi) {
++        var scale = Math.max(Math.abs(lo), Math.abs(hi));
++        return (v / scale - lo / scale) / (hi / scale - lo / scale);
++      }
++      function interpolate(lo, hi, f) {
++        return f === 0 ? lo : f === 1 ? hi : lo * (1 - f) + hi * f;
++      }
++      function snap(v, lo, hi) {
++        var eps = epsilon(lo, hi);
++        if (!Number.isFinite(v) || v < lo - eps || v > hi + eps) return null;
++        // Nearest edge wins when tolerance bands overlap at tiny scales.
++        var dl = Math.abs(v - lo), dh = Math.abs(v - hi);
++        if (Math.min(dl, dh) <= eps) return dl <= dh ? lo : hi;
++        return v;
++      }
++      function labels(ticks, fixedDigits) {
++        var magnitude = Math.max.apply(null, ticks.map(Math.abs));
++        var scientific = magnitude !== 0 && (magnitude < 1e-4 || magnitude >= 1e7);
++        for (var digits = scientific ? 2 : fixedDigits; digits <= 17; digits++) {
++          var values = ticks.map(function (v) { return scientific ? v.toExponential(digits) : v.toFixed(digits); });
++          if (values.every(function (v, i) { return i === 0 || ticks[i] === ticks[i - 1] || v !== values[i - 1]; })) return values;
++        }
++        return ticks.map(String);
++      }
++      var X = function (v) { return padL + fraction(v, xMin, xMax) * plotW; };
++      var Y = function (v) { return padT + (1 - fraction(v, yMin, yMax)) * plotH; };
+ 
+       // axes + grid
+       __svgParts.push('<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (padT + plotH) + '" stroke="currentColor" opacity="0.5"/>');
+       __svgParts.push('<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (padL + plotW) + '" y2="' + (padT + plotH) + '" stroke="currentColor" opacity="0.5"/>');
+-      var yTicks = [0, 25, 50, 75, 100];
++      var yTicks = [0, 0.25, 0.5, 0.75, 1].map(function (f) { return interpolate(yMin, yMax, f); });
++      var yLabels = labels(yTicks, 0);
+       for (var yi = 0; yi < yTicks.length; yi++) {
+         var yTick = yTicks[yi];
+         __svgParts.push('<line x1="' + padL + '" y1="' + Y(yTick) + '" x2="' + (padL + plotW) + '" y2="' + Y(yTick) + '" stroke="currentColor" opacity="0.07"/>');
+-        __svgParts.push('<text x="' + (padL - 8) + '" y="' + (Y(yTick) + 4) + '" text-anchor="end" font-size="11" fill="currentColor" opacity="0.7">' + yTick + '%</text>');
++        __svgParts.push('<text x="' + (padL - 8) + '" y="' + (Y(yTick) + 4) + '" text-anchor="end" font-size="11" fill="currentColor" opacity="0.7">' + yLabels[yi] + '%</text>');
+       }
+-      var xTicks = [xMin + xPad, (xMin + xMax) / 2, xMax];
++      var xTicks = [xMin, interpolate(xMin, xMax, 0.5), xMax];
++      var xLabels = labels(xTicks, 2);
+       for (var xi = 0; xi < xTicks.length; xi++) {
+         var t = xTicks[xi];
+         __svgParts.push('<line x1="' + X(t) + '" y1="' + (padT + plotH) + '" x2="' + X(t) + '" y2="' + (padT + plotH + 5) + '" stroke="currentColor" opacity="0.5"/>');
+-        __svgParts.push('<text x="' + X(t) + '" y="' + (padT + plotH + 18) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.7">' + t.toFixed(2) + '</text>');
++        __svgParts.push('<text x="' + X(t) + '" y="' + (padT + plotH + 18) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.7">' + xLabels[xi] + '</text>');
+       }
+       __svgParts.push('<text x="' + (padL + plotW / 2) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.8">Pooled effect</text>');
+       __svgParts.push('<text x="20" y="' + (padT + plotH / 2) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.8" transform="rotate(-90 20 ' + (padT + plotH / 2) + ')">I&#178;</text>');
+ 
+       // Points with alpha to show density
+       var alpha = Math.max(0.03, Math.min(0.3, 8 / Math.sqrt(pts.length)));
++      __svgParts.push('<defs><clipPath id="plot-clip"><rect x="60" y="20" width="520" height="350"/></clipPath></defs>');
++      var omitted = 0;
+       for (var pi = 0; pi < pts.length; pi++) {
+         var p = pts[pi];
+-        __svgParts.push('<circle cx="' + X(p.mu) + '" cy="' + Y(p.I2) + '" r="2" fill="var(--accent)" fill-opacity="' + alpha + '"/>');
++        var px = snap(p.mu, xMin, xMax), py = snap(p.I2, yMin, yMax);
++        if (px === null || py === null) { omitted++; continue; }
++        __svgParts.push('<circle clip-path="url(#plot-clip)" cx="' + X(px) + '" cy="' + Y(py) + '" r="2" fill="var(--accent)" fill-opacity="' + alpha + '"/>');
+       }
+-      svg.innerHTML = __svgParts.join('');
++      // One pre-render gate covers every emitted coordinate. Points belong
++      // inside the plot; axes, tick marks and label anchors inside the viewBox.
++      // Build off-DOM so a failed plot never reaches the visible SVG.
++      var markup = __svgParts.join('');
++      var valid = [xMin, xMax, yMin, yMax].every(Number.isFinite) &&
++        xMin < xMax && yMin < yMax;
++      var tags = markup.match(/<[^>]+>/g) || [];
++      tags.forEach(function (tag) {
++        var circle = tag.indexOf('<circle ') === 0;
++        var coordinates = /\b(x|x1|x2|cx|y|y1|y2|cy)="([^"]*)"/g;
++        var match;
++        while ((match = coordinates.exec(tag)) !== null) {
++          var horizontal = match[1].indexOf('x') !== -1;
++          var value = Number(match[2]);
++          var low = circle ? (horizontal ? padL : padT) : 0;
++          var high = circle ? (horizontal ? padL + plotW : padT + plotH) : (horizontal ? W : H);
++          if (!Number.isFinite(value) || value < low - epsilon(low, high) || value > high + epsilon(low, high)) valid = false;
++        }
++        // The only transform is rotation about an explicit label anchor.
++        var rotation = tag.match(/transform="rotate\(([^)]+)\)"/);
++        if (rotation) {
++          var values = rotation[1].split(/\s+/).map(Number);
++          if (values.length !== 3 || !values.every(Number.isFinite) ||
++              values[1] < 0 || values[1] > W || values[2] < 0 || values[2] > H) valid = false;
++        }
++      });
++      document.getElementById('plot-error').textContent = valid ? '' :
++        'Plot cannot be displayed: axis limits or coordinates are invalid or outside the plotting area. Widen or reset the limits. Computed results are retained.';
++      document.getElementById('plot-note').textContent = valid && omitted ? omitted + ' subset points outside the current axis range are omitted.' : '';
++      svg.innerHTML = valid ? markup : '';
+     }
+ 
+     // ---- snapshot/restore helpers for reset-undo ----
+@@ -395,7 +488,7 @@
+ 
+     // ---- CSV load: accept study,yi,vi or study,yi,sei columns ----
+     window.__almGoshLoad = function (rows) {
+-      if (!rows || rows.length < 1) return;
++      if (!rows || rows.length < 1) { document.getElementById('src').value = ''; run(); return; }
+       var lines = [];
+       rows.forEach(function (r) {
+         var te  = parseFloat(r.yi  !== undefined ? r.yi  : (r.effect !== undefined ? r.effect : (r.TE !== undefined ? r.TE : r.te)));
+@@ -410,7 +503,7 @@
+         var label = r.study || r.label || r.Study || '';
+         lines.push(te.toString() + ', ' + se.toString() + (label ? ', ' + label : ''));
+       });
+-      if (lines.length < 1) return;
++
+       document.getElementById('src').value = lines.join('\n');
+       run();
+     };
+diff --git a/gosh/tests/axis_oracle.py b/gosh/tests/axis_oracle.py
+new file mode 100644
+index 0000000..4581c9c
+--- /dev/null
++++ b/gosh/tests/axis_oracle.py
+@@ -0,0 +1,35 @@
++"""Independent oracle for documented SVG bounds, omission and endpoint snapping."""
++import math
++import sys
++
++
++def coordinates(points, requested):
++    lo = min(p['mu'] for p in points)
++    hi = max(p['mu'] for p in points)
++    scale = max(abs(lo), abs(hi))
++    pad = max(max((hi / scale - lo / scale) * .1, 8 * sys.float_info.epsilon) * scale,
++              math.ulp(0.0)) if scale else .1
++    bounds = {'x': [max(-sys.float_info.max, lo-pad), min(sys.float_info.max, hi+pad)],
++              'y': [0, 100]}
++    for axis, limits in requested.items():
++        bounds[axis] = [default if value is None else value
++                        for default, value in zip(bounds[axis], limits)]
++
++    def fraction(value, axis):
++        low, high = bounds[axis]
++        assert math.isfinite(low) and math.isfinite(high) and low < high
++        eps = 8 * sys.float_info.epsilon * max(1, abs(low), abs(high))
++        if not math.isfinite(value) or value < low-eps or value > high+eps:
++            return None
++        dl, dh = abs(value-low), abs(value-high)
++        if min(dl, dh) <= eps:
++            value = low if dl <= dh else high
++        scale = max(abs(low), abs(high))
++        return (value/scale-low/scale)/(high/scale-low/scale)
++
++    result = []
++    for point in points:
++        x, y = fraction(point['mu'], 'x'), fraction(point['I2'], 'y')
++        if x is not None and y is not None:
++            result.append([60+520*x, 20+350*(1-y)])
++    return result
+diff --git a/gosh/tests/page-probe.cjs b/gosh/tests/page-probe.cjs
+new file mode 100644
+index 0000000..0383ad4
+--- /dev/null
++++ b/gosh/tests/page-probe.cjs
+@@ -0,0 +1,141 @@
++// Execute the page's own inline engine; stub only DOM/shared UI plumbing.
++// Read-only observers record pool memberships and draw arguments. No formula,
++// enumeration, sampler, refusal or coordinate code is replaced.
++const fs = require('node:fs');
++const vm = require('node:vm');
++const html = fs.readFileSync(process.argv[2], 'utf8');
++const nodes = {};
++for (const m of html.matchAll(/<[^>]+\bid="([^"]+)"[^>]*>/g)) {
++  nodes[m[1]] = {value: m[0].match(/\bvalue="([^"]*)"/)?.[1] || '',
++    textContent: '', innerHTML: '', style: {},
++    addEventListener(event, fn) { this[event] = fn; }};
++}
++nodes.src.value = html.match(/<textarea[^>]*>([\s\S]*?)<\/textarea>/)[1];
++nodes.model.value = html.match(/<option value="([^"]+)" selected/)[1];
++const noop = () => {};
++let axisChange, points = [], memberships = [], pooled = [];
++const window = {alm: {csvUpload: noop, chartDownload: noop,
++  axisControls: options => { axisChange = options.onChange; },
++  resultsExport: noop, resetUndo: noop, tooltips: noop,
++  urlState: Object.assign(noop, {read: () => null, write: noop})}};
++let script = html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
++function observe(marker, observer) {
++  if (script.split(marker).length !== 2) throw new Error('Observer anchor changed: ' + marker);
++  script = script.replace(marker, marker + observer);
++}
++script = script.replace('function pool(rows, model) {', 'function originalPool(rows, model) {');
++script = script.replace('function originalPool(rows, model) {', 'function pool(rows, model) { const result = originalPool(rows, model); observePool(rows, result); return result; }\nfunction originalPool(rows, model) {');
++observe('function draw(pts) {', '\nobserveDraw(pts);');
++vm.runInNewContext(script, {window,
++  document: {getElementById(id) {
++    if (!nodes[id]) throw new Error('Unexpected DOM node: ' + id);
++    return nodes[id];
++  }},
++  observePool: (rows, result) => { memberships.push(rows.map(r => r.label)); pooled.push(result); },
++  observeDraw: pts => { points = JSON.parse(JSON.stringify(pts)); }
++}, {timeout: 10000});
++// Synthetic inputs are software fixtures, not clinical evidence.
++function data(k) {
++  return Array.from({length: k}, (_, i) => `${2 ** i}, 1, S${i}`).join('\n');
++}
++function snapshot() {
++  return JSON.parse(JSON.stringify({result: window._almLastGosh(),
++    count: nodes['m-n'].textContent, median: nodes['m-est'].textContent,
++    i2: nodes['m-i2'].textContent, svg: nodes.plot.innerHTML,
++    points, memberships, pooled, sampleVisible: nodes['sample-label'].style.display,
++    plotNote: nodes['plot-note']?.textContent || '',
++    plotError: nodes['plot-error']?.textContent || '',
++    error: nodes['sample-error']?.textContent || ''}));
++}
++function run(k, model = 'FE') {
++  points = []; memberships = []; pooled = [];
++  nodes.src.value = data(k); nodes.model.value = model;
++  nodes['btn-run'].click();
++  return snapshot();
++}
++const enumeration = {};
++for (const model of ['FE', 'DL']) for (const k of [4, 5]) {
++  enumeration[`${model}-${k}`] = run(k, model);
++}
++const defaultDraws = Number(nodes['n-sample'].value);
++const sampled = run(16);
++const sampleRecovery = ['-1000', '0', '2.5', '', '100001'].map(value => {
++  nodes['n-sample'].value = '5000';
++  const before = run(16);
++  nodes['n-sample'].value = value;
++  const refused = run(16);
++  nodes['n-sample'].value = '37';
++  const after = run(16);
++  return {value, before, refused, after};
++});
++nodes['n-sample'].value = String(defaultDraws);
++const recovery = [2, 101].map(k => {
++  const before = run(4), refused = run(k), after = run(4);
++  return {k, before, refused, after};
++});
++// Select effects that exist in both old and new enumerations, so this check
++// isolates the axis bug rather than depending on singleton inclusion.
++run(4);
++const limits = [1, 8]; // all points contained, including both endpoints
++points = []; memberships = []; pooled = [];
++axisChange({x: limits});
++const axis = {limits, ...snapshot()};
++const axisSweep = [
++  {x: [1.5, 2], y: [0, 1]},
++  {x: [-20, 20], y: [-10, 110]},
++  {x: [-2, -1.5], y: [0, 100]},
++  {x: [null, 2], y: [null, 1]},
++  {x: [1.5, null], y: [0, null]},
++  {}
++].map(limits => {
++  const negative = limits.x && limits.x[0] < 0 && limits.x[1] < 0;
++  nodes.src.value = (negative ? [-2, -1.8, -1.6, -1.5] : [1.5, 1.6, 1.8, 2])
++    .map((v, i) => `${v}, 1, S${i}`).join('\n');
++  axisChange(limits);
++  return {limits, ...snapshot()};
++});
++axisChange({});
++run(4);
++axisChange({x: [1.5, 2]});
++const excluded = snapshot();
++const invalidAxes = [];
++for (const model of ['FE','DL']) for (const [name,limits] of [
++ ['reversed-x',{x:[8,1]}], ['equal-y',{y:[50,50]}],
++ ['nan-x',{x:[NaN,8]}], ['infinite-y',{y:[0,Infinity]}]]) {
++ axisChange({}); const before=run(4,model);
++ axisChange(limits); const refused=snapshot();
++ axisChange({}); const after=snapshot();
++ invalidAxes.push({model,name,before,refused,after});
++}
++const axisRecovered = snapshot();
++const coordinateCases = [], messageRecovery = [], subnormal = [];
++for (const model of ['FE', 'DL']) {
++  axisChange({}); run(4, model);
++  const original = snapshot().result;
++  const maxI2 = Math.max(...snapshot().points.map(p => p.I2));
++  for (const limits of [{x:[1,8]}, {y:[0,90]}, {x:[1,8],y:[-10,110]},
++      {x:[null,4]}, {x:[2,null]}, {y:[10,null]}, {y:[null,50]},
++      {x:[1.5,2],y:[0,100]}, {y:[0,maxI2]}, {x:[2.5,4],y:[10,80]}]) {
++    axisChange(limits);
++    coordinateCases.push({model, limits, original, ...snapshot()});
++  }
++  for (const source of ['note', 'error']) for (const refusal of ['small','large','sample','empty-load','invalid-load']) {
++    axisChange({}); run(4, model);
++    axisChange(source === 'note' ? {x:[1.5,2]} : {x:[2,1]});
++    const before = snapshot();
++    if (refusal === 'small') run(2,model);
++    if (refusal === 'large') run(101,model);
++    if (refusal === 'sample') { nodes['n-sample'].value='0'; run(16,model); }
++    if (refusal === 'empty-load') window.__almGoshLoad([]);
++    if (refusal === 'invalid-load') window.__almGoshLoad([{yi:'bad',sei:1}]);
++    const refused = snapshot();
++    nodes['n-sample'].value=String(defaultDraws); axisChange({});
++    const after = run(4,model);
++    messageRecovery.push({model,source,refusal,before,refused,after});
++  }
++  axisChange({}); nodes.model.value=model;
++  nodes.src.value=Array(4).fill('5e-324, 1').join('\n'); nodes['btn-run'].click();
++  subnormal.push({model,...snapshot()});
++}
++console.log(JSON.stringify({enumeration, defaultDraws, sampled, sampleRecovery, recovery,
++  axis, axisSweep, excluded, invalidAxes, axisRecovered, coordinateCases, messageRecovery, subnormal, html}));
+diff --git a/gosh/tests/test_page_regressions.py b/gosh/tests/test_page_regressions.py
+new file mode 100644
+index 0000000..6b1667c
+--- /dev/null
++++ b/gosh/tests/test_page_regressions.py
+@@ -0,0 +1,259 @@
++"""Requirements exercised against the actual page, with GOSH_PAGE baseline override."""
++import html
++import itertools
++import json
++import os
++from pathlib import Path
++import re
++import subprocess
++import xml.etree.ElementTree as ET
++
++import pytest
++
++HERE = Path(__file__).parent
++
++
++@pytest.fixture(scope="module")
++def probe():
++    page = Path(os.environ.get("GOSH_PAGE", HERE.parent / "index.html")).resolve()
++    proc = subprocess.run(["node", str(HERE / "page-probe.cjs"), str(page)],
++                          capture_output=True, text=True, encoding="utf-8", timeout=45)
++    assert proc.returncode == 0, proc.stdout + proc.stderr
++    return json.loads(proc.stdout)
++
++
++def message_terms(text, kind):
++    """Semantic contract: case insensitive, without freezing exact copy."""
++    flags = re.I
++    has = lambda pattern: bool(re.search(pattern, text, flags))
++    # Remove explicit negated display statements before rejecting success claims.
++    positive = re.sub(r"\b(?:cannot|can['’]t|not|never)\s+(?:be\s+)?(?:displayed|shown)\b", '', text, flags=flags)
++    no_success = not re.search(r"\b(?:plot|subsets?|points?)\b[^.!?]*\b(?:displayed|shown)\b", positive, flags)
++    if kind == 'axis':
++        return dict(axis=has(r'\b(?:axis|range|limits)\b'),
++                    recovery=has(r'\b(?:widen|reset)\b'),
++                    retained=has(r'\bcomputed\s+results?\b[^.!?]*\b(?:retained|available|preserved)\b'),
++                    no_success=no_success)
++    if kind == 'omission':
++        return dict(subsets=has(r'\bsubset\s+points\b'),
++                    outside=has(r'\boutside\b[^.!?]*\baxis\s+range\b'), no_success=no_success)
++    return dict(draws=has(r'\b(?:draws?|count)\b'),
++                integer=has(r'\b(?:whole\s+number|integer)\b'),
++                recovery=has(r'\b(?:enter|adjust|reset|choose)\b'),
++                bounds=has(r'\b1\s+to\s+100,?000\b'), no_success=no_success)
++
++
++def svg_nodes(state, tag):
++    return ET.fromstring('<svg>' + state['svg'] + '</svg>').findall(tag)
++
++
++@pytest.mark.parametrize("k", [4, 5])
++@pytest.mark.parametrize("model", ["FE", "DL"])
++def test_every_nonempty_subset_including_singletons(probe, k, model):
++    state = probe['enumeration'][f'{model}-{k}']
++    expected = {tuple(c) for size in range(1, k + 1)
++                for c in itertools.combinations([f'S{i}' for i in range(k)], size)}
++    actual = [tuple(m) for m in state['memberships']]
++    assert set(actual) == expected, f"Missing subsets: {expected - set(actual)}"
++    assert len(actual) == len(state['points']) == len(svg_nodes(state, 'circle')) == 2**k - 1
++    assert state['result']['n_subsets'] == 2**k - 1
++    singles = [p for p in state['points'] if p['k'] == 1]
++    assert len(singles) == k
++    assert sorted(p['mu'] for p in singles) == pytest.approx([2**i for i in range(k)], abs=1e-12)
++    for point, members in zip(state['points'], state['memberships']):
++        if point['k'] == 1:
++            assert point['I2'] == pytest.approx(0, abs=1e-12)
++            assert state['pooled'][state['memberships'].index(members)]['Q'] == pytest.approx(0, abs=1e-12)
++            assert point['mu'] == pytest.approx(2**int(members[0][1:]), rel=0, abs=1e-12)
++
++
++@pytest.mark.parametrize('index', range(5), ids=['negative', 'zero', 'fraction', 'blank', 'over-cap'])
++def test_invalid_draw_count_stays_visible_and_recovers(probe, index):
++    states = probe['sampleRecovery'][index]
++    assert states['before']['result']['n_subsets'] == 5000
++    refused = states['refused']
++    assert refused['sampleVisible'] == 'block'
++    assert all(message_terms(refused['error'], 'draw').values()), f"Draw-count message: {refused['error']!r}"
++    assert refused['result'] is None
++    assert not svg_nodes(refused, 'circle')
++    assert not re.search(r'\d', refused['median'] + refused['i2'])
++    after = states['after']
++    assert after['sampleVisible'] == 'block'
++    assert not after['error']
++    assert after['result']['n_subsets'] == 37
++    assert len(after['points']) == len(after['memberships']) == len(svg_nodes(after, 'circle')) == 37
++
++
++def readable(markup):
++    return html.unescape(re.sub(r'<[^>]+>', ' ', markup))
++
++
++def test_sampling_does_not_claim_metafor_default_parity(probe):
++    markup = re.sub(r'<(script|style)\b[^>]*>.*?</\1>', '', probe['html'], flags=re.S)
++    text = re.sub(r'\s+', ' ', readable(markup)).lower()
++    # Inspect every sentence referencing metafor's sampling/enumeration policy.
++    statements = [s for s in re.split(r'[.!?](?:\s|$)', text)
++                  if 'metafor' in s and re.search(r'sampl|draw|subset|enumerat|default|switch', s)]
++    assert statements, 'Sampling policy must disclose its relationship to metafor'
++    for statement in statements:
++        assert not re.search(r'\b(?:matches?|same as|identical to|equivalent to|aligns? with)\b', statement), statement
++        assert re.search(r'\b(?:differ\w*|unlike|not|instead|whereas)\b', statement), statement
++
++
++def test_displayed_default_equals_actual_draw_count(probe):
++    label = re.search(r'<label\b[^>]*id="sample-label"[^>]*>(.*?)</label>', probe['html'], re.S)[1]
++    # Check both visible hint and accessible input description; tolerate wording
++    # and thousands separators rather than requiring the patched exact string.
++    descriptions = [readable(label)] + re.findall(r'(?:aria-label|title)="([^"]+)"', label)
++    declarations = []
++    for description in descriptions:
++        declarations.extend(int(re.sub(r'\D', '', n)) for n in
++                            re.findall(r'default\s*[:=]?\s*(\d+(?:[,\s]\d{3})*)', html.unescape(description), re.I))
++    assert declarations, 'The UI must state its default draw count'
++    state = probe['sampled']
++    actual = len(state['points'])
++    assert all(n == actual for n in declarations), f'UI defaults {declarations}; actual draws {actual}'
++    assert probe['defaultDraws'] == actual == len(state['memberships']) == len(svg_nodes(state, 'circle'))
++    assert state['result']['sampled'] is True
++    assert state['result']['n_subsets'] == actual
++    assert int(state['count'].replace(',', '')) == actual
++
++
++@pytest.mark.parametrize("index", [0, 1], ids=["fewer-than-three", "more-than-100"])
++def test_refusal_clears_plot_and_medians_then_recovers(probe, index):
++    states = probe['recovery'][index]
++    assert states['before']['result'] is not None
++    assert svg_nodes(states['before'], 'circle')
++    refused = states['refused']
++    assert refused['result'] is None
++    assert not svg_nodes(refused, 'circle'), 'Refused input must clear previous plotted points'
++    for key in ['median', 'i2']:
++        assert not re.search(r'\d', refused[key]), f'Stale {key}: {refused[key]}'
++    assert states['after'] == states['before'], 'A later valid run must fully recover'
++
++
++def test_explicit_x_limits_map_points_to_plot_edges(probe):
++    state = probe['axis']
++    circles = svg_nodes(state, 'circle')
++    assert len(circles) == len(state['points'])
++    # Read plot edges from its horizontal axis, independently of engine padding.
++    horizontal = [line for line in svg_nodes(state, 'line')
++                  if line.get('y1') == line.get('y2') and line.get('x1') != line.get('x2')]
++    axis = horizontal[0]
++    edges = [float(axis.get('x1')), float(axis.get('x2'))]
++    for limit, edge in zip(state['limits'], edges):
++        matches = [float(circle.get('cx')) for p, circle in zip(state['points'], circles)
++                   if abs(p['mu'] - limit) < 1e-12]
++        assert matches, f'Fixture must contain a point at requested limit {limit}'
++        assert matches == pytest.approx([edge] * len(matches), abs=1e-9)
++
++
++@pytest.mark.parametrize('index', range(6))
++def test_axis_sweep_coordinates_and_ticks(probe, index):
++    import math
++    state = probe['axisSweep'][index]
++    assert state['svg'] and not state['plotError']
++    for node in ET.fromstring('<svg>' + state['svg'] + '</svg>'):
++        for key, value in node.attrib.items():
++            if key in ('x', 'x1', 'x2', 'cx', 'y', 'y1', 'y2', 'cy'):
++                number = float(value)
++                assert math.isfinite(number)
++                assert 0 <= number <= (600 if key.startswith(('x', 'cx')) else 420)
++        if node.get('transform'):
++            angle, x, y = map(float, re.fullmatch(r'rotate\(([^)]+)\)', node.get('transform'))[1].split())
++            assert all(math.isfinite(v) for v in (angle, x, y))
++            assert 0 <= x <= 600 and 0 <= y <= 420
++    for axis, location in [('x', 388), ('y', 52)]:
++        ticks = [n for n in svg_nodes(state, 'text')
++                 if float(n.get('y' if axis == 'x' else 'x')) == location]
++        values = [float(n.text.rstrip('%')) for n in ticks]
++        assert values == sorted(values)
++        limits = state['limits'].get(axis, [None, None])
++        if limits[0] is not None:
++            assert values[0] == pytest.approx(limits[0])
++        if limits[1] is not None:
++            assert values[-1] == pytest.approx(limits[1])
++        for value, node in zip(values, ticks):
++            if limits[0] is not None:
++                assert value >= limits[0]
++            if limits[1] is not None:
++                assert value <= limits[1]
++            coordinate = float(node.get('x' if axis == 'x' else 'y'))
++            assert (60 <= coordinate <= 580) if axis == 'x' else (20 <= coordinate - 4 <= 370)
++
++
++@pytest.mark.parametrize('index', range(8))
++def test_axis_guard_retains_results_and_recovers(probe, index):
++    case = probe['invalidAxes'][index]
++    state = case['refused']
++    assert not state['svg']
++    assert all(message_terms(state['plotError'], 'axis').values()), f"Axis error meaning: {state['plotError']!r}"
++    assert state['result'] == case['before']['result']
++    assert state['points'] == case['before']['points']
++    assert state['result']['n_subsets'] == 15
++    assert state['median'] == case['before']['median']
++    assert state['i2'] == case['before']['i2']
++    assert case['after']['svg'] == case['before']['svg']
++    assert case['after']['result'] == case['before']['result']
++    assert not case['after']['plotError']
++
++
++def test_excluded_points_are_omitted(probe):
++    state = probe['excluded']
++    expected = sum(1.5 <= p['mu'] <= 2 for p in state['points'])
++    assert len(svg_nodes(state, 'circle')) == expected
++    assert state['svg'] and not state['plotError']
++    assert state['result']['n_subsets'] == 15
++
++@pytest.mark.parametrize('index', range(20))
++def test_independent_explicit_coordinate_oracle(probe, index):
++    from .axis_oracle import coordinates
++    state = probe['coordinateCases'][index]
++    expected = coordinates(state['points'], state['limits'])
++    actual = [[float(c.get('cx')), float(c.get('cy'))] for c in svg_nodes(state, 'circle')]
++    assert expected, 'Fixture must retain points'
++    assert len(actual) == len(expected)
++    for observed, wanted in zip(actual, expected):
++        assert observed == pytest.approx(wanted, rel=1e-9, abs=1e-9)
++    assert state['result'] == state['original']
++
++
++@pytest.mark.parametrize('index', range(20))
++def test_omission_notice_matches_independent_oracle(probe, index):
++    from .axis_oracle import coordinates
++    state = probe['coordinateCases'][index]
++    omitted = len(state['points']) - len(coordinates(state['points'], state['limits']))
++    if state['limits'] == {'x': [2.5, 4], 'y': [10, 80]}:
++        # Both axes must independently contribute to the combined exclusion.
++        for axis in ('x', 'y'):
++            only = {axis: state['limits'][axis]}
++            assert omitted > len(state['points']) - len(coordinates(state['points'], only))
++    notice = state['plotNote'].strip()
++    assert bool(notice) == bool(omitted), f'Omission notice presence: {notice!r}; expected {omitted}'
++    if omitted:
++        assert all(message_terms(notice, 'omission').values()), f'Omission notice meaning: {notice!r}'
++        match = re.match(r'^(\d+)\s+subset points\b', notice, re.I)
++        assert match, f'Omission notice lacks a count: {notice!r}'
++        assert int(match[1]) == omitted, f'Omission notice count: {notice!r}; expected {omitted}'
++
++
++def test_plot_messages_clear_on_refusal_and_recover(probe):
++    for case in probe['messageRecovery']:
++        assert case['before']['plotNote' if case['source'] == 'note' else 'plotError']
++        refused = case['refused']
++        assert not refused['plotNote'] and not refused['plotError'], case
++        assert refused['result'] is None and not refused['svg']
++        assert case['after']['result'] and case['after']['svg']
++        assert not case['after']['plotNote'] and not case['after']['plotError']
++
++
++def test_subnormal_automatic_padding(probe):
++    from .axis_oracle import coordinates
++    for state in probe['subnormal']:
++        assert not state['plotError']
++        assert len(state['points']) == 15
++        actual = [[float(c.get('cx')), float(c.get('cy'))] for c in svg_nodes(state, 'circle')]
++        assert actual == coordinates(state['points'], {})
++        assert len(actual) == 15
++        ticks = [float(n.text) for n in svg_nodes(state, 'text') if n.get('y') == '388']
++        assert ticks[0] < ticks[-1]
+diff --git a/gosh/tests/export-boundaries.cjs b/gosh/tests/export-boundaries.cjs
+new file mode 100644
+index 0000000..6160f05
+--- /dev/null
++++ b/gosh/tests/export-boundaries.cjs
+@@ -0,0 +1,26 @@
++// Capture registered page callbacks; use actual shared input-receipt and bus handlers.
++function installExports(w) {
++ const registrations={};
++ const wrap=(name,fn)=>function(opts){registrations[name]=opts;return fn(opts);};
++ const target=w.alm||{};
++ for(const name of ['chartDownload','resultsExport'])if(target[name])target[name]=wrap(name,target[name]);
++ const proxy=new Proxy(target,{set(o,k,v){o[k]=['chartDownload','resultsExport'].includes(k)?wrap(k,v):v;return true;}});
++ Object.defineProperty(w,'alm',{configurable:true,get:()=>proxy,set:v=>{if(v!==proxy)Object.assign(proxy,v);}});
++ w.__readExports=function(){
++  const safe=fn=>{try{return fn();}catch(e){return {callback_error:String(e)};}};
++  const result=safe(()=>registrations.resultsExport.getResults());
++  const receipt=safe(()=>registrations.chartDownload.getReceiptInput());
++  const chart=safe(()=>registrations.chartDownload.getSvg());
++  let signed=[];
++  const original=w.MaStudies.toTruthCert;
++  w.TruthCertUI.setKey('test-only-not-a-real-signing-key');
++  w.MaStudies.toTruthCert=(studies)=>{signed=studies;return Promise.resolve({ok:false,error:'test boundary capture; signing not performed'});};
++  w.document.querySelector('#btn-truthcert').click();
++  w.MaStudies.toTruthCert=original;
++  w.TruthCertUI.setKey('');
++  w.MaStudies.clear();
++  w.document.querySelector('#btn-bus-save').click();
++  return JSON.parse(JSON.stringify({results:result,receipt,chart:chart?.innerHTML??null,input_receipt:signed,bus:w.MaStudies.read()}));
++ };
++}
++if(typeof module!=='undefined')module.exports=installExports;
+diff --git a/gosh/tests/numeric-matrix.cjs b/gosh/tests/numeric-matrix.cjs
+new file mode 100644
+index 0000000..786d315
+--- /dev/null
++++ b/gosh/tests/numeric-matrix.cjs
+@@ -0,0 +1,61 @@
++// Shared state driver: no expected values are read from the page.
++function numericMatrix(api) {
++ const out=[];
++ function capture(model,name,k,draws,axis={},fault=false) {
++  if(api.select && !api.select(name))return;
++  api.axis({}); api.model(model); api.draws(draws); api.empty(fault);
++  const values=Array.from({length:k},(_,i)=>({yi:(13+137*i)/100,sei:(231+70*i)/1000,study:"Distinct_"+(i+11)}));
++  api.load(values); api.axis(axis);
++  out.push({model,name,k,draws,axis,fields:api.read()}); api.empty(false);
++ }
++ for(const model of ['FE','DL']) {
++  capture(model,'enumerated',3,'5000');
++  capture(model,'sampled',16,'37');
++  capture(model,'sampled-default',16,'5000');
++  for(const k of [0,2,101]) {
++   capture(model,'row-'+k, k,'5000');
++   capture(model,'recover-row-'+k,3,'5000');
++  }
++  for(const [name,value] of Object.entries({negative:'-1000',zero:'0',fraction:'2.5',blank:'',over:'100001',nan:'NaN',infinite:'Infinity'})) {
++   capture(model,'draw-'+name,16,value);
++   capture(model,'recover-draw-'+name,16,'37');
++  }
++  for(const [name,axis] of Object.entries({'reversed-x':{x:[4,0]},'equal-y':{y:[50,50]},'nan-x':{x:[NaN,4]},'infinite-y':{y:[0,Infinity]}})) {
++   capture(model,'axis-'+name,3,'5000',axis);
++   capture(model,'recover-axis-'+name,3,'5000');
++  }
++  capture(model,'explicit-bounds',3,'5000',{x:[-2,6],y:[-20,120]});
++  capture(model,'omission',3,'5000',{x:[1,3],y:[0,100]});
++  capture(model,'recover-omission',3,'5000');
++  // Defensive branch unreachable with validated normal inputs: explicit producer fault.
++  capture(model,'empty-enumerated',3,'5000',{},true);
++  capture(model,'recover-empty-enumerated',3,'5000');
++  capture(model,'empty-sampled',16,'37',{},true);
++  capture(model,'recover-empty-sampled',16,'37');
++ }
++ return out;
++}
++if(typeof module!=='undefined')module.exports=numericMatrix;
++
++// Static numeric declarations are also part of the displayed-number contract.
++function numericDeclarations(html) {
++ const decode=s=>s.replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Number(n))).replace(/<[^>]*>/g,' ');
++ const numbers=s=>(decode(s).match(/[0-9]+(?:[,.][0-9]+)*/g)||[]);
++ const input=html.match(/<input id="n-sample"[^>]*>/)[0];
++ return {
++  viewbox:html.match(/id="plot" viewBox="([^"]+)"/)[1].split(" ").map(Number),
++  defaults:['value','step','min','max'].map(k=>input.match(new RegExp('\\b'+k+'="([^"]+)"'))[1]),
++  initial_count:html.match(/id="m-n">([^<]*)/)[1],
++  header_numbers:numbers(html.match(/<header>([\s\S]*?)<\/header>/)[1]),
++  footer_numbers:numbers(html.match(/<footer>([\s\S]*?)<\/footer>/)[1]),
++  sample_threshold:numbers(html.match(/<label id="sample-label"[\s\S]*?<span>([\s\S]*?)<\/span>/)[1]),
++  sample_hint_numbers:numbers(html.match(/<label id="sample-label"[\s\S]*?<span class="hint">([\s\S]*?)<\/span>/)[1]),
++  enumeration_hint_numbers:numbers(html.match(/<span class="hint">(k [\s\S]*?)<\/span>/)[1]),
++  draw_accessible_numbers:numbers(input.match(/aria-label="([^"]*)"/)[1]),
++  axis_caption_numbers:numbers(html.match(/label: 'Y axis ([^']+)'/)[1]),
++  initial_studies:numbers(html.match(/<textarea[^>]*>([\s\S]*?)<\/textarea>/)[1]),
++  axis_ranges:html.match(/label: 'Y axis [^']*', range: \[([^\]]*)\]/)[1].split(',').map(s=>Number(s.trim())),
++  csv_examples:[...html.matchAll(/type: 'float',\s+example: '([^']+)'/g)].map(m=>m[1])
++ };
++}
++if(typeof module!=='undefined')module.exports.declarations=numericDeclarations;
+diff --git a/gosh/tests/numeric-probe.cjs b/gosh/tests/numeric-probe.cjs
+new file mode 100644
+index 0000000..58a0cef
+--- /dev/null
++++ b/gosh/tests/numeric-probe.cjs
+@@ -0,0 +1,29 @@
++const fs=require('fs'),vm=require('vm');
++const matrix=require('./numeric-matrix.cjs');
++const html=fs.readFileSync(process.argv[2],'utf8'),nodes={};
++for(const m of html.matchAll(/<[^>]+\bid="([^"]+)"[^>]*>/g))nodes[m[1]]={value:m[0].match(/\bvalue="([^"]*)"/)?.[1]||'',textContent:'',innerHTML:'',style:{},addEventListener(e,f){this[e==='click'?'clickHandler':e]=f;},click(){this.clickHandler?.();}};
++nodes.src.value='0,1\n2,1\n4,1';nodes.model.value='FE';
++const noop=()=>{};let axis;
++const window={alm:{csvUpload:noop,chartDownload:noop,axisControls:o=>axis=o.onChange,resultsExport:noop,resetUndo:noop,tooltips:noop,urlState:Object.assign(noop,{read:()=>null,write:noop})}};
++let code=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
++const hook=`
++const originalAll=allSubsets,originalSample=sampledSubsets;
++allSubsets=function(...a){return window.__empty?[]:originalAll(...a);};
++sampledSubsets=function(...a){return window.__empty?[]:originalSample(...a);};
++`;
++code=code.replace("    // ---- module init ----",hook+"    // ---- module init ----");
++const document={readyState:'complete',getElementById:id=>nodes[id],querySelector:s=>nodes[s.slice(1)]};
++window.document=document;
++const storage=new Map();window.localStorage={getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)};
++const context=vm.createContext({window,document,console});
++for(const name of ['ma-studies-v1.js','truthcert-ui.js'])vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../../shared',name),'utf8'),context);
++context.MaStudies=window.MaStudies;context.TruthCertUI=window.TruthCertUI;
++require('./export-boundaries.cjs')(window);
++vm.runInContext(code,context);
++for(const m of [...html.matchAll(/<script>\s*([\s\S]*?)<\/script>/g)].slice(1))vm.runInContext(m[1],context);
++const result=matrix({select:name=>!process.argv.includes('--quick')||name==='enumerated',axis:s=>axis(s),model:s=>nodes.model.value=s,draws:s=>nodes['n-sample'].value=s,empty:s=>window.__empty=s,
++ load:values=>window.__almGoshLoad(values),
++ read:()=>({exports:window.__readExports(),declarations:matrix.declarations(html),count:nodes['m-n'].textContent,median:nodes['m-est'].textContent,i2:nodes['m-i2'].textContent,
++ plot_error:nodes['plot-error'].textContent,note:nodes['plot-note'].textContent,error:nodes['sample-error'].textContent,draws:nodes['n-sample'].value,
++ src:nodes.src.value,svg:nodes.plot.innerHTML,result:window._almLastGosh()})});
++console.log(JSON.stringify(result));
+diff --git a/gosh/tests/numeric_oracle.py b/gosh/tests/numeric_oracle.py
+new file mode 100644
+index 0000000..444e6a2
+--- /dev/null
++++ b/gosh/tests/numeric_oracle.py
+@@ -0,0 +1,176 @@
++"""Independent input-derived weighted pooling and deterministic sampling oracle."""
++import itertools
++from functools import lru_cache
++import math
++import re
++import xml.etree.ElementTree as ET
++
++
++def expected(case):
++    name, k = case['name'], case['k']
++    refused = name.startswith(('row-', 'draw-', 'empty-'))
++    values = fixture(k)
++    fields = dict(count='—' if name.startswith('row-') else '0', median='—', i2='—',
++                  note='', error='', src='\n'.join(f'{v:g}, {se:g}, Distinct_{i+11}' for i, (v,se) in enumerate(values)))
++    fields['declarations'] = dict(
++        viewbox=[0,0,600,420],
++        defaults=['5000','1','1','100000'], initial_count='0',
++        header_numbers=['2012','15'],
++        footer_numbers=['2012','3','3','214','23','6.5','10.10.2','10.10.2','30','30','60','50','90','75','100','15','5,000','2','2','1','1,000,000','19','1,000,000'],
++        # Documented app rule: enumerate through k=15, sample starting at 16.
++        sample_threshold=[str(16-1)],
++        sample_hint_numbers=['5,000','1','100,000','2'],
++        enumeration_hint_numbers=['15','2','1','15','2012'],
++        draw_accessible_numbers=['5,000'], axis_caption_numbers=['0','100'],
++        initial_studies=['0.22','0.08','0.30','0.14','0.27','0.09','0.15','0.07','0.45','0.18','0.10','0.06','0.35','0.16','0.22','0.10','0.40','0.20'], axis_ranges=[0,100],
++        csv_examples=['0.22','0.0064','0.08'])
++    fields['geometry'] = []
++    fields['plot_error'] = ''
++    fields['plot_empty'] = refused or name.startswith('axis-')
++    fields['draws'] = case['draws'] if case['draws'] not in ('NaN', 'Infinity') else ''
++    if name.startswith('draw-'):
++        fields['error'] = 'Enter a whole number of draws from 1 to 100,000.'
++    if name == 'empty-sampled':
++        fields['error'] = 'No sampled results. Adjust the draw count and try again.'
++    summary_keys = ['k', 'n_subsets', 'median_est', 'median_i2', 'min_est', 'max_est', 'q25_est', 'q75_est', 'studies']
++    if refused:
++        fields.update({key: None for key in summary_keys})
++        fields.update(x_ticks=[],y_ticks=[],axis_labels=[],circles=0)
++        fields['exports']=export_expected(case,fields,None)
++        return fields
++    points=pool_points(k,case['model'],int(case['draws']) if k>15 else 0)
++    mus=sorted(p[0] for p in points); i2=sorted(p[1] for p in points)
++    def quantile(a,p):
++        h=(len(a)-1)*p; lo=math.floor(h)
++        return a[lo]+(h-lo)*(a[min(lo+1,len(a)-1)]-a[lo])
++    med=quantile(mus,.5); hetero=quantile(i2,.5)
++    fields.update(count=f'{len(points):,}',median=f'{med:.3f}',i2=f'{hetero:.1f}%',
++                  k=k,n_subsets=len(points),median_est=med,median_i2=hetero,
++                  min_est=mus[0],max_est=mus[-1],q25_est=quantile(mus,.25),q75_est=quantile(mus,.75),
++                  studies=[dict(label=f'Distinct_{i+11}',te=v,se=se) for i,(v,se) in enumerate(values)])
++    if name.startswith('axis-'):
++        fields['plot_error']='Plot cannot be displayed: axis limits or coordinates are invalid or outside the plotting area. Widen or reset the limits. Computed results are retained.'
++        fields.update(x_ticks=[],y_ticks=[],axis_labels=[],circles=0)
++    else:
++        omission=name=='omission'
++        low=min(mus); high=max(mus); pad=(high-low)*.1
++        xmin,xmax=case['axis'].get('x',[low-pad,high+pad])
++        ymin,ymax=case['axis'].get('y',[0,100])
++        fields.update(x_ticks=[f'{xmin+f*(xmax-xmin):.2f}' for f in [0,.5,1]],
++                      y_ticks=[f'{ymin+f*(ymax-ymin):.0f}%' for f in [0,.25,.5,.75,1]],axis_labels=['Pooled effect','I²'],
++                      circles=sum(xmin<=p[0]<=xmax and ymin<=p[1]<=ymax for p in points))
++        fields['geometry'] = geometry(points, case['axis'])
++        if omission:
++            fields['note']=f"{len(points)-fields['circles']} subset points outside the current axis range are omitted."
++    payload={key:fields[key] for key in summary_keys}
++    payload.update(_schema='gosh-results-v1',model=case['model'],sampled=k>15)
++    fields['exports']=export_expected(case, fields, payload)
++    return fields
++
++
++def export_expected(case, fields, payload):
++    values=fixture(case['k'])
++    studies=[dict(label=f'Distinct_{i+11}',est=v,se=se,moderator=None,group=None,year=None) for i,(v,se) in enumerate(values)]
++    return dict(chart_matches_display=True,results=payload,receipt=None if payload is None else dict(studies=[],method='GOSH all-subsets meta-analysis stability',label='gosh-plot',results=payload),input_receipt=studies,bus=[dict(s,measure=None) for s in studies])
++
++
++def observed(case):
++    fields=case['fields']; out={k:fields[k] for k in ('plot_error','declarations','count','median','i2','note','error','src','draws')}
++    # HTML number inputs sanitize non-finite/non-numeric input to the empty string.
++    if out['draws'] in ('NaN','Infinity'): out['draws']=''
++    out['plot_empty'] = not fields['svg'].strip()
++    out['exports']={k:v for k,v in fields['exports'].items() if k!='chart'}
++    # The registered SVG getter must expose precisely the displayed plot, including clearing.
++    out['exports']['chart_matches_display']=fields['exports']['chart']==fields['svg']
++    result=fields['result']
++    for key in ('k','n_subsets','median_est','median_i2','min_est','max_est','q25_est','q75_est','studies'):
++        out[key]=None if result is None else result[key]
++    svg=ET.fromstring('<svg>'+fields['svg']+'</svg>')
++    out['geometry'] = [(e.tag, {k: float(v) if k != 'transform' else [float(x) for x in re.findall(r'-?\d+(?:\.\d+)?',v)] for k,v in e.attrib.items() if k in ('x','y','x1','x2','y1','y2','cx','cy','width','height','transform')}) for e in svg.iter() if e.tag in ('line','text','circle','rect')]
++    out['geometry'] = out['geometry'][:21] + sorted(out['geometry'][21:], key=lambda p:(round(p[1]['cx'],9),round(p[1]['cy'],9)))
++    texts=svg.findall('text')
++    out.update(x_ticks=[t.text for t in texts if t.get('y')=='388'],
++               y_ticks=[t.text for t in texts if t.get('x')=='52'],
++               axis_labels=[t.text for t in texts if t.get('y')!='388' and t.get('x')!='52'],
++               circles=len(svg.findall('circle')))
++    return out
++
++
++def matches(actual, wanted):
++    if isinstance(wanted,float):
++        return isinstance(actual,(float,int)) and math.isclose(actual,wanted,rel_tol=0,abs_tol=1e-12)
++    if isinstance(wanted, (list,tuple)):
++        return isinstance(actual,(list,tuple)) and len(actual)==len(wanted) and all(matches(a,b) for a,b in zip(actual,wanted))
++    if isinstance(wanted,dict):
++        return isinstance(actual,dict) and actual.keys()==wanted.keys() and all(matches(actual[k],v) for k,v in wanted.items())
++    return actual == wanted
++
++
++def geometry(points, requested):
++    # Bounds from independent fixture effects, never from SVG or page points.
++    low=min(p[0] for p in points); high=max(p[0] for p in points)
++    pad=(high-low)*.1 if high>low else .1
++    xmin,xmax=requested.get('x',[low-pad,high+pad])
++    ymin,ymax=requested.get('y',[0,100])
++    X=lambda v:60+520*(v-xmin)/(xmax-xmin)
++    Y=lambda v:20+350*(ymax-v)/(ymax-ymin)
++    result=[]
++    def line(x1,y1,x2,y2): result.append(('line',dict(x1=x1,y1=y1,x2=x2,y2=y2)))
++    def text(x,y,**attrs): result.append(('text',dict(x=x,y=y,**attrs)))
++    line(60,20,60,370); line(60,370,580,370)
++    for f in [0,.25,.5,.75,1]:
++        y=Y(ymin+f*(ymax-ymin))
++        line(60,y,580,y);text(52,y+4)
++    for f in [0,.5,1]:
++        x=X(xmin+f*(xmax-xmin))
++        line(x,370,x,375);text(x,388)
++    text(320,410);text(20,195,transform=[-90,20,195])
++    result.append(('rect',dict(x=60,y=20,width=520,height=350)))
++    for mu,i2 in points:
++        if xmin<=mu<=xmax and ymin<=i2<=ymax:
++            result.append(('circle',dict(cx=X(mu),cy=Y(i2))))
++    return result[:21] + sorted(result[21:], key=lambda p:(round(p[1]['cx'],9),round(p[1]['cy'],9)))
++
++
++def fixture(k):
++    return [((13+137*i)/100, (231+70*i)/1000) for i in range(k)]
++
++
++@lru_cache(None)
++def pool_points(k, model, draws):
++    rows=fixture(k)
++    def pooled(indices):
++        data=[rows[i] for i in indices]
++        weights=[1/(se*se) for _,se in data]
++        total=sum(weights)
++        mean=sum(w*x for w,(x,_) in zip(weights,data))/total
++        q=sum(w*(x-mean)*(x-mean) for w,(x,_) in zip(weights,data))
++        df=len(data)-1
++        i2=100*(q-df)/q if df>0 and q>df else 0
++        if model=='DL' and df:
++            tau=max(0,(q-df)/(total-sum(w*w for w in weights)/total))
++            weights=[1/(se*se+tau) for _,se in data]
++            mean=sum(w*x for w,(x,_) in zip(weights,data))/sum(weights)
++        return mean,i2
++    if k<=15:
++        return [pooled(indices) for size in range(1,k+1) for indices in itertools.combinations(range(k),size)]
++    # Documented fixed 32-bit seed and Fisher-Yates sampling contract.
++    state=[0xdeadbeef,0x12345678,0xabcdef01,0x87654321]
++    mask=2**32-1
++    def rotate(x,n):
++        x &= mask
++        return ((x<<n)|(x>>(32-n)))&mask
++    def uniform():
++        result=(rotate(state[0]*5,7)*9)&mask
++        shift=(state[1]<<9)&mask
++        state[2]^=state[0];state[3]^=state[1];state[1]^=state[2];state[0]^=state[3]
++        state[2]^=shift;state[3]=rotate(state[3],11)
++        return result/2**32
++    points=[]
++    for _ in range(draws):
++        size=2+int(uniform()*(k-1)); indices=list(range(k))
++        for j in range(size):
++            target=j+int(uniform()*(k-j))
++            indices[j],indices[target]=indices[target],indices[j]
++        points.append(pooled(indices[:size]))
++    return points
+diff --git a/gosh/tests/test_numeric_matrix.py b/gosh/tests/test_numeric_matrix.py
+new file mode 100644
+index 0000000..c0982e5
+--- /dev/null
++++ b/gosh/tests/test_numeric_matrix.py
+@@ -0,0 +1,29 @@
++"""One table-driven state x field contract shared with native browser auditing."""
++import json
++import os
++from pathlib import Path
++import subprocess
++from .numeric_oracle import expected, observed, matches
++
++
++def test_numeric_state_field_matrix():
++    here=Path(__file__).parent
++    page=Path(os.environ.get('GOSH_PAGE',here.parent/'index.html')).resolve()
++    proc=subprocess.run(['node',str(here/'numeric-probe.cjs'),str(page)],capture_output=True,text=True,encoding='utf-8',timeout=60)
++    assert proc.returncode == 0, proc.stderr
++    cases=json.loads(proc.stdout)
++    assert len(cases)==76
++    for case in cases:
++        actual=observed(case)
++        for field,value in expected(case).items():
++            assert matches(actual[field],value), f"numeric matrix {case['model']} {case['name']} {field}: {actual[field]!r} != {value!r}"
++
++
++def test_matrix_inputs_are_distinct_nontrivial():
++    from .numeric_oracle import fixture
++    for k in (2,3,16,101):
++        rows=fixture(k)
++        for column in zip(*rows):
++            assert len(set(column)) == k
++            assert not set(column) & {0,1,.5,2,10}
++        assert all(effect != se for effect,se in rows)
+diff --git a/gosh/tests/numeric-lifecycle.cjs b/gosh/tests/numeric-lifecycle.cjs
+new file mode 100644
+index 0000000..612295d
+--- /dev/null
++++ b/gosh/tests/numeric-lifecycle.cjs
+@@ -0,0 +1,13 @@
++const fs=require('fs'),vm=require('vm');const html=fs.readFileSync(process.argv[2],'utf8');
++const output=[];
++for(const mode of ['restore','url'])for(const model of ['FE','DL']){
++ const nodes={};for(const m of html.matchAll(/<[^>]+\bid="([^"]+)"[^>]*>/g))nodes[m[1]]={value:m[0].match(/\bvalue="([^"]*)"/)?.[1]||'',textContent:'',innerHTML:'',style:{},addEventListener(){}};
++ nodes.src.value='0, 1, S0\n2, 1, S1\n4, 1, S2';nodes.model.value=model==='FE'?'DL':'FE';
++ const snap={src:'0, 1, S0\n2, 1, S1\n4, 1, S2',model};const noop=()=>{};let restore;
++ const window={alm:{csvUpload:noop,chartDownload:noop,axisControls:noop,resultsExport:noop,resetUndo:o=>restore=o.restore,tooltips:noop,urlState:Object.assign(noop,{read:()=>mode==='url'?snap:null,write:noop})}};
++ const script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
++ vm.runInNewContext(script,{window,document:{getElementById:id=>nodes[id]}});
++ if(mode==='restore'){nodes.src.value='9, 1, wrong';restore(snap);}
++ output.push({mode,wantedModel:model,model:nodes.model.value,src:nodes.src.value,count:nodes['m-n'].textContent});
++}
++console.log(JSON.stringify(output));
+diff --git a/gosh/tests/test_numeric_lifecycle.py b/gosh/tests/test_numeric_lifecycle.py
+new file mode 100644
+index 0000000..8f26041
+--- /dev/null
++++ b/gosh/tests/test_numeric_lifecycle.py
+@@ -0,0 +1,17 @@
++"""Restoration adapters must preserve the supplied model and numeric input."""
++import json
++import os
++from pathlib import Path
++import subprocess
++
++
++def test_numeric_restoration():
++    here = Path(__file__).parent
++    page = Path(os.environ.get('GOSH_PAGE', here.parent / 'index.html')).resolve()
++    proc = subprocess.run(['node', str(here / 'numeric-lifecycle.cjs'), str(page)],
++                          capture_output=True, text=True, encoding='utf-8', timeout=30)
++    assert proc.returncode == 0, proc.stderr
++    for row in json.loads(proc.stdout):
++        assert row['model'] == row['wantedModel'], 'numeric restoration model'
++        assert row['src'] == '0, 1, S0\n2, 1, S1\n4, 1, S2', 'numeric restoration source'
++        assert row['count'] == '7', 'numeric restoration count'
