@@ -1,0 +1,15 @@
+V1.1 SOURCE PINS 37/37
+V1.0 SOURCE PINS 1904/1904
+Traceback (most recent call last):
+  File "<LOCAL_PATH>\verify.py", line 6, in <module>
+    legacy_checks(['verify'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "<LOCAL_PATH>\v1_1\archive.py", line 90, in legacy_checks
+    with legacy_view() as base:
+         ~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+object address  : 0000021443664C10
+object refcount : 3
+object type name: OSError
+

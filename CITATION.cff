@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Ahmad
     given-names: Mahmood
-version: 1.0.0
+version: 1.1.0
 license: MIT
 references:
   - type: software
@@ -24,3 +24,12 @@ references:
     doi: "10.5281/zenodo.23414184"
     url: "https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.5.0"
     notes: "isDerivedFrom; allmeta release v1.5.0; DOI 10.5281/zenodo.23414184"
+  - type: software
+    title: allmeta exact all-subsets enumeration
+    authors:
+      - family-names: Ahmad
+        given-names: Mahmood
+    version: "v1.8.0"
+    doi: "10.5281/zenodo.23515177"
+    url: "https://github.com/mahmood726-cyber/allmeta/releases/tag/v1.8.0"
+    notes: "isDerivedFrom; commit 1e3ef389cdfbce7c735c32e2794e67d3cbefb622"

@@ -1,0 +1,77 @@
+V1.1 SOURCE PINS 37/37
+V1.0 SOURCE PINS 1904/1904
+V1.0 VERIFY (unchanged scripts and pinned bytes)
+axis_automatic_count: 2/2 pass
+axis_automatic_x: 2000/2000 pass
+axis_automatic_y: 2000/2000 pass
+axis_error_axis: 8/8 pass
+axis_error_empty_svg: 8/8 pass
+axis_error_no_success: 8/8 pass
+axis_error_recovery: 16/16 pass
+axis_error_retained: 16/16 pass
+axis_error_visible: 8/8 pass
+axis_exports_unchanged: 22/22 pass
+axis_override_count: 22/22 pass
+axis_override_x: 2196/2196 pass
+axis_override_y: 2196/2196 pass
+draw_error_bounds: 10/10 pass
+draw_error_cleared_results: 10/10 pass
+draw_error_draws: 10/10 pass
+draw_error_integer: 10/10 pass
+draw_error_no_success: 10/10 pass
+draw_error_recovery: 20/20 pass
+draw_error_visible: 10/10 pass
+numeric_matrix_axis_labels: 76/76 pass
+numeric_matrix_circles: 76/76 pass
+numeric_matrix_count: 76/76 pass
+numeric_matrix_declarations: 76/76 pass
+numeric_matrix_draws: 76/76 pass
+numeric_matrix_error: 76/76 pass
+numeric_matrix_exports: 76/76 pass
+numeric_matrix_geometry: 76/76 pass
+numeric_matrix_i2: 76/76 pass
+numeric_matrix_k: 76/76 pass
+numeric_matrix_max_est: 76/76 pass
+numeric_matrix_median: 76/76 pass
+numeric_matrix_median_est: 76/76 pass
+numeric_matrix_median_i2: 76/76 pass
+numeric_matrix_min_est: 76/76 pass
+numeric_matrix_n_subsets: 76/76 pass
+numeric_matrix_note: 76/76 pass
+numeric_matrix_plot_empty: 76/76 pass
+numeric_matrix_plot_error: 76/76 pass
+numeric_matrix_q25_est: 76/76 pass
+numeric_matrix_q75_est: 76/76 pass
+numeric_matrix_src: 76/76 pass
+numeric_matrix_studies: 76/76 pass
+numeric_matrix_x_ticks: 76/76 pass
+numeric_matrix_y_ticks: 76/76 pass
+omission_message_no_success: 14/14 pass
+omission_message_outside: 14/14 pass
+omission_message_subsets: 14/14 pass
+omission_notice_count: 14/14 pass
+omission_notice_presence: 24/24 pass
+option_I2: 2000/2000 pass
+option_Q: 2000/2000 pass
+option_k: 2000/2000 pass
+option_mu: 2000/2000 pass
+option_subset_membership: 2000/2000 pass
+option_summary_max_est: 2/2 pass
+option_summary_median_est: 2/2 pass
+option_summary_median_i2: 2/2 pass
+option_summary_min_est: 2/2 pass
+option_summary_n_subsets: 2/2 pass
+option_summary_q25_est: 2/2 pass
+option_summary_q75_est: 2/2 pass
+option_tau2: 1000/1000 pass
+sample_count: 2/2 pass
+sample_prefix: 2/2 pass
+seed_replay: 2/2 pass
+uninstrumented_point_count: 2/2 pass
+uninstrumented_summary: 2/2 pass
+21586/21586 UI checks pass
+OUTPUTS: 12813556/12813556 after; 12803218/12804532 before
+ARCHIVE VERIFIED: exact source/app inventories, full tables, deterministic 300-dpi figures and full fresh R ledger
+ARCHIVE 1.1.0 VERIFIED
+
+PROCESS EXIT 0; EXPECTED 0

@@ -1,0 +1,58 @@
+V1.1 SOURCE PINS 37/37
+V1.0 SOURCE PINS 1904/1904
+Traceback (most recent call last):
+  File "<LOCAL_PATH>\v1_1\archive.py", line 75, in legacy_view
+    os.link(legacy_source(rel),dest)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: '<LOCAL_PATH>\\.gitattributes' -> '<LOCAL_PATH>\\.verify-v1-s7jr2nrb\\.gitattributes'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 369, in walk
+PermissionError: [WinError 5] Access is denied: '<LOCAL_PATH>\\.verify-v1-s7jr2nrb'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<LOCAL_PATH>\verify.py", line 6, in <module>
+    legacy_checks(['verify'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "<LOCAL_PATH>\v1_1\archive.py", line 85, in legacy_checks
+    with legacy_view() as base:
+         ~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "<LOCAL_PATH>\v1_1\archive.py", line 69, in legacy_view
+    with tempfile.TemporaryDirectory(prefix='.verify-v1-', dir=ROOT) as temp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 951, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Program Files\Python313\Lib\shutil.py", line 613, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 372, in walk
+  File "C:\Program Files\Python313\Lib\shutil.py", line 611, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 907, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: '<LOCAL_PATH>\\.verify-v1-s7jr2nrb'
+
+PROCESS EXIT 1; EXPECTED 0

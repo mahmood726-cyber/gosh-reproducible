@@ -1,0 +1,60 @@
+[
+  {
+    "name": "exact-clean",
+    "command": [
+      "validate.py",
+      "--out",
+      "outputs/v1_1/exact-clean.json"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "name": "plant-estimate",
+    "command": [
+      "validate.py",
+      "--plant",
+      "estimate",
+      "--out",
+      "outputs/v1_1/plant-estimate.json"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "name": "plant-drop",
+    "command": [
+      "validate.py",
+      "--plant",
+      "drop",
+      "--out",
+      "outputs/v1_1/plant-drop.json"
+    ],
+    "exit": 1,
+    "expected": 1
+  },
+  {
+    "name": "numeric-replay",
+    "command": [
+      "v1_1/exact/gosh/validate/replay-numeric.cjs"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "name": "engine-tests",
+    "command": [
+      "v1_1/exact/gosh/tests/exact-enum.test.cjs"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "name": "comparator-tests",
+    "command": [
+      "v1_1/exact/gosh/tests/exact-compare.test.cjs"
+    ],
+    "exit": 0,
+    "expected": 0
+  }
+]

@@ -1,0 +1,219 @@
+{
+  "archive": "gosh-reproducible",
+  "version": "1.1.0",
+  "allmeta_commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+  "allmeta_release": "v1.8.0",
+  "allmeta_release_doi": "10.5281/zenodo.23515177",
+  "files": [
+    {
+      "path": "exact/gosh/exact-enum.js",
+      "source_path": "gosh/exact-enum.js",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "1e66a363a6b4d65e7811dedae251e7000c68c657",
+      "source_sha256": "0eeb88826541cfd07bae3d23e7dee648574d67f85720588ad79c43a5d4cd33bd",
+      "sha256": "0eeb88826541cfd07bae3d23e7dee648574d67f85720588ad79c43a5d4cd33bd",
+      "bytes": 17992,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/exact-ui.js",
+      "source_path": "gosh/exact-ui.js",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "9f6bc1a19fcdc8d7a32eddd9c7364439a08b8ad1",
+      "source_sha256": "ec5d5eaebf9fd06db8384c51d95e8763dcd9bb2baaf910a426470ba321d48673",
+      "sha256": "ec5d5eaebf9fd06db8384c51d95e8763dcd9bb2baaf910a426470ba321d48673",
+      "bytes": 16378,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/index.html",
+      "source_path": "gosh/index.html",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "7b49084b23fde66a8c46427523c7362395402ee0",
+      "source_sha256": "fb4f3963916a662d7b7b547538f0ab889ac67c5fef07914b51839d37dd60ae3e",
+      "sha256": "fb4f3963916a662d7b7b547538f0ab889ac67c5fef07914b51839d37dd60ae3e",
+      "bytes": 41608,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/plus.js",
+      "source_path": "gosh/plus.js",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "a5922abd4144ca0c3025649db277aae78bb294a9",
+      "source_sha256": "e6215dbb9320b637acf975dc7f0be5752d461037a03ccc3d123a37f46f54aa6d",
+      "sha256": "e6215dbb9320b637acf975dc7f0be5752d461037a03ccc3d123a37f46f54aa6d",
+      "bytes": 10106,
+      "adaptation": null
+    },
+    {
+      "path": "exact/corpus.json",
+      "source_path": "gosh/validate/exact/corpus.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "a2cbc8d4a128d3d0adbef666d87e3a0554793a5a",
+      "source_sha256": "cf28d65c340a168646dfa1a387d1f48e010ff0ee6d34f5d38d8a0300521e6f2f",
+      "sha256": "cf28d65c340a168646dfa1a387d1f48e010ff0ee6d34f5d38d8a0300521e6f2f",
+      "bytes": 15955,
+      "adaptation": null
+    },
+    {
+      "path": "exact/reference-r.json",
+      "source_path": "gosh/validate/exact/reference-r.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "66a3fbcdfb3086460b483c129e8fa7146e7d2d19",
+      "source_sha256": "b7ac44b896110f767d1e1c43fdc0ff6800ce2fe4422123bc9c69071a7962da93",
+      "sha256": "b7ac44b896110f767d1e1c43fdc0ff6800ce2fe4422123bc9c69071a7962da93",
+      "bytes": 1047685,
+      "adaptation": null
+    },
+    {
+      "path": "exact/reference-metafor.json",
+      "source_path": "gosh/validate/exact/reference-metafor.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "779e11559bc61421c8d959c0bdfcbe84442dbad2",
+      "source_sha256": "0996778e4b4b26d7b72f296a9ff619621144950a85824cf8c371da71c570f392",
+      "sha256": "0996778e4b4b26d7b72f296a9ff619621144950a85824cf8c371da71c570f392",
+      "bytes": 484374,
+      "adaptation": null
+    },
+    {
+      "path": "exact/MANIFEST-exact.json",
+      "source_path": "gosh/validate/exact/MANIFEST-exact.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "ff0fe7dabacd9b1438d37abb9649a4737546420b",
+      "source_sha256": "ff81ac2fac0d75a953d6ebea34c2e07f3a72df12a05cbcb0d270d41dda156317",
+      "sha256": "ff81ac2fac0d75a953d6ebea34c2e07f3a72df12a05cbcb0d270d41dda156317",
+      "bytes": 777,
+      "adaptation": null
+    },
+    {
+      "path": "exact/compare.js",
+      "source_path": "gosh/validate/exact/compare.js",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "b26b23493a91893e4bc5585acdf6737b520f1bab",
+      "source_sha256": "1b96216d38aa2def74d2e3adfab501287182f2e103b8877b3739cbaa85717b08",
+      "sha256": "1b96216d38aa2def74d2e3adfab501287182f2e103b8877b3739cbaa85717b08",
+      "bytes": 4476,
+      "adaptation": null
+    },
+    {
+      "path": "exact/generate-exact-r.R",
+      "source_path": "gosh/validate/exact/generate-exact-r.R",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "e4b1bb7658f914ad2a7b0e9efea861320cbcd8bb",
+      "source_sha256": "1908a6f758dc7ca962eb703b8a221a87ef27f34cdcd90019c52c7847cc23f120",
+      "sha256": "3a7dc0ce9eabf7f6f8797bef0218b9046b707a763366c0474a5fe5002f8b835e",
+      "bytes": 6513,
+      "adaptation": "Assert R 4.6.0 before generation"
+    },
+    {
+      "path": "exact/generate-exact-metafor.R",
+      "source_path": "gosh/validate/exact/generate-exact-metafor.R",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "64a71872cf282eef4d3042e69a805027136952e2",
+      "source_sha256": "0a13a1f9273619bc5464ff4cfe8ccacaa5d4b03258f6b414ad1badbb77eedfea",
+      "sha256": "19e9608f747dd931a60a89fc816a0bc3a08e707649cf79ab0a82f266bf063416",
+      "bytes": 5527,
+      "adaptation": "Assert R 4.6.0 before generation"
+    },
+    {
+      "path": "exact/replay.cjs",
+      "source_path": "gosh/validate/exact/replay.cjs",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "c3ec710302d68ebde4d38bfbb4fccdcd52eefd0b",
+      "source_sha256": "9e3d4623494789bf913b951f1cabafebf82bff0aab59c7cbff4477f02ead56d2",
+      "sha256": "a914cf7b1711c6351177503b9430c17125dc56467f99990357d766a32bdde572",
+      "bytes": 6701,
+      "adaptation": "Archive-relative engine path and estimate plant; labelled totals"
+    },
+    {
+      "path": "exact/gosh/validate/replay-numeric.cjs",
+      "source_path": "gosh/validate/replay-numeric.cjs",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "8eaa5347b04ed0a85f4859d6f17b198e80735dc9",
+      "source_sha256": "78537b5aa2b35326ba6dfca9812455bfcddd51c45cd4d11aef494bde7aeaf7a8",
+      "sha256": "78537b5aa2b35326ba6dfca9812455bfcddd51c45cd4d11aef494bde7aeaf7a8",
+      "bytes": 3999,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/MANIFEST.json",
+      "source_path": "gosh/validate/MANIFEST.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "8beae0aba4b2f90a7b1c3d9290d47ba7645410da",
+      "source_sha256": "e219ebc48e7a9f7c671b025cdc26d1f95876c9f2a097e6b514669fb4fabfae86",
+      "sha256": "e219ebc48e7a9f7c671b025cdc26d1f95876c9f2a097e6b514669fb4fabfae86",
+      "bytes": 1230,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/MANIFEST-plus.json",
+      "source_path": "gosh/validate/MANIFEST-plus.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "d0fd95b5c4d4afad9d48530ba42bd1c860be1b1f",
+      "source_sha256": "287e6338cfec7e964806bfbed13bf0b77a0c28b053f2d8fce61eca1b1069d4ea",
+      "sha256": "287e6338cfec7e964806bfbed13bf0b77a0c28b053f2d8fce61eca1b1069d4ea",
+      "bytes": 1295,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/corpus/corpus.json",
+      "source_path": "gosh/validate/corpus/corpus.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "8922ede8e0d8fec85e759c4b8193f09a3e6eab6a",
+      "source_sha256": "2c4ece4f9c4e49d281f860ba5850b441d9f220ff0ce75c82ffbc69963972150a",
+      "sha256": "2c4ece4f9c4e49d281f860ba5850b441d9f220ff0ce75c82ffbc69963972150a",
+      "bytes": 267665,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/corpus/reference.json",
+      "source_path": "gosh/validate/corpus/reference.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "a9c70b2da7eadb6ac4c92c997d7d18a2a1304a8a",
+      "source_sha256": "13b575fb42ca8c198da5bbcaa92919631e1490fe9013d7b435bddb8c92053ee7",
+      "sha256": "13b575fb42ca8c198da5bbcaa92919631e1490fe9013d7b435bddb8c92053ee7",
+      "bytes": 14037575,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/plus/corpus.json",
+      "source_path": "gosh/validate/plus/corpus.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "fd8323862772895c6bb38b6561bd7046e2c706bb",
+      "source_sha256": "5a4d93568089f8c72b5b1f9adf6c2dfdde26d7286ae649c4fb721d150cc9fc22",
+      "sha256": "5a4d93568089f8c72b5b1f9adf6c2dfdde26d7286ae649c4fb721d150cc9fc22",
+      "bytes": 39106,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/validate/plus/reference.json",
+      "source_path": "gosh/validate/plus/reference.json",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "5a9ac92775285357082c4d60d49fd4e228d7b135",
+      "source_sha256": "bdb0a8e09b27ad1a7ac4f7842cc95d2a7ba4b6327e7d57f517c0936de91d3e12",
+      "sha256": "bdb0a8e09b27ad1a7ac4f7842cc95d2a7ba4b6327e7d57f517c0936de91d3e12",
+      "bytes": 16728013,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/tests/exact-enum.test.cjs",
+      "source_path": "gosh/tests/exact-enum.test.cjs",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "0bca67b9acae149ed59cb3ad474dc3385ebaa381",
+      "source_sha256": "67202ac91098380076e00591218506dc5fdb994948d55fa8a02e6af5e11eb2fc",
+      "sha256": "67202ac91098380076e00591218506dc5fdb994948d55fa8a02e6af5e11eb2fc",
+      "bytes": 8099,
+      "adaptation": null
+    },
+    {
+      "path": "exact/gosh/tests/exact-compare.test.cjs",
+      "source_path": "gosh/tests/exact-compare.test.cjs",
+      "commit": "1e3ef389cdfbce7c735c32e2794e67d3cbefb622",
+      "git_blob": "dd92e16743633e240942b69baa8bbfd1273c9fd6",
+      "source_sha256": "502294005e94edd786f89c255c5308b019ba3f8fc493e746c6009274a48fe161",
+      "sha256": "502294005e94edd786f89c255c5308b019ba3f8fc493e746c6009274a48fe161",
+      "bytes": 1026,
+      "adaptation": null
+    }
+  ]
+}

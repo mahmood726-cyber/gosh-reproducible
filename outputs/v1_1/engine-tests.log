@@ -1,0 +1,29 @@
+✔ exact engine equals brute force: bcg13 k=13 FE (155.6071ms)
+✔ exact engine equals brute force: bcg13 k=13 DL (199.3934ms)
+✔ exact engine equals brute force: synth3 k=3 FE (6.4012ms)
+✔ exact engine equals brute force: synth3 k=3 DL (2.1786ms)
+✔ exact engine equals brute force: synth5 k=5 FE (2.8178ms)
+✔ exact engine equals brute force: synth5 k=5 DL (2.069ms)
+✔ exact engine equals brute force: synth8 k=8 FE (4.8319ms)
+✔ exact engine equals brute force: synth8 k=8 DL (5.1835ms)
+✔ exact engine equals brute force: synth12 k=12 FE (62.179ms)
+✔ exact engine equals brute force: synth12 k=12 DL (77.2131ms)
+✔ exact engine equals brute force: synth14 k=14 FE (216.2501ms)
+✔ exact engine equals brute force: synth14 k=14 DL (282.8654ms)
+✔ exact engine equals brute force: synth15 k=15 FE (670.503ms)
+✔ exact engine equals brute force: synth15 k=15 DL (392.2314ms)
+✔ exact engine equals brute force: synth16 k=16 FE (1690.5031ms)
+✔ exact engine equals brute force: synth16 k=16 DL (1265.0938ms)
+✔ planted negative control: a dropped subset or a moved grid count is detected (29.4353ms)
+✔ planted negative control: perturbing one weight by 1e-6 relative is detected (80.8481ms)
+✔ engine refuses invalid input and reports exact coverage (2.1865ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5210.0363
+
+PROCESS EXIT 0; EXPECTED 0

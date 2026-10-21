@@ -1,0 +1,11 @@
+[
+  {
+    "name": "archive-verifier",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "verify.py"
+    ],
+    "expected_exit": 0,
+    "actual_exit": 120
+  }
+]

@@ -1,0 +1,38 @@
+V1.0 SOURCE PINS 1904/1904
+V1.0 REPLAY (unchanged scripts and pinned bytes)
+reference_present: 444/444 pass; max difference 0; tolerance 0
+configuration_key: 444/444 pass; max difference 0; tolerance 0
+reference_key: 444/444 pass; max difference 0; tolerance 0
+app_evidence: 416/416 pass; max difference 0; tolerance 0
+reference_success: 416/416 pass; max difference 0; tolerance 0
+summary_model: 416/416 pass; max difference 0; tolerance 0
+summary_input_k: 416/416 pass; max difference 0; tolerance 0
+sampling_mode: 416/416 pass; max difference 0; tolerance 0
+sampling_control_visibility: 416/416 pass; max difference 0; tolerance 0
+coverage: 416/416 pass; max difference 0; tolerance 0
+unique_enumeration: 176/176 pass; max difference 0; tolerance 0
+subset_mu: 1785360/1785360 pass; max difference 2.3961388428972441e-13; tolerance 1e-09
+subset_I2: 1785360/1785360 pass; max difference 3.880984422721667e-13; tolerance 1e-09
+subset_Q: 1785360/1785360 pass; max difference 5.557136474135372e-12; tolerance 1e-09
+subset_k: 1785360/1785360 pass; max difference 0; tolerance 0
+summary_n_subsets: 416/416 pass; max difference 0; tolerance 0
+summary_median_est: 416/416 pass; max difference 1.4432899320127035e-15; tolerance 1e-09
+summary_median_i2: 416/416 pass; max difference 1.0373923942097462e-14; tolerance 1e-09
+summary_min_est: 416/416 pass; max difference 6.9147306759257787e-16; tolerance 1e-09
+summary_max_est: 416/416 pass; max difference 3.7747582837255322e-15; tolerance 1e-09
+summary_q25_est: 416/416 pass; max difference 1.3322676295501878e-15; tolerance 1e-09
+summary_q75_est: 416/416 pass; max difference 8.3266726846886741e-16; tolerance 1e-09
+plotted_count: 416/416 pass; max difference 0; tolerance 0
+display_count: 416/416 pass; max difference 0; tolerance 0
+display_median_est: 416/416 pass; max difference 0; tolerance 0
+display_median_i2: 416/416 pass; max difference 0; tolerance 0
+plot_x: 1785360/1785360 pass; max difference 0; tolerance 1e-09
+plot_y: 1785360/1785360 pass; max difference 0; tolerance 1e-09
+axis_labels: 416/416 pass; max difference 0; tolerance 0
+subset_tau2: 891928/891928 pass; max difference 5.3318388665190428e-13; tolerance 1e-09
+subset_se: 1200000/1200000 pass; max difference 1.9472548573595816e-12; tolerance 1e-09
+app_cap_refusal: 28/28 pass; max difference 0; tolerance 0
+refusal_clears_chart: 28/28 pass; max difference 0; tolerance 0
+12813556/12813556 checks pass
+
+PROCESS EXIT 0; EXPECTED 0

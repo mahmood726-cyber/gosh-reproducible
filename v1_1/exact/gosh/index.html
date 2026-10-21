@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; media-src 'self' blob:; manifest-src 'self'">
+  <link rel="stylesheet" href="../shared/forced-colors.css">
+  <meta name="description" content="GOSH plot: all-subset meta-analysis scatter of pooled estimate vs I², used to detect influential studies and subgroup structure.">
+  <meta name="color-scheme" content="light dark">
+  <title>GOSH Plot</title>
+  <style>
+    :root { --bg:#f6f4ef; --panel:#fff; --ink:#15181d; --muted:#5c6470;
+            --accent:#2c5e8a; --accent-soft:#e8f0f7; --warn:#b05a1c;
+            --warn-soft:#fbeedd; --border:#d9d5cc; --input-bg:#fbfaf6; }
+    @media (prefers-color-scheme:dark) {
+      :root { --bg:#141618; --panel:#1c1f23; --ink:#e7e4dc; --muted:#98a0ae;
+              --accent:#6aa6d4; --accent-soft:#223044; --warn:#e0a268;
+              --warn-soft:#3a2d1c; --border:#2f343a; --input-bg:#23272c; }
+    }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; } }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+           background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.5; }
+    header { padding: 2rem clamp(1rem, 3vw, 3rem) 1rem; border-bottom: 1px solid var(--border); background: var(--panel); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.6rem; letter-spacing: -0.01em; }
+    header p { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: 72ch; }
+    main { padding: 1.5rem clamp(1rem, 3vw, 3rem); display: grid; gap: 1.5rem;
+           grid-template-columns: minmax(300px, 24rem) 1fr; align-items: start; }
+    @media (max-width: 1000px) { main { grid-template-columns: 1fr; } }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1.25rem; }
+    .panel h2 { margin: 0 0 0.75rem; font-size: 0.85rem; font-weight: 600;
+                text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    textarea { width: 100%; min-height: 10rem; padding: 0.5rem 0.65rem;
+               border: 1px solid var(--border); background: var(--input-bg); color: var(--ink);
+               border-radius: 6px; font: 0.86rem/1.4 "SF Mono", Consolas, monospace; }
+    input[type="number"], select { width: 100%; padding: 0.35rem 0.55rem; border: 1px solid var(--border);
+      background: var(--input-bg); color: var(--ink); border-radius: 6px; font: inherit; }
+    label { display: block; font-size: 0.85rem; margin-bottom: 0.55rem; }
+    label .hint { display: block; color: var(--muted); font-size: 0.72rem; margin-top: 0.1rem; }
+    button.primary { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1rem;
+                     border-radius: 6px; font-weight: 600; font-size: 0.88rem; cursor: pointer; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.7rem; }
+    .card { background: var(--accent-soft); padding: 0.5rem 0.7rem; border-radius: 6px; }
+    .card .k { display: block; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .card .v { display: block; font-size: 1.1rem; font-weight: 700; }
+    svg { width: 100%; height: auto; display: block; }
+    .note { background: var(--warn-soft); border-left: 3px solid var(--warn); padding: 0.55rem 0.8rem;
+            border-radius: 4px; font-size: 0.82rem; margin: 0.75rem 0; }
+    .note strong { color: var(--warn); }
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem;
+               padding-top: 0.75rem; border-top: 1px dashed var(--border); align-items: center; }
+    footer { padding: 1rem clamp(1rem, 3vw, 3rem) 2rem; color: var(--muted); font-size: 0.8rem; }
+    footer code { background: var(--accent-soft); padding: 0.1rem 0.35rem; border-radius: 3px; }
+  </style>
+  <link rel="stylesheet" href="../hub/app-style.css">
+  <!-- Cycle 2.8 shared UX modules — wired per RETROFIT_AUDIT.md:
+       wired: csv-upload, chart-download, axis-controls, results-export, url-state, reset-undo, tooltips -->
+  <script src="../hub/shared/csv-upload.js"></script>
+  <script src="../hub/shared/plot-export.js"></script>
+  <script src="../hub/shared/axis-controls.js"></script>
+  <script src="../hub/shared/results-export.js"></script>
+  <script src="../hub/shared/url-state.js"></script>
+  <script src="../hub/shared/reset-undo.js"></script>
+  <script src="../hub/shared/tooltips.js"></script>
+  <script src="../shared/build-info.js"></script>
+  <script src="../shared/ma-studies-v1.js"></script>
+  <script src="../shared/truthcert-export.js"></script>
+  <script src="../shared/truthcert-ui.js"></script>
+  <script src="../shared/app-flow.js"></script>
+  <script src="../shared/canonical-datasets.js"></script>
+  <script src="../shared/hero-examples.js"></script>
+  <script src="../shared/citation.js"></script>
+  <script src="../shared/autosave.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:-9999px;z-index:99999;padding:6px 10px;background:#000;color:#fff;border-radius:4px;text-decoration:none" onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px';this.style.top='-9999px'">Skip to main content</a>
+<a id="hub-back" href="../" aria-label="Back to allmeta hub" style="position:fixed;top:12px;left:12px;z-index:99999;padding:6px 12px;background:rgba(28,31,35,0.85);color:#fff;text-decoration:none;border-radius:14px;font:600 12px/1 system-ui,sans-serif;letter-spacing:.04em;box-shadow:0 2px 8px rgba(0,0,0,0.18);transition:opacity .15s ease;opacity:.85" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.85'">&#8592; allmeta</a>
+  <header>
+    <h1>GOSH plot &#8212; all-subset meta-analysis</h1>
+    <p>Graphical display of study heterogeneity (Olkin, Dahabreh, Trikalinos 2012). For every non-empty subset of studies, compute the pooled estimate and <span data-gloss="i2">I&#178;</span> under a fixed-effect or DL random-effects model. Each subset becomes one dot; clusters suggest influential studies or subgroup structure. For k &gt; 15 the page enumerates every subset exactly by streaming (no subset is stored) when that is fast enough, and otherwise draws random subsets; the result is labelled.</p>
+  </header>
+  <main id="main">
+    <section class="panel">
+      <h2>Input</h2>
+
+      <!-- csv-upload mount -->
+
+
+      <label>
+        <span>Studies &#8212; <code>effect, SE, label</code> (per line)</span>
+        <textarea id="src" aria-label="Input" aria-describedby="input-error">0.22, 0.08, Study A
+0.30, 0.14, Study B
+0.27, 0.09, Study C
+0.15, 0.07, Study D
+0.45, 0.18, Study E
+0.10, 0.06, Study F
+0.35, 0.16, Study G
+0.22, 0.10, Study H
+0.40, 0.20, Study I</textarea>
+        <span id="input-error" role="alert"></span></label>
+      <button type="button" id="btn-run" class="primary" style="width:100%;margin-top:0.5rem">Run analysis</button>
+      <div id="analysis-status" role="status" aria-live="polite" hidden>Analysis updated</div>
+      <div id="analysis-stale" hidden>Results out of date — press Run analysis</div>
+      <div id="alm-csv-mount"></div>
+        <div id="alm-hero-mount" aria-label="Load a famous benchmark dataset"></div>
+        <div id="alm-cite-mount" style="margin-top:0.4rem"></div>
+
+        <span class="hint">k &#8804; 15 studies: full enumeration (2&#7505; &#8722; 1 subsets). k &gt; 15: random-sampling preview (Olkin &amp; Dahabreh 2012 recommendation); exact enumeration is available below.</span>
+
+      <label>
+        <span>Pooling model</span>
+        <select id="model" aria-label="Model">
+          <option value="FE" selected>Fixed effect</option>
+          <option value="DL">Random effects (DerSimonian-Laird)</option>
+        </select>
+      </label>
+      <label id="sample-label" style="display:none">
+        <span>Random subsets to draw (k &gt; 15)</span>
+        <input id="n-sample" type="number" step="1" min="1" max="100000" value="5000" aria-describedby="sample-error" aria-label="App default: 5,000 draws. Larger = more accurate density but slower.">
+        <span class="hint">App default: 5,000 draws; enter a whole number from 1 to 100,000 (cap limits browser workload). Uniform subset size from 2 to k, with replacement. This differs from metafor.</span>
+        <span id="sample-error" role="alert"></span>
+      </label>
+      <label id="enum-label" style="display:none">
+        <span>Subsets for k &gt; 15</span>
+        <select id="enum-mode" aria-label="Subset enumeration for k above 15">
+          <option value="auto" selected>Auto: exact all subsets when fast, else sampling</option>
+          <option value="exact">Exact: all 2^k &#8722; 1 subsets (streamed)</option>
+          <option value="sample">Random sampling only</option>
+        </select>
+        <span class="hint">Exact enumeration runs in the background with progress and Cancel; the sampled preview is shown meanwhile.</span>
+      </label>
+      <div style="display:flex;gap:0.4rem;margin-top:0.4rem">
+        <button type="button" id="btn-bus-load" style="flex:1" title="Load studies from the shared ma-studies-v1 bus">Load from bus</button>
+        <button type="button" id="btn-bus-save" style="flex:1" title="Save current studies to the shared ma-studies-v1 bus">Save to bus</button><button type="button" id="btn-verify-in-r" title="Push current studies to the shared bus and open WebR Validator pre-loaded with metafor — independent R verification in your browser." style="background:#2a6cae;color:#fff;border:1px solid #2a6cae;border-radius:6px;padding:0.45rem 0.85rem;font-weight:600;cursor:pointer;">Verify in R</button><button type="button" id="btn-truthcert" title="Download an HMAC-signed TruthCert receipt of the current studies &mdash; re-verifiable offline with your signing key." style="background:#7c3aed;color:#fff;border:1px solid #7c3aed;border-radius:6px;padding:0.45rem 0.85rem;font-weight:600;cursor:pointer;">TruthCert receipt</button><button type="button" id="btn-truthcert-key" title="Set or generate the TruthCert signing key (shared across all allmeta apps)." style="border:1px solid var(--border);border-radius:6px;padding:0.45rem 0.85rem;cursor:pointer;background:transparent;color:inherit;">&#128273; Key</button>
+      </div>
+
+      <!-- axis-controls mount -->
+      <div id="alm-axis-mount" style="margin-top:0.75rem"></div>
+
+      <!-- reset-undo mount -->
+      <div id="alm-undo-mount" style="margin-top:0.5rem"></div>
+    </section>
+    <section class="panel">
+      <h2>Summary</h2>
+      <div class="metrics">
+        <div class="card"><span class="k">Subsets computed</span><span class="v" id="m-n">0</span></div>
+        <div class="card"><span class="k">Median estimate</span><span class="v" id="m-est">&#8212;</span></div>
+        <div class="card"><span class="k">Median <span data-gloss="i2">I&#178;</span></span><span class="v" id="m-i2">&#8212;</span></div>
+      </div>
+      <h2 style="margin-top:0.6rem">GOSH scatter</h2>
+      <p id="plot-error" role="alert"></p>
+      <p id="plot-note" role="status"></p>
+      <svg id="plot" viewBox="0 0 600 420" role="img" aria-label="GOSH plot &#8212; pooled effect vs I&#178; across all subsets"></svg>
+
+      <!-- plot-export mount -->
+      <div class="actions">
+        <span style="font-size:0.8rem;color:var(--muted)">Download plots:</span>
+        <div id="alm-plot-mount"></div>
+      </div>
+
+      <!-- results-export mount -->
+      <div class="actions">
+        <span style="font-size:0.8rem;color:var(--muted)">Export results:</span>
+        <div id="alm-export-mount"></div>
+      </div>
+
+      <div class="note"><strong>Interpretation:</strong> multimodal clustering indicates subgroup heterogeneity (the meta-analysis averages two or more distinct populations). A thick &#8220;horizontal band&#8221; at one estimate means most subsets converge on the same answer &#8212; homogeneous evidence. Streaks along the <span data-gloss="i2">I&#178;</span> axis often indicate one or two highly influential outliers.</div>
+    </section>
+
+      <div id="alm-flow-mount" aria-live="polite"></div>
+<section id="alm-exact"></section>
+<section id="alm-validate"></section>
+<section id="alm-plus"></section>
+</main>
+  <footer>
+    Olkin I, Dahabreh IJ, Trikalinos TA. GOSH &#8212; a graphical display of study heterogeneity. <em>Res Synth Methods</em> 2012;3(3):214&#8211;23. Subgroup structure interpretation aligns with <em>Cochrane Handbook v6.5 &#167;10.10.2</em> on detecting influential studies; <span data-gloss="i2">I&#178;</span> interpretation per &#167;10.10.2 (low &lt;30%, moderate 30&#8211;60%, substantial 50&#8211;90%, considerable 75&#8211;100%). For k &gt; 15 the sampled preview draws 5,000 subsets by default, choosing sizes uniformly from 2 to k, with replacement, using a fixed seed; the exact mode then enumerates all non-empty subsets by streaming. This differs from <code>metafor::gosh()</code>, which enumerates all non-empty subsets when 2^k - 1 is at most 1,000,000 (k up to 19), and otherwise draws 1,000,000 subsets by default with binomial size probabilities. Full enumeration here includes single-study subsets.
+  </footer>
+  <script src="../hub/shared/analysis-lifecycle.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    // ---- engine ----
+
+    function parse(text) {
+      var rows = [], errors = [], first = true;
+      var numeric = /^[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?$/;
+      // Keep the original default labels while reporting physical input line numbers.
+      var leading = (String(text).match(/^\s*/) || [''])[0].split('\n').length - 1;
+      String(text).split(/\r?\n/).forEach(function (l, i) {
+        if (!l.trim()) return;
+        var parts = l.split(/,/).map(function (s) { return s.trim(); });
+        var header = first && /^(effect|yi|te)$/i.test(parts[0]) && /^se$/i.test(parts[1]) &&
+          (parts.length === 2 || (parts.length === 3 && /^label$/i.test(parts[2])));
+        first = false;
+        if (header) return;
+        var reason = '';
+        if (parts.length < 2 || parts.length > 3) reason = 'expected effect, SE[, label] separated by commas';
+        else if (!numeric.test(parts[0])) reason = 'effect must be a complete number';
+        else if (!numeric.test(parts[1])) reason = 'SE must be a complete number';
+        else if (!Number.isFinite(Number(parts[0])) || !Number.isFinite(Number(parts[1]))) reason = 'effect and SE must be finite';
+        else if (!(Number(parts[1]) > 0)) reason = 'SE must be greater than 0';
+        if (reason) errors.push('Line ' + (i + 1) + ': ' + reason);
+        else rows.push({ te: Number(parts[0]), se: Number(parts[1]), label: parts[2] || ('S' + (i + 1 - leading)) });
+      });
+      if (errors.length) throw new Error(errors.join('; ') + '.');
+      return rows;
+    }
+
+    function pool(rows, model) {
+      var w = rows.map(function (r) { return 1 / (r.se * r.se); });
+      var sw = w.reduce(function (a, b) { return a + b; }, 0);
+      var muFE = rows.reduce(function (a, r, i) { return a + w[i] * r.te; }, 0) / sw;
+      var Q = rows.reduce(function (a, r, i) { return a + w[i] * (r.te - muFE) * (r.te - muFE); }, 0);
+      var df = rows.length - 1;
+      var I2 = (df > 0 && Q > df) ? 100 * (Q - df) / Q : 0;
+      if (model === 'FE' || rows.length < 2) {
+        return { mu: muFE, se: Math.sqrt(1 / sw), Q: Q, I2: I2, k: rows.length };
+      }
+      // DL tau2
+      var swSq = w.reduce(function (a, b) { return a + b * b; }, 0);
+      var tau2 = df > 0 ? Math.max(0, (Q - df) / (sw - swSq / sw)) : 0;
+      var wRE = rows.map(function (r) { return 1 / (r.se * r.se + tau2); });
+      var swRE = wRE.reduce(function (a, b) { return a + b; }, 0);
+      var mu = rows.reduce(function (a, r, i) { return a + wRE[i] * r.te; }, 0) / swRE;
+      return { mu: mu, se: Math.sqrt(1 / swRE), Q: Q, I2: I2, tau2: tau2, k: rows.length };
+    }
+
+    // Full enumeration for k <= 15
+    function allSubsets(rows, model) {
+      var k = rows.length;
+      var total = (1 << k) - 1;
+      var results = [];
+      for (var m = 1; m <= total; m++) {
+        var subset = [];
+        for (var i = 0; i < k; i++) { if (m & (1 << i)) subset.push(rows[i]); }
+        var p = pool(subset, model);
+        results.push({ mu: p.mu, I2: p.I2, k: subset.length });
+      }
+      return results;
+    }
+
+    // Random sampling for k > 15 (advanced-stats.md rule)
+    function sampledSubsets(rows, nSample, model) {
+      var k = rows.length;
+      var results = [];
+      // Use a seeded xoshiro128** PRNG for reproducibility
+      var s = [0xdeadbeef, 0x12345678, 0xabcdef01, 0x87654321];
+      function rotl(x, k) { return (x << k) | (x >>> (32 - k)); }
+      function next() {
+        var t = s[1] << 9;
+        var r = s[0] * 5; r = rotl(r, 7) * 9;
+        s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3];
+        s[2] ^= t; s[3] = rotl(s[3], 11);
+        return (r >>> 0) / 0x100000000;
+      }
+      for (var i = 0; i < nSample; i++) {
+        // Random non-empty subset of size >= 2
+        var size = 2 + Math.floor(next() * (k - 1));
+        // Fisher-Yates to pick `size` indices
+        var idx = [];
+        for (var j = 0; j < k; j++) idx.push(j);
+        for (var j = 0; j < size; j++) {
+          var r = j + Math.floor(next() * (k - j));
+          var tmp = idx[j]; idx[j] = idx[r]; idx[r] = tmp;
+        }
+        var subset = [];
+        for (var j = 0; j < size; j++) subset.push(rows[idx[j]]);
+        var p = pool(subset, model);
+        results.push({ mu: p.mu, I2: p.I2, k: subset.length });
+      }
+      return results;
+    }
+
+    function fmt(x, d) {
+      d = d === undefined ? 3 : d;
+      return Number.isFinite(x) ? x.toFixed(d) : '—';
+    }
+
+    // ---- axis state (overrideable by axis-controls) ----
+    var _axisState = {};
+
+    // ---- last results storage for export ----
+    var _lastResults = null;
+
+    run = window.alm.analysisLifecycle(run, function (result) { return !!_lastResults; }, "#src, #model, #n-sample, #enum-mode");
+
+    function run() {
+      document.getElementById('plot-note').textContent = '';
+      document.getElementById('plot-error').textContent = '';
+      document.getElementById('input-error').textContent = '';
+      var text = document.getElementById('src').value;
+      var model = document.getElementById('model').value;
+      var sampleError = document.getElementById('sample-error');
+      sampleError.textContent = '';
+      var rows;
+      try { rows = parse(text); }
+      catch (error) {
+        clearInputResults(error.message);
+        return;
+      }
+      if (rows.length < 3) {
+        clearInputResults('Enter at least 3 valid studies (effect, SE[, label]); found ' + rows.length + '.');
+        return;
+      }
+      if (rows.length < 3 || rows.length > 100) {
+        document.getElementById('m-n').textContent = '—';
+        _lastResults = null; // do not leave a stale result exportable
+        document.getElementById('m-est').textContent = '\u2014';
+        document.getElementById('m-i2').textContent = '\u2014';
+        document.getElementById('plot').innerHTML = '';
+        document.getElementById('sample-label').style.display = 'none';
+        exactRequest(null);
+        return;
+      }
+
+      var FULL_ENUM_LIMIT = 15; // advanced-stats.md: random-sample above this
+      var isSampled = rows.length > FULL_ENUM_LIMIT;
+      var sampleLabel = document.getElementById('sample-label');
+      if (sampleLabel) sampleLabel.style.display = isSampled ? 'block' : 'none';
+      document.getElementById('enum-label').style.display = isSampled ? 'block' : 'none';
+      if (!isSampled) exactRequest(null);
+
+      var results;
+      if (isSampled) {
+        var rawSample = document.getElementById('n-sample').value.trim();
+        var nSample = Number(rawSample);
+        if (rawSample === '' || !Number.isInteger(nSample) || nSample < 1 || nSample > 100000) {
+          exactRequest(null);
+          sampleError.textContent = 'Enter a whole number of draws from 1 to 100,000.';
+          document.getElementById('m-n').textContent = '0';
+          _lastResults = null;
+          document.getElementById('m-est').textContent = '\u2014';
+          document.getElementById('m-i2').textContent = '\u2014';
+          document.getElementById('plot').innerHTML = '';
+          return;
+        }
+        results = sampledSubsets(rows, nSample, model);
+      } else {
+        results = allSubsets(rows, model);
+      }
+
+      if (results.length === 0) {
+        exactRequest(null);
+        document.getElementById('m-n').textContent = '0';
+        _lastResults = null; // do not leave a stale result exportable
+        document.getElementById('m-est').textContent = '\u2014';
+        document.getElementById('m-i2').textContent = '\u2014';
+        document.getElementById('plot').innerHTML = '';
+        if (isSampled) sampleError.textContent = 'No sampled results. Adjust the draw count and try again.';
+        return;
+      }
+
+      var mus = results.map(function (r) { return r.mu; }).sort(function (a, b) { return a - b; });
+      var i2s = results.map(function (r) { return r.I2; }).sort(function (a, b) { return a - b; });
+      // Cycle 7.19: Type-7 quantile (linear interpolation) — matches R
+      // quantile() default, NumPy default, SAS default.  Previously used
+      // nearest-rank which drifted up to half a step from R; ~3e-3 error
+      // at typical k=5 subset counts.
+      function q7(sorted, p) {
+        var n = sorted.length;
+        if (n === 0) return NaN;
+        if (n === 1) return sorted[0];
+        var h = (n - 1) * p;
+        var lo = Math.floor(h);
+        var frac = h - lo;
+        if (lo + 1 >= n) return sorted[n - 1];
+        return sorted[lo] + frac * (sorted[lo + 1] - sorted[lo]);
+      }
+      var medMu = q7(mus, 0.5);
+      var medI2 = q7(i2s, 0.5);
+
+      document.getElementById('m-n').textContent = results.length.toLocaleString();
+      document.getElementById('m-est').textContent = fmt(medMu);
+      document.getElementById('m-i2').textContent = medI2.toFixed(1) + '%';
+
+      // Store for export
+      _lastResults = {
+        _schema: 'gosh-results-v1',
+        k: rows.length,
+        model: model,
+        sampled: isSampled,
+        n_subsets: results.length,
+        median_est: medMu,
+        median_i2: medI2,
+        min_est: mus[0],
+        max_est: mus[mus.length - 1],
+        q25_est: q7(mus, 0.25),
+        q75_est: q7(mus, 0.75),
+        studies: rows.map(function (r) { return { label: r.label, te: r.te, se: r.se }; }),
+      };
+
+      draw(results);
+      if (!_exactSuppressed && window.AlmGoshExact) window.AlmGoshExact.labelResult(_lastResults);
+      if (isSampled) exactRequest({ rows: rows, model: model, apply: applyExact, axes: function () { return _axisState; } });
+
+      // URL state
+      if (window.alm && window.alm.urlState) {
+        window.alm.urlState.write({ model: model, src: text.substring(0, 600) });
+      }
+    }
+
+    // Exact streamed enumeration for k > 15 (gosh/exact-ui.js). Never started by validation runs.
+    var _exactSuppressed = false;
+    function exactRequest(req) {
+      if (_exactSuppressed || !window.AlmGoshExact) return;
+      window.AlmGoshExact.request(req);
+    }
+    function applyExact(res) {
+      document.getElementById('m-n').textContent = res.n_subsets.toLocaleString();
+      document.getElementById('m-est').textContent = fmt(res.median_est);
+      document.getElementById('m-i2').textContent = res.median_i2.toFixed(1) + '%';
+      _lastResults = Object.assign({}, _lastResults, {
+        sampled: false, enumeration: 'exact-streamed', n_subsets: res.n_subsets,
+        median_est: res.median_est, median_i2: res.median_i2, min_est: res.min_est, max_est: res.max_est,
+        q25_est: res.q25_est, q75_est: res.q75_est, exact: res,
+      });
+      window.AlmGoshExact.labelResult(_lastResults);
+    }
+
+    function draw(pts) {
+      var svg = document.getElementById('plot');
+      var W = 600, H = 420;
+      var padL = 60, padR = 20, padT = 20, padB = 50;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var __svgParts = [''];
+
+      var xs = pts.map(function (p) { return p.mu; });
+      var xMin = Math.min.apply(null, xs), xMax = Math.max.apply(null, xs);
+      // Scale first: finite extreme endpoints must not overflow on subtraction.
+      var scale = Math.max(Math.abs(xMin), Math.abs(xMax));
+      var xPad = scale ? Math.max((xMax / scale - xMin / scale) * 0.1, 8 * Number.EPSILON) * scale : 0.1;
+      // Preserve a representable padding step when multiplication underflows.
+      xPad = Math.max(xPad, Number.MIN_VALUE);
+
+      // Resolve final bounds once for both ticks and coordinate transforms.
+      xMin = Math.max(-Number.MAX_VALUE, xMin - xPad);
+      xMax = Math.min(Number.MAX_VALUE, xMax + xPad);
+      // Apply axis overrides
+      var yMin = 0, yMax = 100;
+      if (_axisState && Array.isArray(_axisState.y)) {
+        if (_axisState.y[0] !== null) yMin = _axisState.y[0];
+        if (_axisState.y[1] !== null) yMax = _axisState.y[1];
+      }
+      if (_axisState && Array.isArray(_axisState.x)) {
+        if (_axisState.x[0] !== null) xMin = _axisState.x[0];
+        if (_axisState.x[1] !== null) xMax = _axisState.x[1];
+      }
+
+      function epsilon(lo, hi) {
+        return 8 * Number.EPSILON * Math.max(1, Math.abs(lo), Math.abs(hi));
+      }
+      function fraction(v, lo, hi) {
+        var scale = Math.max(Math.abs(lo), Math.abs(hi));
+        return (v / scale - lo / scale) / (hi / scale - lo / scale);
+      }
+      function interpolate(lo, hi, f) {
+        return f === 0 ? lo : f === 1 ? hi : lo * (1 - f) + hi * f;
+      }
+      function snap(v, lo, hi) {
+        var eps = epsilon(lo, hi);
+        if (!Number.isFinite(v) || v < lo - eps || v > hi + eps) return null;
+        // Nearest edge wins when tolerance bands overlap at tiny scales.
+        var dl = Math.abs(v - lo), dh = Math.abs(v - hi);
+        if (Math.min(dl, dh) <= eps) return dl <= dh ? lo : hi;
+        return v;
+      }
+      function labels(ticks, fixedDigits) {
+        var magnitude = Math.max.apply(null, ticks.map(Math.abs));
+        var scientific = magnitude !== 0 && (magnitude < 1e-4 || magnitude >= 1e7);
+        for (var digits = scientific ? 2 : fixedDigits; digits <= 17; digits++) {
+          var values = ticks.map(function (v) { return scientific ? v.toExponential(digits) : v.toFixed(digits); });
+          if (values.every(function (v, i) { return i === 0 || ticks[i] === ticks[i - 1] || v !== values[i - 1]; })) return values;
+        }
+        return ticks.map(String);
+      }
+      var X = function (v) { return padL + fraction(v, xMin, xMax) * plotW; };
+      var Y = function (v) { return padT + (1 - fraction(v, yMin, yMax)) * plotH; };
+
+      // axes + grid
+      __svgParts.push('<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (padT + plotH) + '" stroke="currentColor" opacity="0.5"/>');
+      __svgParts.push('<line x1="' + padL + '" y1="' + (padT + plotH) + '" x2="' + (padL + plotW) + '" y2="' + (padT + plotH) + '" stroke="currentColor" opacity="0.5"/>');
+      var yTicks = [0, 0.25, 0.5, 0.75, 1].map(function (f) { return interpolate(yMin, yMax, f); });
+      var yLabels = labels(yTicks, 0);
+      for (var yi = 0; yi < yTicks.length; yi++) {
+        var yTick = yTicks[yi];
+        __svgParts.push('<line x1="' + padL + '" y1="' + Y(yTick) + '" x2="' + (padL + plotW) + '" y2="' + Y(yTick) + '" stroke="currentColor" opacity="0.07"/>');
+        __svgParts.push('<text x="' + (padL - 8) + '" y="' + (Y(yTick) + 4) + '" text-anchor="end" font-size="11" fill="currentColor" opacity="0.7">' + yLabels[yi] + '%</text>');
+      }
+      var xTicks = [xMin, interpolate(xMin, xMax, 0.5), xMax];
+      var xLabels = labels(xTicks, 2);
+      for (var xi = 0; xi < xTicks.length; xi++) {
+        var t = xTicks[xi];
+        __svgParts.push('<line x1="' + X(t) + '" y1="' + (padT + plotH) + '" x2="' + X(t) + '" y2="' + (padT + plotH + 5) + '" stroke="currentColor" opacity="0.5"/>');
+        __svgParts.push('<text x="' + X(t) + '" y="' + (padT + plotH + 18) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.7">' + xLabels[xi] + '</text>');
+      }
+      __svgParts.push('<text x="' + (padL + plotW / 2) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.8">Pooled effect</text>');
+      __svgParts.push('<text x="20" y="' + (padT + plotH / 2) + '" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.8" transform="rotate(-90 20 ' + (padT + plotH / 2) + ')">I&#178;</text>');
+
+      // Points with alpha to show density
+      var alpha = Math.max(0.03, Math.min(0.3, 8 / Math.sqrt(pts.length)));
+      __svgParts.push('<defs><clipPath id="plot-clip"><rect x="60" y="20" width="520" height="350"/></clipPath></defs>');
+      var omitted = 0;
+      for (var pi = 0; pi < pts.length; pi++) {
+        var p = pts[pi];
+        var px = snap(p.mu, xMin, xMax), py = snap(p.I2, yMin, yMax);
+        if (px === null || py === null) { omitted++; continue; }
+        __svgParts.push('<circle clip-path="url(#plot-clip)" cx="' + X(px) + '" cy="' + Y(py) + '" r="2" fill="var(--accent)" fill-opacity="' + alpha + '"/>');
+      }
+      // One pre-render gate covers every emitted coordinate. Points belong
+      // inside the plot; axes, tick marks and label anchors inside the viewBox.
+      // Build off-DOM so a failed plot never reaches the visible SVG.
+      var markup = __svgParts.join('');
+      var valid = [xMin, xMax, yMin, yMax].every(Number.isFinite) &&
+        xMin < xMax && yMin < yMax;
+      var tags = markup.match(/<[^>]+>/g) || [];
+      tags.forEach(function (tag) {
+        var circle = tag.indexOf('<circle ') === 0;
+        var coordinates = /\b(x|x1|x2|cx|y|y1|y2|cy)="([^"]*)"/g;
+        var match;
+        while ((match = coordinates.exec(tag)) !== null) {
+          var horizontal = match[1].indexOf('x') !== -1;
+          var value = Number(match[2]);
+          var low = circle ? (horizontal ? padL : padT) : 0;
+          var high = circle ? (horizontal ? padL + plotW : padT + plotH) : (horizontal ? W : H);
+          if (!Number.isFinite(value) || value < low - epsilon(low, high) || value > high + epsilon(low, high)) valid = false;
+        }
+        // The only transform is rotation about an explicit label anchor.
+        var rotation = tag.match(/transform="rotate\(([^)]+)\)"/);
+        if (rotation) {
+          var values = rotation[1].split(/\s+/).map(Number);
+          if (values.length !== 3 || !values.every(Number.isFinite) ||
+              values[1] < 0 || values[1] > W || values[2] < 0 || values[2] > H) valid = false;
+        }
+      });
+      document.getElementById('plot-error').textContent = valid ? '' :
+        'Plot cannot be displayed: axis limits or coordinates are invalid or outside the plotting area. Widen or reset the limits. Computed results are retained.';
+      document.getElementById('plot-note').textContent = valid && omitted ? omitted + ' subset points outside the current axis range are omitted.' : '';
+      svg.innerHTML = valid ? markup : '';
+    }
+
+    // ---- snapshot/restore helpers for reset-undo ----
+    function snapshot() {
+      return {
+        src:   document.getElementById('src').value,
+        model: document.getElementById('model').value,
+      };
+    }
+
+    function restore(snap) {
+      if (!snap) return;
+      if (snap.src   !== undefined) document.getElementById('src').value   = snap.src;
+      if (snap.model !== undefined) document.getElementById('model').value = snap.model;
+      run();
+    }
+
+    function clearInputResults(message) {
+      _lastResults = null;
+      document.getElementById('plot').innerHTML = '';
+      ['m-n', 'm-est', 'm-i2'].forEach(function (id) { document.getElementById(id).textContent = '\u2014'; });
+      document.getElementById('sample-label').style.display = 'none';
+      document.getElementById('input-error').textContent = message;
+      if (window.AlmGoshPlus) window.AlmGoshPlus.clear('Analysis refused. Correct the input and refresh extras.');
+    }
+
+    // ---- CSV load: accept study,yi,vi or study,yi,sei columns ----
+    window.__almGoshLoad = function (rows) {
+      if (!rows || rows.length < 1) { document.getElementById('src').value = ''; run(); return; }
+      var lines = [];
+      rows.forEach(function (r) {
+        var te  = parseFloat(r.yi  !== undefined ? r.yi  : (r.effect !== undefined ? r.effect : (r.TE !== undefined ? r.TE : r.te)));
+        // Accept vi (variance) or sei/SE (standard error)
+        var se;
+        if (r.vi !== undefined && Number.isFinite(parseFloat(r.vi)) && parseFloat(r.vi) > 0) {
+          se = Math.sqrt(parseFloat(r.vi));
+        } else {
+          se = parseFloat(r.sei !== undefined ? r.sei : (r.SE !== undefined ? r.SE : (r.seTE !== undefined ? r.seTE : r.se)));
+        }
+        if (!Number.isFinite(te) || !Number.isFinite(se) || se <= 0) return;
+        var label = r.study || r.label || r.Study || '';
+        lines.push(te.toString() + ', ' + se.toString() + (label ? ', ' + label : ''));
+      });
+
+      document.getElementById('src').value = lines.join('\n');
+      run();
+    };
+
+    // Expose last results for export
+    window._almLastGosh = function () { return _lastResults; };
+    // The controller loads after this inline script; rerun restored/default inputs once it is ready.
+    window.__almGoshExactReady = function () { run(); };
+
+
+    // Validation observes calls to the unchanged parser and pooling engine.
+    window.__almGoshValidationRun = function(text, model, draws, axes) {
+      if (text !== undefined) document.getElementById('src').value=text;
+      if (model !== undefined) document.getElementById('model').value=model;
+      if (draws !== undefined) document.getElementById('n-sample').value=draws;
+      if (axes !== undefined) _axisState=axes;
+      var originalParse=parse, originalPool=pool, rows, points=[];_exactSuppressed=true;
+      parse=function(text){rows=originalParse(text);return rows;};
+      pool=function(subset,model){var p=originalPool(subset,model);points.push(Object.assign({members:subset.map(function(r){return rows.indexOf(r)+1;})},p));return p;};
+      try {run();return {summary:_lastResults,points:points};}
+      finally {parse=originalParse;pool=originalPool;_exactSuppressed=false;}
+    };
+    window.__almGoshValidationSnapshot = function() {
+      return {controls:['src','model','n-sample'].map(function(id){return [id,document.getElementById(id).value];}),
+        dom:['plot','m-n','m-est','m-i2','plot-error','plot-note','sample-error','input-error'].map(function(id){return [id,document.getElementById(id).innerHTML];}),
+        sampleStyle:document.getElementById('sample-label').style.cssText,enumStyle:document.getElementById('enum-label').style.cssText,results:_lastResults,axes:_axisState};
+    };
+    window.__almGoshValidationRestore = function(s) {
+      s.controls.forEach(function(x){document.getElementById(x[0]).value=x[1];});
+      s.dom.forEach(function(x){document.getElementById(x[0]).innerHTML=x[1];});
+      document.getElementById('sample-label').style.cssText=s.sampleStyle;if(s.enumStyle!==undefined)document.getElementById('enum-label').style.cssText=s.enumStyle;_lastResults=s.results;_axisState=s.axes;
+    };
+
+    // ---- module init ----
+
+    document.getElementById('btn-run').addEventListener('click', function () {
+      if (window.alm && window.alm.resetUndo && window.alm.resetUndo.snapshot) {
+        window.alm.resetUndo.snapshot();
+      }
+      run();
+    });
+
+
+    if (window.MaStudies && MaStudies.attachButtons) {
+      MaStudies.attachButtons({
+        btnLoad: "#btn-bus-load", btnSave: "#btn-bus-save",
+        textarea: "#src", format: "est-se-label",
+        onAfterLoad: run,
+      });
+    }
+
+    window.alm.csvUpload({
+      target: '#alm-csv-mount',
+      columns: [
+        { name: 'yi',    required: true,  type: 'float',  example: '0.22'   },
+        { name: 'vi',    required: false, type: 'float',  example: '0.0064' },
+        { name: 'sei',   required: false, type: 'float',  example: '0.08'   },
+        { name: 'study', required: false, type: 'string', example: 'S1'     },
+      ],
+      onParse: function (result) {
+        // Validation observes the importer's own warning records (shown above the format table).
+        window.__almGoshImportWarnings = result.warnings.slice();
+        if (window.alm && window.alm.resetUndo && window.alm.resetUndo.snapshot) {
+          window.alm.resetUndo.snapshot();
+        }
+        window.__almGoshLoad(result.rows);
+      },
+    });
+
+    window.alm.plotExport({
+      target: '#alm-plot-mount',
+      basename: 'gosh-plot',
+      plots: [{ id: 'plot', name: 'GOSH scatter', getSvg: function () { return document.getElementById('plot'); } }],
+      getReceiptInput: function () {
+        if (!_lastResults) return null;
+        return {
+          studies: [], // bind only the current results below — never the (possibly stale) shared bus
+          method: 'GOSH all-subsets meta-analysis stability',
+          label: 'gosh-plot',
+          results: _lastResults,
+        };
+      },
+    });
+
+    window.alm.axisControls({
+      target: '#alm-axis-mount',
+      axes: [
+        { key: 'x', label: 'X axis (pooled effect)',   range: [null, null], log: false },
+        { key: 'y', label: 'Y axis (I², 0–100%)', range: [0, 100],    log: false },
+      ],
+      onChange: function (state) {
+        _axisState = state;
+        run();
+      },
+    });
+
+    window.alm.resultsExport({
+      target: '#alm-export-mount',
+      basename: 'gosh-results',
+      getResults: function () { return window._almLastGosh ? window._almLastGosh() : {}; },
+    });
+
+    window.alm.urlState({ version: 1 });
+    var restored = window.alm.urlState.read();
+    if (restored && Object.keys(restored).length > 0) {
+      if (restored.model !== undefined) document.getElementById('model').value = restored.model;
+      if (restored.src   !== undefined) document.getElementById('src').value   = restored.src;
+      run();
+    } else {
+      run();
+    }
+
+    window.alm.resetUndo({
+      target: '#alm-undo-mount',
+      snapshot: snapshot,
+      restore: restore,
+      capacity: 20,
+    });
+
+    window.alm.tooltips({
+      src: '../hub/shared/glossary.json',
+    });
+
+  })();
+  </script>
+<script src="../hub/shared/a11y-landmarks.js"></script>
+
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  ready(function () {
+    if (!window.MaStudies || typeof MaStudies.attachVerifyInRButton !== "function") return;
+    MaStudies.attachVerifyInRButton({ btn: "#btn-verify-in-r" });
+    if (window.TruthCertUI) {
+      TruthCertUI.attachSettingsButton({ btn: "#btn-truthcert-key" });
+      TruthCertUI.attachReceiptButton({ btn: "#btn-truthcert", basename: "gosh", textarea: "#src", format: "est-se-label" });
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  ready(function () {
+    if (window.AlmFlow && typeof AlmFlow.attachContinueBar === "function") {
+      AlmFlow.attachContinueBar({
+        container: "#alm-flow-mount",
+        suggestions: ["forest-plot", "heterogeneity", "influence"],
+      });
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  ready(function () {
+    if (window.AlmHero && typeof AlmHero.attachHero === "function") {
+      AlmHero.attachHero({
+        container: "#alm-hero-mount",
+        textarea: "#src",
+        adapter: "effect-se-label",
+        onAfterLoad: function () { document.getElementById('btn-run').click(); },
+      });
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  ready(function () {
+    if (window.AlmCitation && typeof AlmCitation.attachAuto === "function") {
+      AlmCitation.attachAuto({ container: "#alm-cite-mount", app: "gosh" });
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  function ready(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn);
+  }
+  ready(function () {
+    if (window.AlmAutosave && typeof AlmAutosave.install === "function") {
+      AlmAutosave.install({ appKey: 'gosh' });
+    }
+  });
+})();
+</script>
+<script src="../shared/alm-validate.js"></script>
+<script src="validate/adapter.js"></script>
+<script src="plus.js"></script>
+<script src="validate/manifest-plus.js"></script>
+<script src="validate/adapter-plus.js"></script>
+<script src="exact-enum.js"></script>
+<script src="validate/exact/compare.js"></script>
+<script src="exact-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,1209 @@
+{
+  "plant": "estimate",
+  "summary": {
+    "reference-r.json": {
+      "passed": 345841,
+      "checks": 345842,
+      "expected": 345842,
+      "maxNormDiff": 7.633587785631552e-7,
+      "quantities": {
+        "exact": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "expected_subsets": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "k": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "model": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "n_subsets": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "zero_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "mean_est": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 1.1812772982011666e-13,
+          "maxAbsDiff": 1.1812772982011666e-13
+        },
+        "min_est": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 3.145491630806253e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "max_est": {
+          "checks": 34,
+          "passed": 33,
+          "maxNormDiff": 7.633587785631552e-7,
+          "maxAbsDiff": 9.999999999177334e-7
+        },
+        "mean_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 8.54001871447464e-15,
+          "maxAbsDiff": 7.105427357601002e-14
+        },
+        "min_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 6.10939153943954e-16,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "mean_q": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 3.2697185588431407e-15,
+          "maxAbsDiff": 1.2789769243681803e-13
+        },
+        "min_q": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_q": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 2.6611434114782392e-15,
+          "maxAbsDiff": 3.410605131648481e-13
+        },
+        "q25_est": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 2.802537764564628e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "median_est": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 1.3770244067220934e-15,
+          "maxAbsDiff": 2.6645352591003757e-15
+        },
+        "q75_est": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 3.920670143024124e-15,
+          "maxAbsDiff": 3.9968028886505635e-15
+        },
+        "q25_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 6.417907625079239e-15,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "median_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 2.5401195220762772e-15,
+          "maxAbsDiff": 9.237055564881302e-14
+        },
+        "q75_i2": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 5.226757690237825e-15,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "grid_nx": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_ny": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_length": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_y0": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_y1": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_x0": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 3.145491630806253e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "grid_x1": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 3.89253846546836e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "grid_cell": {
+          "checks": 340000,
+          "passed": 340000,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study_length": {
+          "checks": 34,
+          "passed": 34,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.study": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.with_n": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.without_n": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.with_mean": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 2.37476704967321e-13,
+          "maxAbsDiff": 2.37476704967321e-13
+        },
+        "per_study.without_mean": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 2.398081733190338e-13,
+          "maxAbsDiff": 2.398081733190338e-13
+        },
+        "per_study.with_i2": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 5.309209377586021e-15,
+          "maxAbsDiff": 1.9895196601282805e-13
+        },
+        "per_study.without_i2": {
+          "checks": 684,
+          "passed": 684,
+          "maxNormDiff": 4.62131705739395e-15,
+          "maxAbsDiff": 3.979039320256561e-13
+        },
+        "mean_tau2": {
+          "checks": 17,
+          "passed": 17,
+          "maxNormDiff": 3.3306690738754696e-16,
+          "maxAbsDiff": 7.105427357601002e-15
+        },
+        "min_tau2": {
+          "checks": 17,
+          "passed": 17,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_tau2": {
+          "checks": 17,
+          "passed": 17,
+          "maxNormDiff": 1.9271036281270078e-15,
+          "maxAbsDiff": 1.1368683772161603e-13
+        },
+        "tau2_positive": {
+          "checks": 17,
+          "passed": 17,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        }
+      },
+      "failuresSample": [
+        {
+          "id": "dat.baskerville2012::001 FE",
+          "quantity": "max_est",
+          "app": 1.310001,
+          "ref": 1.31,
+          "diff": 7.633587785631552e-7
+        }
+      ]
+    },
+    "reference-metafor.json": {
+      "passed": 182826,
+      "checks": 182826,
+      "expected": 182826,
+      "maxNormDiff": 5.621361676672166e-15,
+      "quantities": {
+        "exact": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "expected_subsets": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "k": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "model": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "n_subsets": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "zero_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "mean_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 3.943527680998241e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "min_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 1.193258574122217e-15,
+          "maxAbsDiff": 3.1086244689504383e-15
+        },
+        "max_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 7.657281842183251e-16,
+          "maxAbsDiff": 1.7763568394002505e-15
+        },
+        "mean_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 1.5607834765148266e-15,
+          "maxAbsDiff": 4.973799150320701e-14
+        },
+        "min_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 6.10939153943954e-16,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "mean_q": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 3.2697185588431407e-15,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "min_q": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_q": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 2.6611434114782392e-15,
+          "maxAbsDiff": 3.410605131648481e-13
+        },
+        "q25_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 2.802537764564628e-15,
+          "maxAbsDiff": 3.1086244689504383e-15
+        },
+        "median_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 1.3770244067220934e-15,
+          "maxAbsDiff": 1.7763568394002505e-15
+        },
+        "q75_est": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 3.920670143024124e-15,
+          "maxAbsDiff": 3.9968028886505635e-15
+        },
+        "q25_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 2.21695525085265e-15,
+          "maxAbsDiff": 4.263256414560601e-14
+        },
+        "median_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 2.195679849193791e-15,
+          "maxAbsDiff": 9.237055564881302e-14
+        },
+        "q75_i2": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 3.560862438883869e-15,
+          "maxAbsDiff": 5.684341886080802e-14
+        },
+        "grid_nx": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_ny": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_length": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_y0": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_y1": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "grid_x0": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 1.193258574122217e-15,
+          "maxAbsDiff": 3.1086244689504383e-15
+        },
+        "grid_x1": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 1.0634918392631928e-15,
+          "maxAbsDiff": 1.7763568394002505e-15
+        },
+        "grid_cell": {
+          "checks": 180000,
+          "passed": 180000,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study_length": {
+          "checks": 18,
+          "passed": 18,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.study": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.with_n": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.without_n": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "per_study.with_mean": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 4.878342971151953e-15,
+          "maxAbsDiff": 5.10702591327572e-15
+        },
+        "per_study.without_mean": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 5.621361676672166e-15,
+          "maxAbsDiff": 7.327471962526033e-15
+        },
+        "per_study.with_i2": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 3.468922787569992e-15,
+          "maxAbsDiff": 1.9895196601282805e-13
+        },
+        "per_study.without_i2": {
+          "checks": 324,
+          "passed": 324,
+          "maxNormDiff": 4.3366355611226e-15,
+          "maxAbsDiff": 3.979039320256561e-13
+        },
+        "mean_tau2": {
+          "checks": 9,
+          "passed": 9,
+          "maxNormDiff": 3.3306690738754696e-16,
+          "maxAbsDiff": 3.3306690738754696e-16
+        },
+        "min_tau2": {
+          "checks": 9,
+          "passed": 9,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        },
+        "max_tau2": {
+          "checks": 9,
+          "passed": 9,
+          "maxNormDiff": 1.0477721874234186e-15,
+          "maxAbsDiff": 4.440892098500626e-15
+        },
+        "tau2_positive": {
+          "checks": 9,
+          "passed": 9,
+          "maxNormDiff": 0,
+          "maxAbsDiff": 0
+        }
+      },
+      "failuresSample": []
+    }
+  },
+  "runs": [
+    {
+      "reference": "reference-r.json",
+      "id": "dat.baskerville2012::001",
+      "model": "FE",
+      "k": 23,
+      "subsets": 8388607,
+      "node_wall_ms": 23178.3084,
+      "oracle_seconds": 26.16,
+      "passed": 10189,
+      "checks": 10190,
+      "gridMoved": 0,
+      "failures": [
+        {
+          "id": "dat.baskerville2012::001 FE",
+          "quantity": "max_est",
+          "app": 1.310001,
+          "ref": 1.31,
+          "diff": 7.633587785631552e-7
+        }
+      ]
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.baskerville2012::001",
+      "model": "DL",
+      "k": 23,
+      "subsets": 8388607,
+      "node_wall_ms": 2567.831699999999,
+      "oracle_seconds": 39.91,
+      "passed": 10194,
+      "checks": 10194,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.begg1989::001",
+      "model": "FE",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 309.127800000002,
+      "oracle_seconds": 2.88999999999999,
+      "passed": 10169,
+      "checks": 10169,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.begg1989::001",
+      "model": "DL",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 476.6844000000019,
+      "oracle_seconds": 3.94,
+      "passed": 10173,
+      "checks": 10173,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.cohen1981::001",
+      "model": "FE",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 215.00050000000192,
+      "oracle_seconds": 4.06,
+      "passed": 10169,
+      "checks": 10169,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.cohen1981::001",
+      "model": "DL",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 308.1977000000006,
+      "oracle_seconds": 3.44,
+      "passed": 10173,
+      "checks": 10173,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::002",
+      "model": "FE",
+      "k": 22,
+      "subsets": 4194303,
+      "node_wall_ms": 900.9935000000005,
+      "oracle_seconds": 12.39,
+      "passed": 10183,
+      "checks": 10183,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::002",
+      "model": "DL",
+      "k": 22,
+      "subsets": 4194303,
+      "node_wall_ms": 1375.0935000000027,
+      "oracle_seconds": 17.22,
+      "passed": 10187,
+      "checks": 10187,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::003",
+      "model": "FE",
+      "k": 24,
+      "subsets": 16777215,
+      "node_wall_ms": 4068.8362000000016,
+      "oracle_seconds": 68.62,
+      "passed": 10197,
+      "checks": 10197,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::003",
+      "model": "DL",
+      "k": 24,
+      "subsets": 16777215,
+      "node_wall_ms": 6302.701199999996,
+      "oracle_seconds": 94.22,
+      "passed": 10201,
+      "checks": 10201,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::005",
+      "model": "FE",
+      "k": 22,
+      "subsets": 4194303,
+      "node_wall_ms": 1523.0210000000006,
+      "oracle_seconds": 19.88,
+      "passed": 10183,
+      "checks": 10183,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::005",
+      "model": "DL",
+      "k": 22,
+      "subsets": 4194303,
+      "node_wall_ms": 1904.6943000000028,
+      "oracle_seconds": 32.18,
+      "passed": 10187,
+      "checks": 10187,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::006",
+      "model": "FE",
+      "k": 24,
+      "subsets": 16777215,
+      "node_wall_ms": 4363.496599999999,
+      "oracle_seconds": 70.06,
+      "passed": 10197,
+      "checks": 10197,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.collins1985a::006",
+      "model": "DL",
+      "k": 24,
+      "subsets": 16777215,
+      "node_wall_ms": 5467.866699999999,
+      "oracle_seconds": 84,
+      "passed": 10201,
+      "checks": 10201,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.curtin2002::001",
+      "model": "FE",
+      "k": 21,
+      "subsets": 2097151,
+      "node_wall_ms": 1641.2229000000007,
+      "oracle_seconds": 11.4,
+      "passed": 10176,
+      "checks": 10176,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.curtin2002::001",
+      "model": "DL",
+      "k": 21,
+      "subsets": 2097151,
+      "node_wall_ms": 1038.2142999999996,
+      "oracle_seconds": 8.95999999999998,
+      "passed": 10180,
+      "checks": 10180,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.damico2009::001",
+      "model": "FE",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 7.753100000001723,
+      "oracle_seconds": 0.120000000000005,
+      "passed": 10141,
+      "checks": 10141,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.damico2009::001",
+      "model": "DL",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 12.540600000000268,
+      "oracle_seconds": 0.139999999999986,
+      "passed": 10145,
+      "checks": 10145,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.damico2009::002",
+      "model": "FE",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 8.018199999998615,
+      "oracle_seconds": 0.170000000000073,
+      "passed": 10141,
+      "checks": 10141,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.damico2009::002",
+      "model": "DL",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 12.488000000004831,
+      "oracle_seconds": 0.170000000000073,
+      "passed": 10145,
+      "checks": 10145,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.dorn2007::001",
+      "model": "FE",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 86.96889999999985,
+      "oracle_seconds": 1.19999999999993,
+      "passed": 10162,
+      "checks": 10162,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.dorn2007::001",
+      "model": "DL",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 212.27339999999822,
+      "oracle_seconds": 1.54999999999995,
+      "passed": 10166,
+      "checks": 10166,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.feng2019::001",
+      "model": "FE",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 117.29200000000128,
+      "oracle_seconds": 2.5,
+      "passed": 10162,
+      "checks": 10162,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.feng2019::001",
+      "model": "DL",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 368.3309999999983,
+      "oracle_seconds": 2.96000000000004,
+      "passed": 10166,
+      "checks": 10166,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.fine1993::003",
+      "model": "FE",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 103.44230000000243,
+      "oracle_seconds": 0.299999999999955,
+      "passed": 10148,
+      "checks": 10148,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.fine1993::003",
+      "model": "DL",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 14.893400000000838,
+      "oracle_seconds": 0.659999999999968,
+      "passed": 10152,
+      "checks": 10152,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.fine1993::005",
+      "model": "FE",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 101.22460000000137,
+      "oracle_seconds": 0.32000000000005,
+      "passed": 10148,
+      "checks": 10148,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.fine1993::005",
+      "model": "DL",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 94.87189999999828,
+      "oracle_seconds": 0.360000000000014,
+      "passed": 10152,
+      "checks": 10152,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.karner2014::003",
+      "model": "FE",
+      "k": 21,
+      "subsets": 2097151,
+      "node_wall_ms": 831.5483000000022,
+      "oracle_seconds": 6.77999999999997,
+      "passed": 10176,
+      "checks": 10176,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.karner2014::003",
+      "model": "DL",
+      "k": 21,
+      "subsets": 2097151,
+      "node_wall_ms": 1044.4276000000027,
+      "oracle_seconds": 8.11000000000001,
+      "passed": 10180,
+      "checks": 10180,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.linde2005::001",
+      "model": "FE",
+      "k": 23,
+      "subsets": 8388607,
+      "node_wall_ms": 3031.387499999997,
+      "oracle_seconds": 25.49,
+      "passed": 10190,
+      "checks": 10190,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.linde2005::001",
+      "model": "DL",
+      "k": 23,
+      "subsets": 8388607,
+      "node_wall_ms": 4094.0662999999913,
+      "oracle_seconds": 44.7900000000001,
+      "passed": 10194,
+      "checks": 10194,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.nielweise2007::002",
+      "model": "FE",
+      "k": 18,
+      "subsets": 262143,
+      "node_wall_ms": 28.668000000005122,
+      "oracle_seconds": 0.669999999999959,
+      "passed": 10155,
+      "checks": 10155,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-r.json",
+      "id": "dat.nielweise2007::002",
+      "model": "DL",
+      "k": 18,
+      "subsets": 262143,
+      "node_wall_ms": 567.5937999999878,
+      "oracle_seconds": 1.03999999999996,
+      "passed": 10159,
+      "checks": 10159,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.begg1989::001",
+      "model": "FE",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 309.127800000002,
+      "oracle_seconds": 86.01,
+      "passed": 10169,
+      "checks": 10169,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.begg1989::001",
+      "model": "DL",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 476.6844000000019,
+      "oracle_seconds": 106.66,
+      "passed": 10173,
+      "checks": 10173,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.cohen1981::001",
+      "model": "FE",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 215.00050000000192,
+      "oracle_seconds": 123.86,
+      "passed": 10169,
+      "checks": 10169,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.cohen1981::001",
+      "model": "DL",
+      "k": 20,
+      "subsets": 1048575,
+      "node_wall_ms": 308.1977000000006,
+      "oracle_seconds": 101.77,
+      "passed": 10173,
+      "checks": 10173,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.damico2009::001",
+      "model": "FE",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 7.753100000001723,
+      "oracle_seconds": 4.25,
+      "passed": 10141,
+      "checks": 10141,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.damico2009::001",
+      "model": "DL",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 12.540600000000268,
+      "oracle_seconds": 4.45999999999998,
+      "passed": 10145,
+      "checks": 10145,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.damico2009::002",
+      "model": "FE",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 8.018199999998615,
+      "oracle_seconds": 3.25,
+      "passed": 10141,
+      "checks": 10141,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.damico2009::002",
+      "model": "DL",
+      "k": 16,
+      "subsets": 65535,
+      "node_wall_ms": 12.488000000004831,
+      "oracle_seconds": 5.25,
+      "passed": 10145,
+      "checks": 10145,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.dorn2007::001",
+      "model": "FE",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 86.96889999999985,
+      "oracle_seconds": 50.8799999999999,
+      "passed": 10162,
+      "checks": 10162,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.dorn2007::001",
+      "model": "DL",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 212.27339999999822,
+      "oracle_seconds": 38.14,
+      "passed": 10166,
+      "checks": 10166,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.feng2019::001",
+      "model": "FE",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 117.29200000000128,
+      "oracle_seconds": 51.8200000000001,
+      "passed": 10162,
+      "checks": 10162,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.feng2019::001",
+      "model": "DL",
+      "k": 19,
+      "subsets": 524287,
+      "node_wall_ms": 368.3309999999983,
+      "oracle_seconds": 61.95,
+      "passed": 10166,
+      "checks": 10166,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.fine1993::003",
+      "model": "FE",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 103.44230000000243,
+      "oracle_seconds": 15.61,
+      "passed": 10148,
+      "checks": 10148,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.fine1993::003",
+      "model": "DL",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 14.893400000000838,
+      "oracle_seconds": 9.32999999999993,
+      "passed": 10152,
+      "checks": 10152,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.fine1993::005",
+      "model": "FE",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 101.22460000000137,
+      "oracle_seconds": 8.19000000000005,
+      "passed": 10148,
+      "checks": 10148,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.fine1993::005",
+      "model": "DL",
+      "k": 17,
+      "subsets": 131071,
+      "node_wall_ms": 94.87189999999828,
+      "oracle_seconds": 11.17,
+      "passed": 10152,
+      "checks": 10152,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.nielweise2007::002",
+      "model": "FE",
+      "k": 18,
+      "subsets": 262143,
+      "node_wall_ms": 28.668000000005122,
+      "oracle_seconds": 25.3,
+      "passed": 10155,
+      "checks": 10155,
+      "gridMoved": 0,
+      "failures": []
+    },
+    {
+      "reference": "reference-metafor.json",
+      "id": "dat.nielweise2007::002",
+      "model": "DL",
+      "k": 18,
+      "subsets": 262143,
+      "node_wall_ms": 567.5937999999878,
+      "oracle_seconds": 28.7900000000001,
+      "passed": 10159,
+      "checks": 10159,
+      "gridMoved": 0,
+      "failures": []
+    }
+  ]
+}

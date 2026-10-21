@@ -1,0 +1,28 @@
+[
+  {
+    "name": "archive-verifier",
+    "command": [
+      "verify.py"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "name": "legacy-safeguards",
+    "command": [
+      "v1_1/archive.py",
+      "safeguards"
+    ],
+    "exit": 0,
+    "expected": 0
+  },
+  {
+    "name": "legacy-replay",
+    "command": [
+      "v1_1/archive.py",
+      "replay"
+    ],
+    "exit": 0,
+    "expected": 0
+  }
+]

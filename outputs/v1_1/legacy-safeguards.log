@@ -1,0 +1,20 @@
+V1.0 SOURCE PINS 1904/1904
+V1.0 SAFEGUARDS (unchanged scripts and pinned bytes)
+test_actual_paper_numeric_comparator (__main__.Safeguards.test_actual_paper_numeric_comparator) ... ok
+test_compressed_reader_and_provenance (__main__.Safeguards.test_compressed_reader_and_provenance) ... ok
+test_full_clean_and_bad_coverage (__main__.Safeguards.test_full_clean_and_bad_coverage) ... ok
+test_json_and_source_hash_gates (__main__.Safeguards.test_json_and_source_hash_gates) ... ok
+test_membership_derivation_gate (__main__.Safeguards.test_membership_derivation_gate) ... ok
+test_missing_invalid_and_duplicate_reference (__main__.Safeguards.test_missing_invalid_and_duplicate_reference) ... ok
+test_native_r_version_and_hash_gates (__main__.Safeguards.test_native_r_version_and_hash_gates) ... ok
+test_output_tables_and_images (__main__.Safeguards.test_output_tables_and_images) ... ok
+test_source_json_preservation_gate (__main__.Safeguards.test_source_json_preservation_gate) ... ok
+test_wrong_release_doi_refused (__main__.Safeguards.test_wrong_release_doi_refused) ... ok
+test_wrong_release_version_refused (__main__.Safeguards.test_wrong_release_version_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 812.248s
+
+OK
+
+PROCESS EXIT 0; EXPECTED 0
