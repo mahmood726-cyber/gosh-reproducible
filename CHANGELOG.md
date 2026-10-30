@@ -1,3 +1,9 @@
+# 1.1.1
+Add v1_1/runs/2026-10-30: recorded browser runs of the paper's two replay counts at allmeta v1.7.0 (commit 15c0fa0) and at
+commit 63ce78e5: offline replay 876760/876760 and extras replay 1153536/1153536 at both refs, with the run script, Playwright
+JSON results, logs and request logs. verify.py now re-reads these records and fails unless both counts passed in full. No
+scientific content, reference or earlier record changes.
+
 # 1.1.0
 Add the separately pinned v1_1/exact all-subsets tier, saved independent R and
 forced-metafor references, offline replay, historical timing data and planted

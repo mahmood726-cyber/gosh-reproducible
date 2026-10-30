@@ -1,0 +1,44 @@
+{
+  "title": "gosh declared replay preserves input and navigation",
+  "status": "passed",
+  "panels": [
+    {
+      "url": "http://localhost:8088/gosh/index.html#eyJ2IjoxLCJtb2RlbCI6IkZFIiwic3JjIjoiMC4yMiwgMC4wOCwgU3R1ZHkgQVxuMC4zMCwgMC4xNCwgU3R1ZHkgQlxuMC4yNywgMC4wOSwgU3R1ZHkgQ1xuMC4xNSwgMC4wNywgU3R1ZHkgRFxuMC40NSwgMC4xOCwgU3R1ZHkgRVxuMC4xMCwgMC4wNiwgU3R1ZHkgRlxuMC4zNSwgMC4xNiwgU3R1ZHkgR1xuMC4yMiwgMC4xMCwgU3R1ZHkgSFxuMC40MCwgMC4yMCwgU3R1ZHkgSSJ9",
+      "panel": "Independent validation\nValidate this analysis in RRe-run full validation\n\n876760/876760 passed; 0 failed. Paper: 12813556 checks. Quick subset: 876760 checks; not full paper reproduction.\n\nAllmeta build 7899ce599bfdedecd4d13b8f35540d129906fb95; elapsed 5.59 s\n\nSHA-256 verified: validate/corpus/corpus.json 2c4ece4f9c4e49d281f860ba5850b441d9f220ff0ce75c82ffbc69963972150a\n\nSHA-256 verified: validate/corpus/reference.json 13b575fb42ca8c198da5bbcaa92919631e1490fe9013d7b435bddb8c92053ee7\n\nAll k <= 12, first two 16 <= k <= 100 in corpus order, and all k > 100; FE and DL\n\nexact membership and coverage; subset mu, I2, Q, k, computed DL tau2, sampled SE; all exported numerical summaries; exact summary headings/labels/values; sampling control visibility; exact model option labels/selection and requested draw-control value; plotted count and every default SVG coordinate; exact ordered axis/tick labels; empty error/status messages (plot, sampling, axis) and exact default axis-control labels/values during replay; every other visible text node and aria-label/title of the page template (incl. benchmark selector) outside the validation panel, exactly; draft banner absent or exact\n\nDeclared deterministic subset: 178 model configurations, 876760 checks. Full archived paper: 12813556 checks.\n\nPaper I² uses absolute difference / 100 <= 1e-9; other statistical values relative to max(1, |R|). Default SVG coordinates use absolute 1e-9. Display text and memberships are exact.\n\nMaxima: {\"model\":0,\"input_k\":0,\"sampling_mode\":0,\"point_count\":0,\"membership_coverage\":0,\"members\":0,\"subset_k\":0,\"subset_mu\":8.854028621385623e-15,\"subset_I2\":1.2850831510036187e-14,\"subset_Q\":2.0709043842611366e-14,\"summary_n_subsets\":0,\"summary_median_est\":3.3306690738754696e-16,\"summary_median_i2\":2.220446049250313e-16,\"summary_min_est\":3.7760411853972854e-16,\"summary_max_est\":2.5667482942190755e-16,\"summary_q25_est\":2.220446049250313e-16,\"summary_q75_est\":2.6399278320091703e-16,\"display\":0,\"sampling_control_visibility\":0,\"controls\":0,\"status_messages\":0,\"axis_controls\":0,\"page_text\":0,\"plotted_count\":0,\"plot_x\":0,\"plot_y\":0,\"axis_labels\":0,\"subset_tau2\":1.7291723608536813e-14,\"subset_se\":1.9095836023552692e-14,\"cap_refusal\":0,\"cap_export\":0,\"cap_points\":0,\"cap_empty\":0}\nRefusals: [\"dat.bakdash2021::001::FE\",\"dat.bakdash2021::001::DL\",\"dat.besson2016::001::FE\",\"dat.besson2016::001::DL\",\"dat.curtis1998::001::FE\",\"dat.curtis1998::001::DL\",\"dat.hartmannboyce2018::001::FE\",\"dat.hartmannboyce2018::001::DL\",\"dat.lim2014::001::FE\",\"dat.lim2014::001::DL\",\"dat.linde2016::001::FE\",\"dat.linde2016::001::DL\",\"dat.mccurdy2020::001::FE\",\"dat.mccurdy2020::001::DL\",\"dat.mcdaniel1994::001::FE\",\"dat.mcdaniel1994::001::DL\",\"dat.mcdaniel1994::002::FE\",\"dat.mcdaniel1994::002::DL\",\"dat.moura2021::001::FE\",\"dat.moura2021::001::DL\",\"dat.tannersmith2016::001::FE\",\"dat.tannersmith2016::001::DL\",\"dat.white2020::001::FE\",\"dat.white2020::001::DL\",\"dat.yusuf1985::001::FE\",\"dat.yusuf1985::001::DL\",\"dat.yusuf1985::002::FE\",\"dat.yusuf1985::002::DL\"]\nQuantity\tApp\tR\tDifference\tTolerance\tPASS/FAIL\nAll numerical checks\t876760\t876760\t0\t0\tPASS\n\nScope and R reproduction · Reproducible repository ·\n\nReplay scope: 876760 checks / 178 model configurations. All k <= 12, first two 16 <= k <= 100 in corpus order, and all k > 100; FE and DL. Includes exact membership and coverage; subset mu, I2, Q, k, computed DL tau2, sampled SE; all exported numerical summaries; exact summary headings/labels/values; sampling control visibility; exact model option labels/selection and requested draw-control value; plotted count and every default SVG coordinate; exact ordered axis/tick labels; empty error/status messages (plot, sampling, axis) and exact default axis-control labels/values during replay; every other visible text node and aria-label/title of the page template (incl. benchmark selector) outside the validation panel, exactly; draft banner absent or exact. Full paper archive: 12,813,556 checks; this button replays the declared subset."
+    }
+  ],
+  "requests": [
+    "http://localhost:8088/gosh/index.html",
+    "http://localhost:8088/shared/forced-colors.css",
+    "http://localhost:8088/hub/app-style.css",
+    "http://localhost:8088/hub/shared/csv-upload.js",
+    "http://localhost:8088/hub/shared/plot-export.js",
+    "http://localhost:8088/hub/shared/axis-controls.js",
+    "http://localhost:8088/hub/shared/results-export.js",
+    "http://localhost:8088/hub/shared/url-state.js",
+    "http://localhost:8088/hub/shared/reset-undo.js",
+    "http://localhost:8088/hub/shared/tooltips.js",
+    "http://localhost:8088/shared/build-info.js",
+    "http://localhost:8088/shared/ma-studies-v1.js",
+    "http://localhost:8088/shared/truthcert-export.js",
+    "http://localhost:8088/shared/truthcert-ui.js",
+    "http://localhost:8088/shared/app-flow.js",
+    "http://localhost:8088/shared/canonical-datasets.js",
+    "http://localhost:8088/shared/hero-examples.js",
+    "http://localhost:8088/shared/citation.js",
+    "http://localhost:8088/shared/autosave.js",
+    "http://localhost:8088/hub/shared/analysis-lifecycle.js",
+    "http://localhost:8088/hub/shared/glossary.json",
+    "http://localhost:8088/hub/shared/a11y-landmarks.js",
+    "http://localhost:8088/shared/alm-validate.js",
+    "http://localhost:8088/gosh/validate/adapter.js",
+    "http://localhost:8088/gosh/plus.js",
+    "http://localhost:8088/gosh/validate/manifest-plus.js",
+    "http://localhost:8088/gosh/validate/adapter-plus.js",
+    "http://localhost:8088/gosh/validate/corpus/corpus.json",
+    "http://localhost:8088/gosh/validate/corpus/reference.json"
+  ],
+  "hosts": [
+    "localhost:8088"
+  ]
+}

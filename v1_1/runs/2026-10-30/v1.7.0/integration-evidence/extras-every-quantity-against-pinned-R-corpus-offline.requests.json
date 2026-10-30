@@ -1,0 +1,44 @@
+{
+  "title": "extras every quantity against pinned R corpus, offline",
+  "status": "passed",
+  "panels": [
+    {
+      "url": "http://localhost:8088/gosh/index.html#eyJ2IjoxLCJtb2RlbCI6IkZFIiwic3JjIjoiMC4yMiwgMC4wOCwgU3R1ZHkgQVxuMC4zMCwgMC4xNCwgU3R1ZHkgQlxuMC4yNywgMC4wOSwgU3R1ZHkgQ1xuMC4xNSwgMC4wNywgU3R1ZHkgRFxuMC40NSwgMC4xOCwgU3R1ZHkgRVxuMC4xMCwgMC4wNiwgU3R1ZHkgRlxuMC4zNSwgMC4xNiwgU3R1ZHkgR1xuMC4yMiwgMC4xMCwgU3R1ZHkgSFxuMC40MCwgMC4yMCwgU3R1ZHkgSSJ9",
+      "panel": "Independent validation\nValidate this analysis in RRe-run full validation\n\nReady. Full validation replays the published reference corpus locally.\n\nScope and R reproduction · Reproducible repository ·\n\nReplay scope: 876760 checks / 178 model configurations. All k <= 12, first two 16 <= k <= 100 in corpus order, and all k > 100; FE and DL. Includes exact membership and coverage; subset mu, I2, Q, k, computed DL tau2, sampled SE; all exported numerical summaries; exact summary headings/labels/values; sampling control visibility; exact model option labels/selection and requested draw-control value; plotted count and every default SVG coordinate; exact ordered axis/tick labels; empty error/status messages (plot, sampling, axis) and exact default axis-control labels/values during replay; every other visible text node and aria-label/title of the page template (incl. benchmark selector) outside the validation panel, exactly; draft banner absent or exact. Full paper archive: 12,813,556 checks; this button replays the declared subset."
+    }
+  ],
+  "requests": [
+    "http://localhost:8088/gosh/index.html",
+    "http://localhost:8088/shared/forced-colors.css",
+    "http://localhost:8088/hub/app-style.css",
+    "http://localhost:8088/hub/shared/csv-upload.js",
+    "http://localhost:8088/hub/shared/plot-export.js",
+    "http://localhost:8088/hub/shared/axis-controls.js",
+    "http://localhost:8088/hub/shared/results-export.js",
+    "http://localhost:8088/hub/shared/url-state.js",
+    "http://localhost:8088/hub/shared/reset-undo.js",
+    "http://localhost:8088/hub/shared/tooltips.js",
+    "http://localhost:8088/shared/build-info.js",
+    "http://localhost:8088/shared/ma-studies-v1.js",
+    "http://localhost:8088/shared/truthcert-export.js",
+    "http://localhost:8088/shared/truthcert-ui.js",
+    "http://localhost:8088/shared/app-flow.js",
+    "http://localhost:8088/shared/canonical-datasets.js",
+    "http://localhost:8088/shared/hero-examples.js",
+    "http://localhost:8088/shared/citation.js",
+    "http://localhost:8088/shared/autosave.js",
+    "http://localhost:8088/hub/shared/analysis-lifecycle.js",
+    "http://localhost:8088/hub/shared/glossary.json",
+    "http://localhost:8088/hub/shared/a11y-landmarks.js",
+    "http://localhost:8088/shared/alm-validate.js",
+    "http://localhost:8088/gosh/validate/adapter.js",
+    "http://localhost:8088/gosh/plus.js",
+    "http://localhost:8088/gosh/validate/manifest-plus.js",
+    "http://localhost:8088/gosh/validate/adapter-plus.js",
+    "http://localhost:8088/gosh/validate/plus/corpus.json",
+    "http://localhost:8088/gosh/validate/plus/reference.json"
+  ],
+  "hosts": [
+    "localhost:8088"
+  ]
+}

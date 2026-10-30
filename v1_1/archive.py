@@ -56,7 +56,7 @@ def check_layer():
     assert prov['allmeta_commit'] == '1e3ef389cdfbce7c735c32e2794e67d3cbefb622'
     assert prov['allmeta_release'] == 'v1.8.0' and prov['allmeta_release_doi'] == '10.5281/zenodo.23515177'
     z = read(ROOT/'.zenodo.json')
-    assert z['version'] == '1.1.0'
+    assert z['version'] == '1.1.1'
     for name in ['README.md', 'CITATION.cff', '.zenodo.json']:
         text = (ROOT/name).read_text(encoding='utf8')
         assert '<ALLMETA_RELEASE' not in text, 'Unfilled release token: '+name
@@ -64,6 +64,7 @@ def check_layer():
     eq = (ROOT/'RELEASE_EQUIVALENCE.md').read_text(encoding='utf8')
     assert '1cb3f8409c7af75ed41f7e1811f9c502f900fc79' in eq and 'byte-identical' in eq, 'Release equivalence record missing'
     assert 'EXACT R 345842/345842' in eq and 'EXACT METAFOR 182826/182826' in eq, 'Release equivalence counts missing'
+    check_recorded_runs()
     print(f'V1.1 SOURCE PINS {len(pins)}/{len(pins)}', flush=True)
 
 @contextlib.contextmanager
@@ -112,3 +113,24 @@ def legacy_checks(actions):
 
 if __name__ == '__main__':
     legacy_checks(sys.argv[1:] or ['verify','safeguards','replay'])
+
+
+def check_recorded_runs():
+    """v1.1.1: the recorded 30 Oct 2026 browser runs must show both declared counts fully passed at both allmeta refs."""
+    want = {'GOSH REPLAY 876760/876760', 'GOSH PLUS REPLAY 1153536/1153536'}
+    for ref in ('v1.7.0', '63ce78e5'):
+        res = read(LAYER/'runs/2026-10-30'/ref/'results.json')
+        assert res['stats']['expected'] == 2 and res['stats']['unexpected'] == 0 and res['stats']['skipped'] == 0, 'Recorded run status: '+ref
+        seen = set()
+        def walk(s):
+            for sp in s.get('specs', []):
+                for t in sp['tests']:
+                    for r in t['results']:
+                        assert r['status'] == 'passed', 'Recorded test not passed: '+ref
+                        seen.update(o.get('text', '').strip() for o in r.get('stdout', []))
+            for c in s.get('suites', []):
+                walk(c)
+        for s in res['suites']:
+            walk(s)
+        assert want <= seen, 'Recorded counts missing: '+ref+' '+repr(want - seen)
+    print('V1.1.1 RECORDED RUNS 876760/876760 AND 1153536/1153536 AT v1.7.0 AND 63ce78e5', flush=True)
